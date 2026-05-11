@@ -1,0 +1,10 @@
+# Claude Code
+.claude/
+.superpowers/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local config
+.mcp.json
