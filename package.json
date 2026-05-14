@@ -1,0 +1,29 @@
+{
+  "name": "foundations-tree-experts",
+  "version": "1.0.0",
+  "description": "Website for FTE Hosting",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkbs-support/Foundations-Tree-Experts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/tkbs-support/Foundations-Tree-Experts/issues"
+  },
+  "homepage": "https://github.com/tkbs-support/Foundations-Tree-Experts#readme",
+  "dependencies": {
+    "@astrojs/react": "^5.0.5",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.3.3",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  }
+}
