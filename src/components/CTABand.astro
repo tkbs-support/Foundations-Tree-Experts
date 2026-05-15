@@ -1,0 +1,68 @@
+---
+import Icons from './Icons.astro';
+
+interface Props {
+  headline?: string;
+  buttonText?: string;
+  variant?: 'light' | 'dark';
+}
+
+const {
+  headline = 'Ready for a free estimate?',
+  buttonText = 'Get my free quote',
+  variant = 'light',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+---
+
+<div class={`cta-band ${isDark ? 'cta-band--dark' : ''}`}>
+  <div class="container cta-band-inner">
+    <p class="cta-band-text">{headline}</p>
+    <div class="cta-band-actions">
+      <button class="btn btn-primary" data-open-wizard>
+        {buttonText} <Icons name="arrow" />
+      </button>
+      <a class="btn btn-ghost" href="tel:17344743336">
+        <Icons name="phone" size={16} /> (734) 474-3336
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cta-band {
+    padding: 1.5rem 0;
+    background: var(--bg-2);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .cta-band--dark {
+    background: var(--forest-900);
+    border-color: color-mix(in oklch, var(--cream-50) 12%, transparent);
+  }
+  .cta-band--dark .cta-band-text { color: var(--cream-50); }
+  .cta-band-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cta-band-text {
+    font-family: var(--ff-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  .cta-band-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 700px) {
+    .cta-band-inner { flex-direction: column; text-align: center; }
+    .cta-band-actions { width: 100%; }
+    .cta-band-actions .btn { width: 100%; justify-content: center; }
+  }
+</style>

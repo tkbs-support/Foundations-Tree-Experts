@@ -1,0 +1,10 @@
+[
+  { "q": "Are you insured?", "a": "Yes — fully licensed and insured for general liability and workers' comp. We're happy to verify coverage on request before any crew arrives on site." },
+  { "q": "Do you handle emergencies?", "a": "Yes — we answer the phones 24/7 for storm damage, fallen trees, and hazard trees leaning on homes or vehicles. Call us anytime and we'll get you taken care of." },
+  { "q": "What about the cleanup?", "a": "Cleanup is not an add-on — it's the job. Debris is hauled, chips are left or removed, the lawn is raked, and a foreman walks the property with you before we leave." },
+  { "q": "Do you grind stumps?", "a": "Yes — below grade, with surface roots chased and the patch backfilled and ready for reseeding or replanting." },
+  { "q": "Do you offer tree health assessments?", "a": "Yes. Our certified arborist Evan Little (MI-4446A) can evaluate a tree before you decide to remove it — sometimes the right answer is targeted pruning, cabling, or disease treatment." },
+  { "q": "When is the best time to prune or trim trees in Michigan?", "a": "For most deciduous trees in Michigan, late winter to early spring (February through April) is ideal — the tree is dormant, disease risk is lower, and the branch structure is fully visible. Deadwood can be removed any time of year. Oaks should never be pruned from April through July due to oak wilt risk. We'll recommend the right timing during your free assessment." },
+  { "q": "How long does a tree removal take?", "a": "Most single-tree removals take 2 to 8 hours depending on size, location, and complexity. A straightforward 30-foot tree in an open yard might take a few hours. A large tree near power lines or structures that requires rigging or crane work can take a full day. We schedule a weather-appropriate window and aim to complete the job and full cleanup in a single visit." },
+  { "q": "What happens to the wood and debris after removal?", "a": "All branches and debris are chipped on-site and hauled away. Trunk sections are either removed or cut into firewood-length rounds and left for you if you'd like them. Chips can be left at no extra charge or taken with us." }
+]

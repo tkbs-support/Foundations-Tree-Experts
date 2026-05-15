@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Tree Removal",
+    "slug": "tree-removal",
+    "desc": "Hazardous, dead, or unwanted trees taken down cleanly — down to the last branch.",
+    "tag": "Most requested",
+    "featured": true,
+    "icon": "tree"
+  },
+  {
+    "title": "Trimming & Pruning",
+    "slug": "trimming-pruning",
+    "desc": "Structural pruning that protects long-term tree health and your roofline.",
+    "tag": "Seasonal",
+    "icon": "branches"
+  },
+  {
+    "title": "Emergency Storm Response",
+    "slug": "emergency-storm-response",
+    "desc": "On-call after wind and ice events — fallen, split, or hanging limbs cleared fast so your property is safe and accessible again.",
+    "tag": "24/7 dispatch",
+    "icon": "storm"
+  },
+  {
+    "title": "Stump Grinding",
+    "slug": "stump-grinding",
+    "desc": "Below-grade grinding, root chase, and full cleanup so you can replant or reseed.",
+    "tag": "Add-on",
+    "icon": "stump"
+  },
+  {
+    "title": "Crane-Assisted Removal",
+    "slug": "crane-assisted-removal",
+    "desc": "Heavy lifts over rooflines, power lines, and tight lots — jobs other crews walk away from.",
+    "tag": "Specialty",
+    "icon": "chainsaw"
+  },
+  {
+    "title": "Lot & Land Clearing",
+    "slug": "lot-land-clearing",
+    "desc": "Fence-line clearing, new-build prep, and invasive-species removal.",
+    "tag": "By the acre",
+    "icon": "hedge"
+  }
+]

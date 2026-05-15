@@ -1,0 +1,56 @@
+---
+import Icons from './Icons.astro';
+---
+
+<a class="sticky-call" href="tel:17344743336" aria-label="Call (734) 474-3336">
+  <Icons name="phone" size={20} />
+  <span>Call Now</span>
+</a>
+
+<script>
+  const btn = document.querySelector('.sticky-call');
+  if (btn) {
+    const show = () => {
+      if (window.scrollY > 600) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    };
+    window.addEventListener('scroll', show, { passive: true });
+    show();
+  }
+</script>
+
+<style>
+  .sticky-call {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 48;
+    background: var(--forest-700);
+    color: var(--cream-50);
+    text-decoration: none;
+    font-family: var(--ff-body);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 56px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+  .sticky-call.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (max-width: 900px) {
+    .sticky-call { display: flex; }
+  }
+  @media (min-width: 901px) {
+    .sticky-call { display: none !important; }
+  }
+</style>

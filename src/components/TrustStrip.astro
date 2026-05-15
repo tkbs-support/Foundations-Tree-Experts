@@ -1,0 +1,27 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+}
+const { variant = 'light' } = Astro.props;
+---
+
+<div class={`trust-strip ${variant === 'dark' ? 'trust-strip--dark' : ''}`}>
+  <span>✓ Fully Licensed & Insured</span>
+  <span>✓ ISA Certified Arborist</span>
+  <span>✓ 26+ Years Experience</span>
+  <span>✓ 24/7 Emergency</span>
+</div>
+
+<style>
+  .trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.8125rem;
+    color: var(--fg-3);
+    padding: 1rem 0;
+  }
+  .trust-strip--dark { color: color-mix(in oklch, var(--cream-50) 70%, transparent); }
+  .trust-strip span { white-space: nowrap; }
+</style>

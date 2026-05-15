@@ -1,0 +1,37 @@
+---
+const SEASONAL_BANNERS: Record<string, string> = {
+  winter: 'WINTER STORM RESPONSE ACTIVE · DOWNED TREES? CALL <a href="tel:17344743336">(734) 474-3336</a> · 24/7 DISPATCH',
+  spring: 'SPRING STORM SEASON · 24/7 EMERGENCY LINE <a href="tel:17344743336">(734) 474-3336</a>',
+  summer: 'SUMMER STORM SEASON · 24/7 EMERGENCY LINE <a href="tel:17344743336">(734) 474-3336</a>',
+  fall: 'FALL CLEANUP & PRUNING SEASON · BOOK NOW <a href="tel:17344743336">(734) 474-3336</a>',
+};
+
+const month = new Date().getMonth();
+let season = 'spring';
+if (month >= 11 || month <= 1) season = 'winter';
+else if (month >= 2 && month <= 4) season = 'spring';
+else if (month >= 5 && month <= 8) season = 'summer';
+else season = 'fall';
+
+const fallbackMessage = SEASONAL_BANNERS[season];
+---
+
+<div class="storm-banner" data-storm-banner>
+  <div class="storm-dot"></div>
+  <span set:html={fallbackMessage} />
+</div>
+
+<script>
+  const banner = document.querySelector('[data-storm-banner]');
+  if (banner) {
+    fetch('/banner.json')
+      .then(r => r.json())
+      .then(data => {
+        if (data.active && data.message) {
+          const span = banner.querySelector('span');
+          if (span) span.innerHTML = data.message;
+        }
+      })
+      .catch(() => {});
+  }
+</script>

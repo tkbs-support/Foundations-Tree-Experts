@@ -1,0 +1,25 @@
+---
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  faqs: FAQ[];
+  openFirst?: boolean;
+}
+
+const { faqs, openFirst = true } = Astro.props;
+---
+
+<div class="faq-list">
+  {faqs.map((f, i) => (
+    <details class="faq-item" open={openFirst && i === 0}>
+      <summary>
+        <span>{f.q}</span>
+        <span class="faq-icon"></span>
+      </summary>
+      <p class="faq-answer">{f.a}</p>
+    </details>
+  ))}
+</div>

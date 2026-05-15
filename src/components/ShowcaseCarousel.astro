@@ -1,0 +1,87 @@
+---
+import showcase from '../data/showcase.json';
+import Icons from './Icons.astro';
+
+const items = [...showcase, ...showcase, ...showcase];
+---
+
+<div class="showcase-wrap">
+  <div class="showcase-track" data-carousel>
+    {items.map((photo, i) => (
+      <div class="showcase-card" key={i}>
+        <img
+          src={photo.src}
+          alt={photo.label}
+          loading="lazy"
+          draggable="false"
+          width="760"
+          height="600"
+          style={photo.pos ? `object-position: ${photo.pos}` : undefined}
+        />
+        <span class="showcase-label">{photo.label}</span>
+      </div>
+    ))}
+  </div>
+  <button class="showcase-btn showcase-prev" aria-label="Previous">
+    <Icons name="arrow" size={18} />
+  </button>
+  <button class="showcase-btn showcase-next" aria-label="Next">
+    <Icons name="arrow" size={18} />
+  </button>
+</div>
+
+<script>
+  const track = document.querySelector('[data-carousel]');
+  const prevBtn = document.querySelector('.showcase-prev');
+  const nextBtn = document.querySelector('.showcase-next');
+  if (track) {
+    const cardWidth = 396;
+    const totalOriginal = track.children.length / 3;
+
+    // Start at the middle set
+    requestAnimationFrame(() => {
+      track.scrollLeft = totalOriginal * cardWidth;
+    });
+
+    const scroll = (dir) => {
+      track.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+    };
+
+    prevBtn?.addEventListener('click', () => scroll(-1));
+    nextBtn?.addEventListener('click', () => scroll(1));
+
+    // Infinite loop: silently reposition when reaching edges
+    track.addEventListener('scrollend', () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const pos = track.scrollLeft;
+      const oneSetWidth = totalOriginal * cardWidth;
+
+      if (pos <= cardWidth) {
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = pos + oneSetWidth;
+        track.style.scrollBehavior = '';
+      } else if (pos >= maxScroll - cardWidth) {
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = pos - oneSetWidth;
+        track.style.scrollBehavior = '';
+      }
+    });
+
+    // Drag to scroll
+    let isDown = false, startX = 0, scrollLeft = 0;
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.style.cursor = 'grabbing';
+    });
+    track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = ''; });
+    track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = ''; });
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX);
+    });
+  }
+</script>

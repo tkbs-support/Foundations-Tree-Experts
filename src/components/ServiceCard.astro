@@ -1,0 +1,22 @@
+---
+import Icons from './Icons.astro';
+
+interface Props {
+  title: string;
+  desc: string;
+  tag: string;
+  slug: string;
+  featured?: boolean;
+}
+
+const { title, desc, tag, slug, featured = false } = Astro.props;
+---
+
+<a href={`/services/${slug}/`} class={`svc-card ${featured ? 'featured' : ''}`}>
+  <h3>{title}</h3>
+  <p>{desc}</p>
+  <div class="svc-foot">
+    <span>{tag}</span>
+    <span class="svc-arrow"><Icons name="arrow" size={14} strokeWidth={2} /></span>
+  </div>
+</a>
