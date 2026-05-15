@@ -1,0 +1,144 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icons from '../components/Icons.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+---
+
+<PageLayout
+  title="Contact & Free Estimate — Foundations Tree Experts · Ann Arbor, MI"
+  description="Get a free tree removal estimate in Ann Arbor and Southeast Michigan. Call (734) 474-3336 or fill out our quick form. We respond within 1 business day."
+>
+  <div class="container">
+    <Breadcrumbs items={[{ label: 'Contact' }]} />
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Get in touch</div>
+      <h1 class="display-lg" style="margin-top:1rem;">Get my free estimate.</h1>
+      <p class="lead" style="margin-top:1rem;max-width:600px;">
+        Fill out the form below or call us directly. We respond within one business day — emergencies are answered 24/7.
+      </p>
+
+      <div class="contact-grid" style="display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;margin-top:2.5rem;">
+        <!-- Form -->
+        <form name="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+          <input type="hidden" name="form-name" value="contact-form" />
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="form-field">
+              <label for="cf-name">Name *</label>
+              <input type="text" id="cf-name" name="name" required placeholder="Your full name" />
+            </div>
+            <div class="form-field">
+              <label for="cf-phone">Phone *</label>
+              <input type="tel" id="cf-phone" name="phone" required placeholder="(734) 555-0123" />
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+            <div class="form-field">
+              <label for="cf-email">Email *</label>
+              <input type="email" id="cf-email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-field">
+              <label for="cf-zip">Zip Code *</label>
+              <input type="text" id="cf-zip" name="zip" required placeholder="48103" inputmode="numeric" maxlength="5" />
+            </div>
+          </div>
+
+          <div class="form-field" style="margin-top:1rem;">
+            <label for="cf-service">Service Needed</label>
+            <select id="cf-service" name="service">
+              <option value="">Select a service…</option>
+              <option value="Tree Removal">Tree Removal</option>
+              <option value="Trimming & Pruning">Trimming & Pruning</option>
+              <option value="Emergency Storm Response">Emergency Storm Response</option>
+              <option value="Stump Grinding">Stump Grinding</option>
+              <option value="Crane-Assisted Removal">Crane-Assisted Removal</option>
+              <option value="Lot & Land Clearing">Lot & Land Clearing</option>
+            </select>
+          </div>
+
+          <div class="form-field" style="margin-top:1rem;">
+            <label for="cf-message">Tell us about the job</label>
+            <textarea id="cf-message" name="message" rows="4" placeholder="Big leaning oak near the fence. Power line underneath…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top:1.25rem;width:100%;justify-content:center;">
+            Get my free estimate <Icons name="arrow" />
+          </button>
+          <p style="font-size:0.8125rem;color:var(--fg-3);margin-top:0.75rem;text-align:center;">We respond within 1 business day. No spam, ever.</p>
+        </form>
+
+        <!-- Contact info -->
+        <div>
+          <div style="background:var(--bg-2);border:1px solid var(--rule);border-radius:var(--radius);padding:2rem;">
+            <h3 style="margin-bottom:1.25rem;">Contact info</h3>
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+              <a href="tel:17344743336" style="display:flex;align-items:center;gap:0.75rem;font-weight:600;font-size:1.1rem;">
+                <Icons name="phone" size={20} /> (734) 474-3336
+              </a>
+              <a href="mailto:foundationstreeexperts@gmail.com" style="display:flex;align-items:center;gap:0.75rem;">
+                <Icons name="mail" size={20} /> foundationstreeexperts@gmail.com
+              </a>
+              <div style="display:flex;align-items:center;gap:0.75rem;color:var(--fg-2);">
+                <Icons name="pin" size={20} /> Ann Arbor, MI
+              </div>
+            </div>
+
+            <hr style="border:none;border-top:1px solid var(--rule);margin:1.5rem 0;" />
+
+            <h4 style="margin-bottom:0.5rem;">Hours</h4>
+            <p style="font-size:0.9rem;color:var(--fg-2);">Monday – Friday: 7:00 AM – 5:00 PM</p>
+            <p style="font-size:0.9rem;color:var(--fg-2);margin-top:0.25rem;">24/7 Emergency Line: <a href="tel:17344743336" style="font-weight:600;">(734) 474-3336</a></p>
+
+            <hr style="border:none;border-top:1px solid var(--rule);margin:1.5rem 0;" />
+
+            <h4 style="margin-bottom:0.5rem;">Service area</h4>
+            <p style="font-size:0.9rem;color:var(--fg-2);">Ann Arbor, Ypsilanti, Canton, Plymouth, Saline, and 15+ more cities across Washtenaw, Wayne, and Oakland counties.</p>
+            <a href="/service-areas/" style="font-size:0.875rem;color:var(--forest-700);font-weight:600;margin-top:0.5rem;display:inline-block;">
+              View all service areas →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustStrip />
+</PageLayout>
+
+<style>
+  .form-field label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--fg-2);
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--rule-2);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--forest-700);
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--forest-700) 15%, transparent);
+  }
+  .form-field textarea { resize: vertical; min-height: 100px; }
+  @media (max-width: 700px) {
+    .contact-grid { grid-template-columns: 1fr !important; }
+  }
+</style>

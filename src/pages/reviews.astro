@@ -1,0 +1,71 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icons from '../components/Icons.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<PageLayout
+  title="Customer Reviews — Foundations Tree Experts · Ann Arbor, MI"
+  description="Read 75+ five-star reviews from Ann Arbor and Southeast Michigan homeowners. See why customers trust Foundations Tree Experts for tree removal, trimming, and emergency storm response."
+>
+  <div class="container">
+    <Breadcrumbs items={[{ label: 'Reviews' }]} />
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Customer reviews</div>
+      <h1 class="display-lg" style="margin-top:1rem;">The trust we've earned, one tree at a time.</h1>
+
+      <div style="display:flex;align-items:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span style="font-family:var(--ff-display);font-size:3rem;font-weight:600;line-height:1;">5.0</span>
+          <div>
+            <div class="tmony-stars" style="color:var(--forest-700);">
+              {Array.from({ length: 5 }).map(() => <Icons name="star" size={16} />)}
+            </div>
+            <div style="font-size:0.8125rem;color:var(--fg-3);margin-top:0.15rem;">75+ reviews on Google</div>
+          </div>
+        </div>
+        <a
+          href="https://www.google.com/search?q=foundations+tree+experts#lrd=0x883caf35d7680699:0x29679feb5671996f,1,,,,"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-ghost"
+          style="font-size:0.875rem;"
+        >
+          Leave a review on Google <Icons name="arrow" size={14} />
+        </a>
+      </div>
+
+      <div class="tmony-grid" id="reviews-grid" style="margin-top:2.5rem;"></div>
+    </div>
+  </section>
+
+  <CTABand headline="Ready for a crew you can trust?" buttonText="Get my free quote" />
+</PageLayout>
+
+<script>
+  fetch('/testimonials.json?' + Date.now())
+    .then(r => r.ok ? r.json() : [])
+    .then(data => {
+      const filled = data.filter(r => r.quote && !r.quote.startsWith('PASTE'));
+      const grid = document.getElementById('reviews-grid');
+      if (!grid || filled.length === 0) return;
+      grid.innerHTML = filled.map(t => `
+        <div class="tmony-card">
+          <div class="tmony-stars">${Array.from({ length: t.stars || 5 }, () => '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.5 7 1-5 4.9 1.2 7L12 18l-6.2 3.4L7 14.4 2 9.5l7-1z"/></svg>').join('')}</div>
+          <p class="tmony-quote">${t.quote}</p>
+          <div class="tmony-who">
+            <div class="avatar">${(t.name || '?')[0]}</div>
+            <div>
+              <div class="name">${t.name}</div>
+              ${t.location ? `<div class="loc">${t.location}</div>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    })
+    .catch(() => {});
+</script>
