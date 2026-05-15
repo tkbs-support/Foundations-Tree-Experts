@@ -11,6 +11,25 @@ import services from '../../data/services.json';
   title="Tree Services in Ann Arbor & Southeast Michigan — Foundations Tree Experts"
   description="Professional tree removal, trimming, stump grinding, emergency storm response, crane-assisted removal, and lot clearing. ISA Certified Arborist on staff. Free estimates."
 >
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Tree Care Services",
+      "itemListElement": services.map((s, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": {
+          "@type": "Service",
+          "name": s.title,
+          "description": s.desc,
+          "url": `https://foundationstreeexperts.com/services/${s.slug}/`,
+          "provider": { "@type": "LocalBusiness", "@id": "https://foundationstreeexperts.com/#business" }
+        }
+      }))
+    })} />
+  </Fragment>
+
   <div class="container">
     <Breadcrumbs items={[{ label: 'Services' }]} />
   </div>

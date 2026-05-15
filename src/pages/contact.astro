@@ -7,8 +7,26 @@ import TrustStrip from '../components/TrustStrip.astro';
 
 <PageLayout
   title="Contact & Free Estimate — Foundations Tree Experts · Ann Arbor, MI"
-  description="Get a free tree removal estimate in Ann Arbor and Southeast Michigan. Call (734) 474-3336 or fill out our quick form. We respond within 1 business day."
+  description="Get a free tree removal estimate in Ann Arbor and Southeast Michigan. Call (734) 474-3336 or fill out our quick form."
 >
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "LocalBusiness",
+        "@id": "https://foundationstreeexperts.com/#business",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-734-474-3336",
+          "contactType": "customer service",
+          "availableLanguage": "English",
+          "areaServed": { "@type": "State", "name": "Michigan" }
+        }
+      }
+    })} />
+  </Fragment>
+
   <div class="container">
     <Breadcrumbs items={[{ label: 'Contact' }]} />
   </div>

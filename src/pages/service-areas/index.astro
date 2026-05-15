@@ -20,6 +20,24 @@ for (const city of cities) {
   title="Service Areas — Tree Service Across Southeast Michigan · Foundations Tree Experts"
   description="Foundations Tree Experts serves 20+ cities across Washtenaw, Wayne, and Oakland counties. Find tree removal, trimming, and emergency service in your area."
 >
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Service Areas",
+      "itemListElement": cities.map((city, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": {
+          "@type": "City",
+          "name": city.data.name,
+          "url": `https://foundationstreeexperts.com/service-areas/${city.id}/`,
+          "containedInPlace": { "@type": "State", "name": "Michigan" }
+        }
+      }))
+    })} />
+  </Fragment>
+
   <div class="container">
     <Breadcrumbs items={[{ label: 'Service Areas' }]} />
   </div>
