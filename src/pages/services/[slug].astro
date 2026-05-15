@@ -1,0 +1,195 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icons from '../../components/Icons.astro';
+import CTABand from '../../components/CTABand.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import services from '../../data/services.json';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('services');
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, headline, description, tag, faqs, process, relatedServices } = entry.data;
+
+const related = relatedServices
+  ? services.filter(s => relatedServices.includes(s.slug))
+  : services.filter(s => s.slug !== entry.id).slice(0, 3);
+
+const isEmergency = entry.id === 'emergency-storm-response';
+---
+
+<PageLayout
+  title={`${title} in Ann Arbor, MI — Foundations Tree Experts`}
+  description={description}
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": title,
+      "description": description,
+      "provider": { "@type": "LocalBusiness", "@id": "https://foundationstreeexperts.com/#business" },
+      "serviceType": title,
+      "areaServed": { "@type": "State", "name": "Michigan" }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    })} />
+    {process.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": `How to get ${title.toLowerCase()} in Ann Arbor`,
+        "step": process.map((s, i) => ({
+          "@type": "HowToStep",
+          "position": i + 1,
+          "name": s.step,
+          "text": s.text
+        }))
+      })} />
+    )}
+  </Fragment>
+
+  <div class="container">
+    <Breadcrumbs items={[
+      { label: 'Services', href: '/services/' },
+      { label: title },
+    ]} />
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">{tag}</div>
+      <h1 class="display-lg" style="margin-top:1rem;">
+        <span class="sr-only">{title} in Ann Arbor, MI — </span>
+        {headline}
+      </h1>
+    </div>
+  </section>
+
+  {isEmergency && (
+    <section style="background:var(--forest-900);padding:2rem 0;text-align:center;">
+      <div class="container">
+        <a href="tel:17344743336" style="display:inline-flex;align-items:center;gap:1rem;color:var(--cream-50);font-family:var(--ff-display);font-size:2rem;font-weight:600;text-decoration:none;">
+          <Icons name="phone" size={28} /> (734) 474-3336
+        </a>
+        <p style="color:color-mix(in oklch, var(--cream-50) 70%, transparent);margin-top:0.5rem;font-size:0.9rem;">
+          24/7 emergency dispatch — call now for immediate response
+        </p>
+      </div>
+    </section>
+  )}
+
+  {!isEmergency && (
+    <CTABand headline={`Need ${title.toLowerCase()}?`} buttonText={`Get my free ${title.toLowerCase()} estimate`} />
+  )}
+
+  <section class="section" style="padding-top:2rem;">
+    <div class="container service-content">
+      <Content />
+    </div>
+  </section>
+
+  <!-- Process -->
+  {process.length > 0 && (
+    <section class="section" style="background:var(--bg-2);">
+      <div class="container">
+        <h2 class="display-md" style="margin-bottom:2rem;">How {title.toLowerCase()} works</h2>
+        <div class="process-grid">
+          {process.map((s, i) => (
+            <div class="step">
+              <div class="step-num">Step {String(i + 1).padStart(2, '0')}</div>
+              <h3>{s.step}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <TrustStrip />
+
+  <!-- Service-specific FAQs -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2 class="display-md" style="margin-bottom:1.5rem;">{title} FAQ</h2>
+      <FAQAccordion faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- Related services -->
+  <section class="section" style="background:var(--bg-2);padding-bottom:2rem;">
+    <div class="container">
+      <h2 class="display-md" style="margin-bottom:1.5rem;">Related services</h2>
+      <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;">
+        {related.map(s => (
+          <a href={`/services/${s.slug}/`} class="svc-card" style="text-decoration:none;">
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <div class="svc-foot">
+              <span>{s.tag}</span>
+              <span class="svc-arrow"><Icons name="arrow" size={14} strokeWidth={2} /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline={isEmergency ? "Tree down? Don't wait." : "Ready to get started?"}
+    buttonText={isEmergency ? "Call (734) 474-3336" : "Get my free estimate"}
+  />
+</PageLayout>
+
+<style>
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0;
+    margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+  .service-content { max-width: 760px; }
+  .service-content h2 {
+    font-family: var(--ff-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .service-content p { margin-top: 1rem; }
+  .service-content ul, .service-content ol {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+  }
+  .service-content li { margin-top: 0.5rem; }
+  .service-content blockquote {
+    border-left: 3px solid var(--forest-700);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--bg-2);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-style: italic;
+    color: var(--fg-2);
+  }
+  @media (max-width: 700px) {
+    div[style*="grid-template-columns: repeat(3"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
