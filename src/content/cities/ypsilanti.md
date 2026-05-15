@@ -40,3 +40,11 @@ Ypsilanti's older housing stock and established tree canopy create specific need
 ## Ypsilanti's growing urban forest
 
 The City of Ypsilanti recently received a $143,703 state grant to complete its first comprehensive public tree inventory, develop an urban forest management plan, plant new street trees, and train staff and volunteers. This investment reflects the city's commitment to maintaining and growing its tree canopy — and means homeowners should be aware of evolving tree care standards and regulations in the area.
+
+## Local resources
+
+- [Ypsilanti Tree Maintenance & Planting](https://cityofypsilanti.com/314/Street-Trees) — street tree regulations, approved species list, and spacing requirements
+- [Ypsilanti Tree Ordinance (Michigan DNR)](https://www2.dnr.state.mi.us/publications/pdfs/ForestsLandWater/tree_ordinances/Ypsilanti.pdf) — full ordinance text
+- [Ypsilanti Neighborhoods](https://cityofypsilanti.com/372/Neighborhoods) — official neighborhood map and descriptions
+- [Oak Wilt in Michigan (MSU Extension)](https://www.canr.msu.edu/oak_wilt/) — pruning timing and disease prevention
+- [Emerald Ash Borer Info (Michigan DNR)](https://www.michigan.gov/invasives/id-report/insects/emerald-ash-borer) — identification and regional impact

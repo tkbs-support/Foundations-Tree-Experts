@@ -42,3 +42,10 @@ Saline's mix of older neighborhoods and rural-suburban properties creates varied
 As Saline continues to grow with new residential development, homeowners need reliable tree service for both existing properties and new builds. Whether it's removing a storm-damaged tree from a Rolling Meadows backyard, pruning the mature oaks on a Brookview Highlands acre lot, or clearing a site for new construction, we bring the same professional approach to every job.
 
 The City of Saline has a tree ordinance on the books — we recommend homeowners check with the city regarding any specific requirements before scheduling tree removal on their property.
+
+## Local resources
+
+- [City of Saline Tree Ordinance (Michigan DNR)](https://www2.dnr.state.mi.us/Publications/pdfs/ForestsLandWater/tree_ordinances/Saline.pdf) — municipal tree ordinance
+- [City of Saline Code of Ordinances](https://library.municode.com/mi/saline) — full municipal code
+- [Oak Wilt in Michigan (MSU Extension)](https://www.canr.msu.edu/oak_wilt/) — pruning timing and disease prevention
+- [Emerald Ash Borer Info (Michigan DNR)](https://www.michigan.gov/invasives/id-report/insects/emerald-ash-borer) — identification and regional impact

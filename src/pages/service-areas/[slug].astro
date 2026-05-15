@@ -214,6 +214,17 @@ const nearby = nearbyAreas
     color: var(--forest-700);
     font-weight: 700;
   }
+  .city-content a {
+    color: var(--forest-700);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklch, var(--forest-700) 30%, transparent);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .city-content a:hover {
+    text-decoration-color: var(--forest-700);
+  }
 
   .city-services-grid {
     display: grid;

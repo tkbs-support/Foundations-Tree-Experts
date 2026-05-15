@@ -42,3 +42,11 @@ Ann Arbor's mature urban canopy creates specific challenges for homeowners:
 Ann Arbor has Chapter 40 (Trees and Other Vegetation) in its city code. Trees on private property that are diseased, damaged, or insect-infested and present hazards to public property must be addressed. Trees must be maintained so no part intrudes on the public right-of-way below 8 feet. Violations can result in fines up to $1,000.
 
 We recommend homeowners check with the city regarding permit requirements before scheduling tree removal. Our team can advise on the general process during your free assessment.
+
+## Local resources
+
+- [Ann Arbor Urban Forest Program](https://www.a2gov.org/forestry/the-urban-forest/) — city forestry data, canopy goals, and tree inventory
+- [Ann Arbor Tree Ordinance (Chapter 40)](https://www.a2gov.org/departments/city-clerk/municipal-code/) — city code governing trees on private and public property
+- [Native Trees of Ann Arbor](https://www.a2gov.org/parks-and-recreation/natural-area-preservation/native-plants/native-trees/) — species list from the city's Natural Area Preservation program
+- [Oak Wilt in Michigan (MSU Extension)](https://www.canr.msu.edu/oak_wilt/) — pruning timing and disease prevention
+- [Emerald Ash Borer Info (Michigan DNR)](https://www.michigan.gov/invasives/id-report/insects/emerald-ash-borer) — identification and regional impact

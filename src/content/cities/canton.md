@@ -45,3 +45,11 @@ Canton Township has a tree protection ordinance that requires permits for removi
 - Clear cutting within the drip line of a forest on property over 2 acres requires a permit
 - Replacement trees are required when more than 20% of total drip line area is removed
 - Agricultural operations, nurseries, and utility companies are also exempt
+
+## Local resources
+
+- [Canton Trees & Natural Resources](https://www.cantonmi.gov/1487/Trees-and-Natural-Resources) — township tree programs and resources
+- [Canton Tree Removal Permit FAQ](https://www.cantonmi.gov/FAQ.aspx?QID=226) — how to obtain a permit
+- [Canton Tree Permit Exemptions](https://www.cantonmi.gov/FAQ.aspx?QID=225) — who is exempt from permit requirements
+- [Canton Tree Ordinance (Municode)](https://library.municode.com/mi/canton_charter_township,_(wayne_co.)/codes/code_of_ordinances?nodeId=PTIILADERE_APXAZO_ART5A.00FOPRTRCL) — full ordinance text
+- [Emerald Ash Borer Info (Michigan DNR)](https://www.michigan.gov/invasives/id-report/insects/emerald-ash-borer) — identification and regional impact

@@ -47,3 +47,11 @@ Plymouth has a detailed tree preservation code (Chapter 8.20) that homeowners sh
 - Violations: first offense up to **$750**, second within a year up to **$850**, third or more up to **$1,000**
 
 We recommend checking with the city before scheduling any removal. Our team can advise during your free on-site assessment.
+
+## Local resources
+
+- [Plymouth Tree Preservation Ordinance (Chapter 8.20)](https://cityofplymouth.org/wp-content/uploads/2020/05/Municipal-Code-8.20-Tree-Preservation-Tree-Removal.pdf) — full ordinance text with permit requirements and penalties
+- [Plymouth Trees & Forestry](https://www.plymouthmi.gov/government/departments/municipal_services/trees_and_forestry) — city forestry department and services
+- [Keep Plymouth Leafy](https://keepplymouthleafy.org/) — local nonprofit dedicated to Plymouth's urban tree canopy
+- [Oak Wilt in Michigan (MSU Extension)](https://www.canr.msu.edu/oak_wilt/) — pruning timing and disease prevention
+- [Emerald Ash Borer Info (Michigan DNR)](https://www.michigan.gov/invasives/id-report/insects/emerald-ash-borer) — identification and regional impact
