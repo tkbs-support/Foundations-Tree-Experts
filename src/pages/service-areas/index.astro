@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icons from '../../components/Icons.astro';
+import CTABand from '../../components/CTABand.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import ZipChecker from '../../components/react/ZipChecker.jsx';
+
+const cities = await getCollection('cities');
+const byCounty: Record<string, typeof cities> = {};
+for (const city of cities) {
+  const county = city.data.county;
+  if (!byCounty[county]) byCounty[county] = [];
+  byCounty[county].push(city);
+}
+---
+
+<PageLayout
+  title="Service Areas — Tree Service Across Southeast Michigan · Foundations Tree Experts"
+  description="Foundations Tree Experts serves 20+ cities across Washtenaw, Wayne, and Oakland counties. Find tree removal, trimming, and emergency service in your area."
+>
+  <div class="container">
+    <Breadcrumbs items={[{ label: 'Service Areas' }]} />
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Where we work</div>
+      <h1 class="display-lg" style="margin-top:1rem;">
+        <span class="sr-only">Tree Service Areas in Southeast Michigan — </span>
+        20+ cities. Three counties.<br />One crew you can trust.
+      </h1>
+      <p class="lead" style="margin-top:1rem;max-width:680px;">
+        We cover Washtenaw, Wayne, and Oakland counties — from Ann Arbor to Canton to Novi. Check your zip below or find your city.
+      </p>
+
+      <div style="margin-top:2.5rem;">
+        <ZipChecker client:visible />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container">
+      <h2 class="display-md" style="margin-bottom:2rem;">Cities we serve</h2>
+      <div class="area-county-grid">
+        {Object.entries(byCounty).map(([county, citiesList]) => (
+          <div class="area-county">
+            <h3 class="area-county-name">{county} County</h3>
+            <div class="area-city-list">
+              {citiesList.map(city => (
+                <a href={`/service-areas/${city.id}/`} class="area-city-card">
+                  <Icons name="pin" size={16} />
+                  <div>
+                    <div class="area-city-name">{city.data.name}</div>
+                    <div class="area-city-zips">{city.data.zipCodes.join(', ')}</div>
+                  </div>
+                  <Icons name="arrow" size={14} class="area-city-arrow" />
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand headline="Don't see your city?" buttonText="Call us — we may still cover your area" />
+  <TrustStrip />
+</PageLayout>
+
+<style>
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0;
+    margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+  .area-county-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .area-county-name {
+    font-family: var(--ff-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .area-city-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .area-city-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--fg);
+    transition: all 0.2s ease;
+  }
+  .area-city-card:hover {
+    border-color: var(--forest-700);
+    box-shadow: var(--shadow-sm);
+  }
+  .area-city-card svg:first-child { color: var(--forest-700); flex-shrink: 0; }
+  .area-city-name { font-weight: 600; font-size: 0.95rem; }
+  .area-city-zips { font-size: 0.8rem; color: var(--fg-3); margin-top: 0.1rem; }
+  .area-city-arrow { margin-left: auto; color: var(--fg-3); flex-shrink: 0; }
+  .area-city-card:hover .area-city-arrow { color: var(--forest-700); }
+</style>
