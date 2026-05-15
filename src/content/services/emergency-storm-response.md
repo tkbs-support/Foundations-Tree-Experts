@@ -42,6 +42,11 @@ Our crew responds to a wide range of storm and tree emergencies:
 - **Uprooted trees** — root ball failures that leave trees at dangerous angles
 - **Ice storm damage** — heavy ice loading that snaps branches and splits trunks
 
+<div class="media-block">
+<img src="/images/storm-damage-tree.webp" alt="Storm-damaged tree requiring emergency removal" loading="lazy" />
+<div class="media-caption">Storm damage — we respond 24/7 to fallen trees, split trunks, and hanging limbs.</div>
+</div>
+
 ## What happens when Michigan storms hit?
 
 Southeast Michigan's storm season typically runs from May through September, with severe thunderstorms, straight-line winds, and occasional tornadoes. Winter brings ice storms that can be equally destructive to the tree canopy.
@@ -52,6 +57,11 @@ During major storm events, we triage incoming calls by severity:
 2. **Property damage** — trees that have caused damage but are no longer actively threatening safety
 3. **Access issues** — blocked driveways and walkways that prevent normal use of the property
 4. **Preventive removal** — damaged trees that haven't fallen yet but are likely to
+
+<div class="media-block">
+<img src="/images/clips/climber-ascending.jpg" alt="Crew member ascending a tree with safety gear during a removal job" loading="lazy" />
+<div class="media-caption">Crew dispatched and on-site — climbing gear and rigging ready for hazard clearance.</div>
+</div>
 
 ## What should you do after storm damage?
 

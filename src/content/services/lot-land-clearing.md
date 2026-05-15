@@ -44,6 +44,11 @@ We provide clearing services for a range of project types:
 - **Brush and undergrowth removal** — clearing dense undergrowth without removing mature trees
 - **Commercial site prep** — larger-scale clearing for commercial development projects
 
+<div class="media-block">
+<img src="/images/excavator-clearing.webp" alt="Excavator clearing trees from a residential lot" loading="lazy" />
+<div class="media-caption">Excavator on-site — clearing trees and brush for new-build prep.</div>
+</div>
+
 ## How does the clearing process work?
 
 Every lot clearing project starts with a site walk. We walk the property with you (or your builder/developer) to define the clearing boundaries, flag any trees to be preserved, and identify underground utilities.
@@ -65,6 +70,11 @@ The right equipment depends on the site. Our fleet includes:
 - **Excavators** — for larger trees, root extraction, and rough grading
 - **Commercial chippers** — for processing brush and small-diameter wood into chips
 - **Dump trucks** — for hauling debris, chips, and wood off-site
+
+<div class="media-block">
+<img src="/images/equipment-skidsteer.webp" alt="Skidsteer with grapple attachment moving logs on a job site" loading="lazy" />
+<div class="media-caption">Skidsteer with grapple — right tool for navigating tight spaces and moving heavy material.</div>
+</div>
 
 ## Who do you work with?
 

@@ -41,6 +41,13 @@ We offer several types of pruning depending on the tree's condition and your goa
 - **Deadwood removal** — removing dead, dying, or diseased branches to prevent breakage and improve appearance
 - **Structural pruning** — correcting poor branch architecture in younger trees to prevent problems as they mature
 
+<div class="media-block">
+<video autoplay muted loop playsinline poster="/images/clips/climber-pruning-poster.jpg">
+<source src="/images/clips/climber-pruning.mp4" type="video/mp4" />
+</video>
+<div class="media-caption">Climber working through branches — every cut planned for tree health and structure.</div>
+</div>
+
 ## Why does seasonal timing matter in Michigan?
 
 Michigan's climate creates specific windows for safe pruning. The timing matters because fresh cuts can attract insects and pathogens that spread disease:
@@ -48,6 +55,11 @@ Michigan's climate creates specific windows for safe pruning. The timing matters
 - **Late winter to early spring (February–April):** Best for most deciduous trees. The tree is dormant, sap flow is minimal, and the branch structure is fully visible without leaves.
 - **April through July:** Never prune oaks during this period. Oak wilt — a deadly fungal disease spread by sap beetles — is actively transmitted through fresh wounds on oak trees during warm months.
 - **Year-round:** Deadwood removal is safe at any time since dead branches no longer carry disease into the living tree.
+
+<div class="media-block">
+<img src="/images/clips/tall-trees-before.jpg" alt="Tall mature trees in a residential backyard before pruning" loading="lazy" />
+<div class="media-caption">Mature trees in a residential yard — assessing what needs pruning before the crew starts.</div>
+</div>
 
 ## How do you decide what to prune?
 

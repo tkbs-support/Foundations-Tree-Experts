@@ -42,6 +42,13 @@ Not every tree needs a crane. Conventional climbing and rigging handles the majo
 - **The tree is exceptionally large** — where the weight of individual sections exceeds safe rigging limits
 - **Speed is critical** — crane removal is often faster than piece-by-piece rigging for complex trees
 
+<div class="media-block">
+<video autoplay muted loop playsinline poster="/images/clips/crane-lift-poster.jpg">
+<source src="/images/clips/crane-lift.mp4" type="video/mp4" />
+</video>
+<div class="media-caption">Crane boom and stripped trunk — lifting sections clear of surrounding trees and power lines.</div>
+</div>
+
 ## How does crane-assisted removal work?
 
 Crane removal is a coordinated operation between the climber, crane operator, and ground crew:
@@ -55,6 +62,11 @@ Crane removal is a coordinated operation between the climber, crane operator, an
 4. **The section is swung to a clear landing zone** where the ground crew detaches it for processing. The climber descends to the next section and repeats the process.
 
 5. **Once the trunk is at a manageable height**, the remaining base can be conventionally felled or cut in sections at ground level.
+
+<div class="media-block">
+<img src="/images/clips/crane-section.jpg" alt="Crane lifting a large tree section mid-air with cable rigging" loading="lazy" />
+<div class="media-caption">A large section mid-lift — controlled by the crane while the climber prepares the next cut.</div>
+</div>
 
 ## What sets crane removal apart from standard removal?
 

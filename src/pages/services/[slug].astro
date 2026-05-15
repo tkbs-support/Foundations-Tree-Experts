@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, headline, description, tag, faqs, process, relatedServices } = entry.data;
+const { title, headline, description, tag, faqs, process, relatedServices, images } = entry.data;
 
 const related = relatedServices
   ? services.filter(s => relatedServices.includes(s.slug))
@@ -368,6 +368,46 @@ const isEmergency = entry.id === 'emergency-storm-response';
   }
   .service-content tbody tr:last-child td { border-bottom: none; }
   .service-content tbody tr:nth-child(even) { background: var(--bg-2); }
+
+  /* Inline media blocks — used in markdown content */
+  .service-content .media-block {
+    margin: 2.5rem 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-3);
+  }
+  .service-content .media-block img,
+  .service-content .media-block video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .service-content .media-block .media-caption {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: var(--fg-3);
+    background: var(--bg-2);
+    border-top: 1px solid var(--rule);
+    font-family: var(--ff-mono);
+    letter-spacing: 0.02em;
+  }
+
+  /* Two-up media — side by side images/videos */
+  .service-content .media-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .service-content .media-pair .media-block {
+    margin: 0;
+  }
+  @media (max-width: 560px) {
+    .service-content .media-pair {
+      grid-template-columns: 1fr;
+    }
+  }
 
   /* Mid-page CTA band */
   .svc-mid-cta {

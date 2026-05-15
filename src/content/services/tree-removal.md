@@ -42,6 +42,13 @@ Not every problem tree needs to come down. Our certified arborist evaluates each
 - Root damage is undermining foundations, sidewalks, or driveways
 - Storm damage has split the trunk or removed the majority of the canopy
 
+<div class="media-block">
+<video autoplay muted loop playsinline poster="/images/clips/tree-removal-cut-poster.jpg">
+<source src="/images/clips/tree-removal-cut.mp4" type="video/mp4" />
+</video>
+<div class="media-caption">Controlled cuts — every section is planned before the saw touches wood.</div>
+</div>
+
 ## What does the tree removal process look like?
 
 Every removal starts with a free on-site assessment. We inspect the tree, evaluate the surroundings, and plan the safest takedown approach. Depending on the tree and site conditions, our crew either climbs the tree or uses a bucket truck to section it from the top down.
@@ -58,6 +65,11 @@ Several factors determine the scope and approach of a removal:
 - **Condition** — dead or hollow trees require different techniques than healthy ones
 - **Access** — whether equipment (bucket trucks, chippers) can reach the tree
 - **Number of trees** — multi-tree jobs can often be combined for efficiency
+
+<div class="media-block">
+<img src="/images/clips/tree-removal-crew-poster.jpg" alt="Crew member sectioning a large trunk on a residential job" loading="lazy" />
+<div class="media-caption">Crew sectioning a large trunk — climbing and bucket trucks used depending on the job.</div>
+</div>
 
 ## What's included in the cleanup?
 

@@ -31,6 +31,13 @@ Stump grinding is the mechanical removal of a tree stump to below the soil surfa
 
 Foundations Tree Experts grinds stumps across Ann Arbor and Southeast Michigan using commercial-grade equipment that handles stumps of all sizes.
 
+<div class="media-block">
+<video autoplay muted loop playsinline poster="/images/clips/stump-grinder-poster.jpg">
+<source src="/images/clips/stump-grinder.mp4" type="video/mp4" />
+</video>
+<div class="media-caption">Commercial stump grinder in action — grinding below grade on a residential property.</div>
+</div>
+
 ## Why grind a stump instead of leaving it?
 
 A leftover tree stump creates several problems over time:
@@ -41,6 +48,11 @@ A leftover tree stump creates several problems over time:
 - **Can resprout** — some species (like silver maple and elm) send up suckers from the remaining root system
 - **Takes up usable yard space** that could be used for a garden, patio, or new tree
 - **Decreases curb appeal** and can affect property value
+
+<div class="media-block">
+<img src="/images/clips/stump-grinder-poster.jpg" alt="Stump grinder positioned on a large stump in a residential yard" loading="lazy" />
+<div class="media-caption">Commercial-grade grinder positioned on a large hardwood stump.</div>
+</div>
 
 ## What's the difference between stump grinding and stump removal?
 
