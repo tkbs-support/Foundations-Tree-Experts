@@ -17,7 +17,7 @@ import services from '../data/services.json';
       <!-- Services dropdown -->
       <div class="nav-dropdown-wrap">
         <a href="/services/" class="hover-underline nav-dropdown-trigger">
-          Services <Icons name="arrow" size={10} strokeWidth={2} class="nav-chevron" />
+          Services
         </a>
         <div class="nav-dropdown">
           <div class="nav-dropdown-inner">
@@ -35,7 +35,7 @@ import services from '../data/services.json';
       <!-- Service Areas mega-menu -->
       <div class="nav-dropdown-wrap nav-mega-wrap">
         <a href="/service-areas/" class="hover-underline nav-dropdown-trigger">
-          Service Areas <Icons name="arrow" size={10} strokeWidth={2} class="nav-chevron" />
+          Service Areas
         </a>
         <div class="nav-dropdown nav-mega">
           <div class="nav-mega-inner">
@@ -207,14 +207,6 @@ import services from '../data/services.json';
 <style is:global>
   .nav { transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }
 
-  /* Dropdown chevron */
-  .nav-chevron {
-    transform: rotate(90deg);
-    transition: transform 200ms ease;
-    margin-left: 2px;
-    opacity: 0.5;
-  }
-
   /* Dropdown container */
   .nav-dropdown-wrap {
     position: relative;
@@ -238,10 +230,6 @@ import services from '../data/services.json';
     pointer-events: auto;
     transform: translateX(-50%) translateY(0);
   }
-  .nav-dropdown-wrap:hover .nav-chevron {
-    transform: rotate(-90deg);
-  }
-
   /* Services dropdown */
   .nav-dropdown-inner {
     background: var(--bg);
@@ -393,6 +381,5 @@ import services from '../data/services.json';
   /* Hide dropdowns on mobile */
   @media (max-width: 900px) {
     .nav-dropdown-wrap .nav-dropdown { display: none !important; }
-    .nav-chevron { display: none; }
   }
 </style>
