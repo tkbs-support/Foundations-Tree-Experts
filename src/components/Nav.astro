@@ -3,33 +3,32 @@ import Icons from './Icons.astro';
 ---
 
 <nav class="nav">
-  <div class="container nav-inner">
-    <a href="/" class="nav-brand" aria-label="Foundations Tree Experts — Home">
-      <img src="/images/logo-transparent.png" alt="" width="36" height="36" />
-      <div class="nav-brand-text">
-        <span class="nav-name">FOUNDATIONS</span>
-        <span class="nav-sub">TREE EXPERTS</span>
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <img src="/images/logo-shield.png" alt="Foundations Tree Experts" style="width:38px;height:38px;object-fit:contain;" />
+      <div>
+        <div>Foundations</div>
+        <div class="brand-small">Tree Experts · <span style="white-space:nowrap;">Ann Arbor, MI</span></div>
       </div>
     </a>
 
     <div class="nav-links">
-      <a href="/services/">Services</a>
-      <a href="/service-areas/">Service Area</a>
-      <a href="/reviews/">Reviews</a>
-      <a href="/about/">About</a>
-      <a href="/faq/">FAQ</a>
+      <a href="/services/" class="hover-underline">Services</a>
+      <a href="/service-areas/" class="hover-underline">Service Area</a>
+      <a href="/reviews/" class="hover-underline">Reviews</a>
+      <a href="/about/" class="hover-underline">About</a>
+      <a href="/faq/" class="hover-underline">FAQ</a>
     </div>
 
     <div class="nav-right">
-      <a class="nav-phone ph" href="tel:17344743336" aria-label="Call (734) 474-3336">
-        <Icons name="phone" size={15} />
-        <span>(734) 474-3336</span>
+      <a class="nav-phone hover-underline" href="tel:17344743336">
+        <Icons name="phone" size={16} /> (734) 474-3336
       </a>
-      <button class="btn btn-primary nav-cta" data-open-wizard aria-label="Get a free quote">
+      <button class="btn btn-primary" data-open-wizard style="padding:0.65rem 1.1rem;font-size:0.88rem;">
         Free quote
       </button>
-      <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
-        <Icons name="menu" size={22} />
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+        <Icons name="menu" size={18} />
       </button>
     </div>
   </div>
@@ -37,32 +36,19 @@ import Icons from './Icons.astro';
 
 <!-- Mobile menu overlay -->
 <div class="mobile-menu" aria-hidden="true">
-  <div class="mobile-menu-head">
-    <a href="/" class="nav-brand">
-      <img src="/images/logo-transparent.png" alt="" width="36" height="36" />
-      <div class="nav-brand-text">
-        <span class="nav-name">FOUNDATIONS</span>
-        <span class="nav-sub">TREE EXPERTS</span>
-      </div>
-    </a>
-    <button class="mobile-menu-close" aria-label="Close menu">
-      <Icons name="close" size={22} />
-    </button>
-  </div>
   <div class="mobile-menu-links">
     <a href="/services/">Services</a>
     <a href="/service-areas/">Service Area</a>
     <a href="/reviews/">Reviews</a>
     <a href="/about/">About</a>
     <a href="/faq/">FAQ</a>
-    <a href="/contact/">Contact</a>
   </div>
   <div class="mobile-menu-cta">
-    <a class="btn btn-primary" href="tel:17344743336" style="width:100%;justify-content:center;">
-      <Icons name="phone" size={16} /> Call (734) 474-3336
+    <a class="btn btn-primary" href="tel:17344743336" style="justify-content:center;">
+      <Icons name="phone" size={16} /> (734) 474-3336
     </a>
-    <button class="btn btn-ghost" data-open-wizard style="width:100%;justify-content:center;">
-      Get my free quote
+    <button class="btn btn-primary" data-open-wizard style="justify-content:center;">
+      Book a free quote <Icons name="arrow" />
     </button>
   </div>
 </div>
@@ -71,36 +57,38 @@ import Icons from './Icons.astro';
   const nav = document.querySelector('.nav');
   const burger = document.querySelector('.nav-burger');
   const mobileMenu = document.querySelector('.mobile-menu');
-  const closeBtn = document.querySelector('.mobile-menu-close');
-  const menuLinks = document.querySelectorAll('.mobile-menu-links a');
   let savedScrollY = 0;
 
-  function openMenu() {
-    savedScrollY = window.scrollY;
-    mobileMenu.classList.add('open');
-    mobileMenu.setAttribute('aria-hidden', 'false');
-    burger.setAttribute('aria-expanded', 'true');
-    document.body.style.position = 'fixed';
-    document.body.style.width = '100%';
-    document.body.style.top = `-${savedScrollY}px`;
+  function toggleMenu() {
+    const isOpen = mobileMenu.classList.contains('open');
+    if (isOpen) {
+      mobileMenu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+      window.scrollTo(0, savedScrollY);
+    } else {
+      savedScrollY = window.scrollY;
+      mobileMenu.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${savedScrollY}px`;
+    }
   }
 
-  function closeMenu() {
-    mobileMenu.classList.remove('open');
-    mobileMenu.setAttribute('aria-hidden', 'true');
-    burger.setAttribute('aria-expanded', 'false');
-    document.body.style.position = '';
-    document.body.style.width = '';
-    document.body.style.top = '';
-    window.scrollTo(0, savedScrollY);
-  }
+  burger?.addEventListener('click', toggleMenu);
+  document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) toggleMenu();
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) toggleMenu();
+  });
 
-  burger?.addEventListener('click', openMenu);
-  closeBtn?.addEventListener('click', closeMenu);
-  menuLinks.forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
-
-  // Smart sticky header: hide on scroll-down, reveal on scroll-up
+  // Scroll: add border on scroll, smart sticky header
   let lastY = 0;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
@@ -109,7 +97,7 @@ import Icons from './Icons.astro';
     } else {
       nav.style.transform = 'translateY(0)';
     }
-    if (y > 10) nav.classList.add('scrolled');
+    if (y > 8) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
     lastY = y;
   }, { passive: true });

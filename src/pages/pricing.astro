@@ -8,15 +8,15 @@ import FAQAccordion from '../components/FAQAccordion.astro';
 
 const pricingFaqs = [
   { q: "Can you give me an exact price over the phone?", a: "We can give a ballpark range, but accurate pricing requires an on-site assessment. Tree size, species, location relative to structures, access for equipment, and complexity all affect the final quote. Our on-site assessments are always free." },
-  { q: "Is there a charge for the estimate?", a: "No — every estimate is free. We walk the property, inspect the trees, and provide a firm written quote, usually within 48 hours." },
+  { q: "Is there a charge for the estimate?", a: "No — every estimate is free. We walk the property, inspect the trees, and provide a firm written quote." },
   { q: "Do you offer payment plans?", a: "For larger jobs, we can discuss payment options. Call us at (734) 474-3336 to talk through the details." },
-  { q: "Does homeowner's insurance cover tree removal?", a: "In many cases, yes — especially if a tree falls due to a storm or sudden event. Insurance typically covers removal when a tree damages a structure, blocks access, or poses an immediate hazard. We can work with your insurance adjuster and provide the documentation they need." },
+  { q: "Does homeowner's insurance cover tree removal?", a: "In many cases, yes — especially if a tree falls due to a storm or sudden event. Insurance typically covers removal when a tree damages a structure, blocks access, or poses an immediate hazard. Contact your insurance company to discuss your specific coverage. We provide invoices for all completed work." },
 ];
 ---
 
 <PageLayout
-  title="Tree Service Pricing — What Does Tree Removal Cost? · Foundations Tree Experts"
-  description="Transparent tree removal, trimming, and stump grinding pricing for Ann Arbor and Southeast Michigan. Free estimates — see what affects your quote."
+  title="Free Estimates — What Affects Your Tree Service Quote · Foundations Tree Experts"
+  description="See what factors affect your tree removal, trimming, and stump grinding quote in Ann Arbor and Southeast Michigan. Free on-site estimates — no surprises."
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -37,9 +37,9 @@ const pricingFaqs = [
   <section class="section">
     <div class="container">
       <div class="eyebrow">Pricing</div>
-      <h1 class="display-lg" style="margin-top:1rem;">What does tree service cost in Ann Arbor?</h1>
+      <h1 class="display-lg" style="margin-top:1rem;">What affects your quote?</h1>
       <p class="lead" style="margin-top:1rem;max-width:680px;">
-        Every job is different, but we believe in transparent pricing. Here's what typically affects your quote — and every estimate is free.
+        Every job is different. Here's what typically affects your quote — and every estimate is free with an on-site assessment.
       </p>
 
       <div style="margin-top:2.5rem;overflow-x:auto;">
@@ -47,46 +47,39 @@ const pricingFaqs = [
           <thead>
             <tr style="border-bottom:2px solid var(--rule-2);text-align:left;">
               <th style="padding:0.75rem 1rem;font-weight:600;">Service</th>
-              <th style="padding:0.75rem 1rem;font-weight:600;">Typical Range</th>
-              <th style="padding:0.75rem 1rem;font-weight:600;">Key Factors</th>
+              <th style="padding:0.75rem 1rem;font-weight:600;">What Affects Your Quote</th>
             </tr>
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--rule);">
               <td style="padding:0.75rem 1rem;font-weight:500;">Tree Removal</td>
-              <td style="padding:0.75rem 1rem;">$400 – $2,800+</td>
               <td style="padding:0.75rem 1rem;color:var(--fg-2);">Tree size, species, proximity to structures, equipment access</td>
             </tr>
             <tr style="border-bottom:1px solid var(--rule);">
               <td style="padding:0.75rem 1rem;font-weight:500;">Trimming & Pruning</td>
-              <td style="padding:0.75rem 1rem;">$250 – $1,500</td>
               <td style="padding:0.75rem 1rem;color:var(--fg-2);">Tree size, number of trees, canopy density, height</td>
             </tr>
             <tr style="border-bottom:1px solid var(--rule);">
               <td style="padding:0.75rem 1rem;font-weight:500;">Stump Grinding</td>
-              <td style="padding:0.75rem 1rem;">$150 – $500</td>
               <td style="padding:0.75rem 1rem;color:var(--fg-2);">Stump diameter, root system, access, number of stumps</td>
             </tr>
             <tr style="border-bottom:1px solid var(--rule);">
               <td style="padding:0.75rem 1rem;font-weight:500;">Emergency Storm Response</td>
-              <td style="padding:0.75rem 1rem;">$300 – $3,000+</td>
-              <td style="padding:0.75rem 1rem;color:var(--fg-2);">Severity, time of call, structural involvement, access</td>
+              <td style="padding:0.75rem 1rem;color:var(--fg-2);">Severity, structural involvement, access, equipment needed</td>
             </tr>
             <tr style="border-bottom:1px solid var(--rule);">
               <td style="padding:0.75rem 1rem;font-weight:500;">Crane-Assisted Removal</td>
-              <td style="padding:0.75rem 1rem;">$1,500 – $5,000+</td>
               <td style="padding:0.75rem 1rem;color:var(--fg-2);">Crane size needed, tree weight, over-structure complexity</td>
             </tr>
             <tr>
               <td style="padding:0.75rem 1rem;font-weight:500;">Lot & Land Clearing</td>
-              <td style="padding:0.75rem 1rem;">$1,000 – $6,000+ per acre</td>
               <td style="padding:0.75rem 1rem;color:var(--fg-2);">Acreage, tree density, stump removal, debris hauling</td>
             </tr>
           </tbody>
         </table>
       </div>
       <p style="font-size:0.8125rem;color:var(--fg-3);margin-top:1rem;font-style:italic;">
-        Ranges are estimates for the Ann Arbor area. Your actual quote depends on a free on-site assessment. Last updated: May 2026.
+        Every job is different. We provide free on-site assessments with a firm written quote — no surprises, no hidden fees.
       </p>
     </div>
   </section>
@@ -97,7 +90,7 @@ const pricingFaqs = [
       <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:1.5rem;">
         {[
           { icon: 'check', text: 'Free on-site assessment' },
-          { icon: 'check', text: 'Written quote within 48 hours' },
+          { icon: 'check', text: 'Written quote — no surprises' },
           { icon: 'check', text: 'Full debris cleanup & haul' },
           { icon: 'check', text: 'Stump grinding (if requested)' },
           { icon: 'check', text: 'Property walk-through before we leave' },

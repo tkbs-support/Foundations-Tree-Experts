@@ -7,7 +7,7 @@ icon: "storm"
 relatedServices: ["tree-removal", "crane-assisted-removal", "trimming-pruning"]
 process:
   - step: "Call our 24/7 line"
-    text: "A real person answers — day or night, storm or shine. Describe the situation so we can prioritize and dispatch the right crew and equipment."
+    text: "We answer day or night, storm or shine. Describe the situation so we can prioritize and dispatch the right crew and equipment."
   - step: "Crew dispatched"
     text: "We get a crew to your property as fast as conditions allow. During major storm events, we triage by severity — structural damage and safety hazards come first."
   - step: "Hazard cleared"
@@ -29,7 +29,7 @@ faqs:
 
 Emergency tree service covers the immediate response to storm damage, fallen trees, and hazardous tree situations that threaten people, property, or access. In Southeast Michigan, severe thunderstorms, ice storms, and high-wind events can bring down mature trees without warning — blocking driveways, landing on roofs, and taking out power lines.
 
-Foundations Tree Experts answers the phone 24/7 at **(734) 474-3336**. When a tree comes down, a real person picks up — not a voicemail, not an answering service.
+Foundations Tree Experts answers the phone 24/7 at **(734) 474-3336**. When a tree comes down, call us and we'll get you taken care of.
 
 ## What types of emergencies do you handle?
 
@@ -53,8 +53,6 @@ During major storm events, we triage incoming calls by severity:
 3. **Access issues** — blocked driveways and walkways that prevent normal use of the property
 4. **Preventive removal** — damaged trees that haven't fallen yet but are likely to
 
-> *"After a big storm, we get dozens of calls in the first few hours. We triage by safety — a tree on a house with people inside always comes first. We get to everyone as fast as we can."* — David Paga, Founder
-
 ## What should you do after storm damage?
 
 If a tree has fallen or is damaged on your property:
@@ -65,6 +63,6 @@ If a tree has fallen or is damaged on your property:
 4. **Document the damage** with photos for your records
 5. **Do not attempt to cut or move the tree yourself** — storm-damaged trees are under tension and can shift unpredictably
 
-## Do you help with insurance claims?
+## What about insurance?
 
-We provide detailed documentation of the work performed, including photos and itemized invoices, which homeowners can submit to their insurance company. We do not file claims on the homeowner's behalf, but we're happy to answer questions about what information your adjuster may need.
+We provide invoices for all completed work. For questions about your specific coverage, contact your insurance company directly.

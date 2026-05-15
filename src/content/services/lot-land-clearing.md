@@ -16,7 +16,7 @@ process:
     text: "Once cleared, we clean up remaining debris, address any grading concerns, and leave the lot ready for the next phase — whether that's construction, landscaping, or fencing."
 faqs:
   - q: "Do you work with builders and developers?"
-    a: "Yes — we regularly work with builders, developers, and general contractors on new-build site prep. We can coordinate with your project timeline and work alongside other trades."
+    a: "Yes — we work with builders, developers, and homeowners on site prep and clearing projects."
   - q: "Can you clear a lot without removing every tree?"
     a: "Absolutely. Selective clearing is common — we flag the trees you want to preserve and clear everything else. Our arborist can advise on which trees are healthy and worth keeping."
   - q: "Do you handle stump grinding on cleared lots?"
@@ -24,7 +24,7 @@ faqs:
   - q: "What equipment do you use?"
     a: "We use commercial-grade equipment including skidsteers with grapple and brush cutter attachments, excavators for larger trees and root extraction, and industrial chippers for brush processing. The equipment mix depends on the site and scope."
   - q: "How long does lot clearing take?"
-    a: "Timeline depends on acreage, tree density, and scope. A typical residential lot (0.25 to 0.5 acres) with moderate tree cover takes 1 to 3 days. Larger or heavily wooded parcels may take a week or more."
+    a: "Timeline depends on acreage, tree density, and scope. We'll provide a time estimate during your free on-site assessment."
   - q: "Do you handle brush and debris hauling?"
     a: "Yes — all debris is chipped, processed, and hauled away. We leave the lot clean and ready for the next phase of your project."
 ---
@@ -42,7 +42,7 @@ We provide clearing services for a range of project types:
 - **Overgrown lot reclamation** — clearing neglected properties that have become overgrown with volunteer trees, brush, and undergrowth
 - **Selective clearing** — removing specific trees while preserving others for shade, privacy, or aesthetics
 - **Brush and undergrowth removal** — clearing dense undergrowth without removing mature trees
-- **Commercial site prep** — larger-scale clearing for commercial development, parking areas, or multi-lot subdivisions
+- **Commercial site prep** — larger-scale clearing for commercial development projects
 
 ## How does the clearing process work?
 
@@ -66,15 +66,10 @@ The right equipment depends on the site. Our fleet includes:
 - **Commercial chippers** — for processing brush and small-diameter wood into chips
 - **Dump trucks** — for hauling debris, chips, and wood off-site
 
-> *"Lot clearing isn't just knocking everything down — it's a sequence. You need to know which trees come out first, where to stage your equipment, and how to protect the trees the homeowner wants to keep. Planning the sequence is what separates a clean job from a mess."* — David Paga, Founder
-
 ## Who do you work with?
 
 We work with:
 
 - **Homeowners** preparing lots for new builds, additions, or landscaping projects
-- **Builders and general contractors** who need sites cleared on a construction timeline
-- **Developers** working on multi-lot residential subdivisions
-- **Property managers** maintaining commercial or multi-family lots
-
-We coordinate with your project timeline and can work alongside other trades — grading, excavation, and foundation crews — to keep the project moving.
+- **Builders and developers** who need sites cleared for construction
+- **Residential and commercial** projects of all sizes

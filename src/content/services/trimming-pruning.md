@@ -24,7 +24,7 @@ faqs:
   - q: "How often should trees be pruned?"
     a: "Most mature trees benefit from pruning every 3 to 5 years. Younger trees may need structural pruning more frequently to establish good form. Our arborist can recommend a maintenance schedule during your free assessment."
   - q: "Do you prune trees near power lines?"
-    a: "Yes — we regularly prune branches encroaching on power lines, rooflines, and other structures. Our crew is experienced with line-clearance work and takes every precaution to work safely around utilities."
+    a: "Yes — we regularly prune branches growing toward power lines, rooflines, and other structures. Our crew takes every precaution to work safely around utilities."
 ---
 
 Tree trimming and pruning is the selective removal of branches to improve a tree's health, structure, and appearance. In Southeast Michigan, regular pruning is essential for managing the mature hardwood canopy that defines neighborhoods across Ann Arbor, Ypsilanti, Plymouth, and surrounding cities.
@@ -40,7 +40,6 @@ We offer several types of pruning depending on the tree's condition and your goa
 - **Crown reduction** — reducing the overall height or spread of the canopy through proper cuts (never topping)
 - **Deadwood removal** — removing dead, dying, or diseased branches to prevent breakage and improve appearance
 - **Structural pruning** — correcting poor branch architecture in younger trees to prevent problems as they mature
-- **Vista pruning** — selective thinning to open or preserve specific sight lines without compromising tree health
 
 ## Why does seasonal timing matter in Michigan?
 
@@ -49,8 +48,6 @@ Michigan's climate creates specific windows for safe pruning. The timing matters
 - **Late winter to early spring (February–April):** Best for most deciduous trees. The tree is dormant, sap flow is minimal, and the branch structure is fully visible without leaves.
 - **April through July:** Never prune oaks during this period. Oak wilt — a deadly fungal disease spread by sap beetles — is actively transmitted through fresh wounds on oak trees during warm months.
 - **Year-round:** Deadwood removal is safe at any time since dead branches no longer carry disease into the living tree.
-
-> *"Oak wilt is one of the most serious tree diseases in Michigan. I always advise homeowners: if you have oaks, wait until winter to prune. The risk of infection from a summer cut is real and the disease moves fast."* — Evan Little, ISA Certified Arborist (MI-4446A)
 
 ## How do you decide what to prune?
 
@@ -61,4 +58,4 @@ Every pruning job starts with an assessment. Our arborist evaluates:
 - Proximity to structures, power lines, and other trees
 - The homeowner's goals (clearance, aesthetics, health, storm prep)
 
-We never remove more than 25% of a tree's live canopy in a single session — over-pruning stresses the tree and triggers excessive sucker growth. Every cut follows ISA standards, made at the proper branch collar to promote compartmentalization and healthy wound closure.
+ISA standards recommend never removing more than 25% of a tree's live canopy in a single session — over-pruning stresses the tree and triggers excessive sucker growth. Every cut follows ISA standards, made at the proper branch collar to promote compartmentalization and healthy wound closure.

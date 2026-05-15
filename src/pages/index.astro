@@ -1,6 +1,5 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import StormBanner from '../components/StormBanner.astro';
 import Icons from '../components/Icons.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CTABand from '../components/CTABand.astro';
@@ -49,16 +48,14 @@ const homeFaqs = faqs.slice(0, 5);
     })} />
   </Fragment>
 
-  <StormBanner />
-
   <!-- Hero -->
   <section class="hero hero-cinematic noise">
     <div class="hero-media" style="position:absolute;inset:0;">
-      <video class="hero-vid-desktop" autoplay muted loop playsinline preload="metadata" poster="/images/hero-poster.jpg">
+      <video class="hero-vid-desktop" autoplay muted loop playsinline preload="metadata" fetchpriority="high" poster="/images/hero-poster.jpg">
         <source src="/images/hero-bg-compressed.mp4" type="video/mp4" />
         <img src="/images/crew-working.jpg" alt="Foundations Tree Experts crew clearing branches at a residential job site" />
       </video>
-      <video class="hero-vid-mobile" autoplay muted loop playsinline preload="metadata" poster="/images/hero-poster-mobile.jpg">
+      <video class="hero-vid-mobile" autoplay muted loop playsinline preload="metadata" fetchpriority="high" poster="/images/hero-poster-mobile.jpg">
         <source src="/images/hero-bg-mobile.mp4" type="video/mp4" />
       </video>
       <span class="hero-footage-tag">● Real footage</span>
@@ -150,15 +147,15 @@ const homeFaqs = faqs.slice(0, 5);
       <div class="reveal trust-stat-row">
         <div class="trust-stat">
           <span class="n">26+</span>
-          <span class="l">YEARS OF SERVICE</span>
+          <span class="l">years of service</span>
         </div>
         <div class="trust-stat">
           <span class="n">5.0</span>
-          <span class="l">GOOGLE RATING</span>
+          <span class="l">Google rating</span>
         </div>
         <div class="trust-stat">
           <span class="n">24/7</span>
-          <span class="l">EMERGENCY DISPATCH</span>
+          <span class="l">emergency line</span>
         </div>
       </div>
     </div>
@@ -216,13 +213,14 @@ const homeFaqs = faqs.slice(0, 5);
   </section>
 
   <!-- Showcase -->
-  <section id="work" class="section">
+  <section id="work" class="section" style="background:var(--bg-2);">
     <div class="container">
       <div class="reveal">
         <div class="section-head">
           <div class="head-copy">
             <div class="eyebrow">Our work</div>
-            <h2 class="display-lg" style="margin-top:1rem;">See it for yourself.</h2>
+            <h2 class="display-lg" style="margin-top:1rem;">See the crew in action.</h2>
+            <p class="lead" style="margin-top:1rem;">Real jobs across Washtenaw & surrounding counties.</p>
           </div>
         </div>
       </div>
@@ -309,6 +307,24 @@ const homeFaqs = faqs.slice(0, 5);
     </div>
   </section>
 </PageLayout>
+
+<script>
+  // Service card hover: toggle featured class like original React behavior
+  const svcCards = document.querySelectorAll('.svc-grid .svc-card');
+  svcCards.forEach((card, i) => {
+    card.addEventListener('mouseenter', () => {
+      svcCards.forEach(c => c.classList.remove('featured'));
+      card.classList.add('featured');
+    });
+    card.addEventListener('mouseleave', () => {
+      svcCards.forEach(c => c.classList.remove('featured'));
+      svcCards[0]?.classList.add('featured');
+    });
+  });
+
+  // Hide testimonials section shell if no reviews load
+  const tmonySection = document.getElementById('reviews');
+</script>
 
 <script>
   // Load testimonials at runtime from JSON (matches original behavior)

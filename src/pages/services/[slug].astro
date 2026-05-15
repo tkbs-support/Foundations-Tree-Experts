@@ -65,51 +65,85 @@ const isEmergency = entry.id === 'emergency-storm-response';
     )}
   </Fragment>
 
-  <div class="container">
-    <Breadcrumbs items={[
-      { label: 'Services', href: '/services/' },
-      { label: title },
-    ]} />
-  </div>
-
-  <section class="section">
+  <!-- Service Hero Banner -->
+  <section class="svc-hero noise">
     <div class="container">
-      <div class="eyebrow">{tag}</div>
-      <h1 class="display-lg" style="margin-top:1rem;">
-        <span class="sr-only">{title} in Ann Arbor, MI — </span>
-        {headline}
-      </h1>
+      <Breadcrumbs items={[
+        { label: 'Services', href: '/services/' },
+        { label: title },
+      ]} />
+      <div class="svc-hero-content">
+        <div class="eyebrow" style="color:color-mix(in oklch, var(--cream-50) 60%, transparent);">{tag}</div>
+        <h1 class="display-lg" style="margin-top:0.75rem;color:var(--cream-50);">
+          <span class="sr-only">{title} in Ann Arbor, MI — </span>
+          {headline}
+        </h1>
+        <p class="lead" style="margin-top:1rem;color:color-mix(in oklch, var(--cream-50) 80%, transparent);max-width:600px;">
+          {description}
+        </p>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;">
+          {isEmergency ? (
+            <a class="btn btn-primary" href="tel:17344743336" style="background:var(--cream-50);color:var(--char-900);">
+              <Icons name="phone" size={16} /> Call Now — (734) 474-3336
+            </a>
+          ) : (
+            <button class="btn btn-primary" data-open-wizard style="background:var(--cream-50);color:var(--char-900);">
+              Get my free estimate <Icons name="arrow" />
+            </button>
+          )}
+          {!isEmergency && (
+            <a class="btn btn-ghost" href="tel:17344743336" style="color:var(--cream-50);border-color:color-mix(in oklch, var(--cream-50) 35%, transparent);">
+              <Icons name="phone" size={16} /> (734) 474-3336
+            </a>
+          )}
+        </div>
+      </div>
     </div>
   </section>
 
-  {isEmergency && (
-    <section style="background:var(--forest-900);padding:2rem 0;text-align:center;">
-      <div class="container">
-        <a href="tel:17344743336" style="display:inline-flex;align-items:center;gap:1rem;color:var(--cream-50);font-family:var(--ff-display);font-size:2rem;font-weight:600;text-decoration:none;">
-          <Icons name="phone" size={28} /> (734) 474-3336
-        </a>
-        <p style="color:color-mix(in oklch, var(--cream-50) 70%, transparent);margin-top:0.5rem;font-size:0.9rem;">
-          24/7 emergency dispatch — call now for immediate response
-        </p>
-      </div>
-    </section>
-  )}
+  <TrustStrip />
 
-  {!isEmergency && (
-    <CTABand headline={`Need ${title.toLowerCase()}?`} buttonText={`Get my free ${title.toLowerCase()} estimate`} />
-  )}
-
-  <section class="section" style="padding-top:2rem;">
+  <!-- Main Content -->
+  <section class="section">
     <div class="container service-content">
       <Content />
     </div>
   </section>
 
+  <!-- Mid-page CTA -->
+  <section class="svc-mid-cta">
+    <div class="container">
+      <div class="svc-mid-cta-inner">
+        <div class="svc-mid-cta-copy">
+          <h2>{isEmergency ? 'Need emergency help right now?' : `Ready for a free ${title.toLowerCase()} estimate?`}</h2>
+          <p>We'll walk the property, assess the job, and give you a firm written quote — no pressure, no obligation.</p>
+        </div>
+        <div class="svc-mid-cta-actions">
+          {isEmergency ? (
+            <a class="btn btn-primary" href="tel:17344743336" style="background:var(--cream-50);color:var(--char-900);">
+              <Icons name="phone" size={16} /> Call (734) 474-3336
+            </a>
+          ) : (
+            <button class="btn btn-primary" data-open-wizard style="background:var(--cream-50);color:var(--char-900);">
+              Get my free estimate <Icons name="arrow" />
+            </button>
+          )}
+          {!isEmergency && (
+            <a class="btn btn-ghost" href="tel:17344743336" style="color:var(--cream-50);border-color:color-mix(in oklch, var(--cream-50) 35%, transparent);">
+              <Icons name="phone" size={16} /> (734) 474-3336
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Process -->
   {process.length > 0 && (
-    <section class="section" style="background:var(--bg-2);">
+    <section class="section process-section noise">
       <div class="container">
-        <h2 class="display-md" style="margin-bottom:2rem;">How {title.toLowerCase()} works</h2>
+        <div class="eyebrow" style="color:color-mix(in oklch, var(--cream-50) 60%, transparent);">How it works</div>
+        <h2 class="display-lg" style="margin-top:0.75rem;margin-bottom:2rem;">How {title.toLowerCase()} works</h2>
         <div class="process-grid">
           {process.map((s, i) => (
             <div class="step">
@@ -123,23 +157,23 @@ const isEmergency = entry.id === 'emergency-storm-response';
     </section>
   )}
 
-  <TrustStrip />
-
   <!-- Service-specific FAQs -->
-  <section class="section">
+  <section class="section" style="background:var(--bg-2);">
     <div class="container" style="max-width:760px;">
-      <h2 class="display-md" style="margin-bottom:1.5rem;">{title} FAQ</h2>
+      <div class="eyebrow">Common questions</div>
+      <h2 class="display-md" style="margin-top:0.75rem;margin-bottom:1.5rem;">{title} FAQ</h2>
       <FAQAccordion faqs={faqs} />
     </div>
   </section>
 
   <!-- Related services -->
-  <section class="section" style="background:var(--bg-2);padding-bottom:2rem;">
+  <section class="section">
     <div class="container">
-      <h2 class="display-md" style="margin-bottom:1.5rem;">Related services</h2>
-      <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;">
+      <div class="eyebrow">More services</div>
+      <h2 class="display-md" style="margin-top:0.75rem;margin-bottom:1.5rem;">Related services</h2>
+      <div class="svc-related-grid">
         {related.map(s => (
-          <a href={`/services/${s.slug}/`} class="svc-card" style="text-decoration:none;">
+          <a href={`/services/${s.slug}/`} class="svc-card">
             <h3>{s.title}</h3>
             <p>{s.desc}</p>
             <div class="svc-foot">
@@ -153,43 +187,233 @@ const isEmergency = entry.id === 'emergency-storm-response';
   </section>
 
   <CTABand
+    variant="dark"
     headline={isEmergency ? "Tree down? Don't wait." : "Ready to get started?"}
     buttonText={isEmergency ? "Call (734) 474-3336" : "Get my free estimate"}
   />
 </PageLayout>
 
-<style>
+<style is:global>
   .sr-only {
     position: absolute; width: 1px; height: 1px; padding: 0;
     margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
     white-space: nowrap; border: 0;
   }
-  .service-content { max-width: 760px; }
+
+  /* Service hero — dark forest band, distinct from homepage video hero */
+  .svc-hero {
+    background: linear-gradient(135deg, var(--forest-900) 0%, var(--forest-800) 100%);
+    padding: 1rem 0 3.5rem;
+    position: relative;
+  }
+  .svc-hero :global(.breadcrumbs) { padding-top: 0.5rem; }
+  .svc-hero :global(.breadcrumbs a),
+  .svc-hero :global(.breadcrumbs span),
+  .svc-hero :global(.breadcrumbs li::after) {
+    color: color-mix(in oklch, var(--cream-50) 50%, transparent);
+  }
+  .svc-hero :global(.breadcrumbs span[aria-current]) {
+    color: color-mix(in oklch, var(--cream-50) 80%, transparent);
+  }
+  .svc-hero-content { margin-top: 2rem; }
+
+  /* Service content — enhanced typography + card-style lists */
+  .service-content { max-width: 800px; }
+
+  /* Section dividers between H2 blocks */
   .service-content h2 {
+    font-family: var(--ff-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--fg);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .service-content h2:first-child,
+  .service-content > :first-child + h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 1.5rem;
+  }
+
+  /* Prose */
+  .service-content p {
+    margin-top: 1rem;
+    color: var(--fg-2);
+    line-height: 1.7;
+    font-size: 1.02rem;
+  }
+  .service-content > p:first-child {
+    font-size: 1.1rem;
+    color: var(--fg);
+    line-height: 1.65;
+  }
+
+  /* Card-style unordered lists */
+  .service-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .service-content ul li {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    line-height: 1.6;
+    color: var(--fg-2);
+    position: relative;
+    padding-left: 2.75rem;
+  }
+  .service-content ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--forest-700);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .service-content ul li strong {
+    color: var(--fg);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Ordered lists — numbered steps */
+  .service-content ol {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    counter-reset: step-counter;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .service-content ol li {
+    counter-increment: step-counter;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem 1rem 3.25rem;
+    line-height: 1.6;
+    color: var(--fg-2);
+    position: relative;
+  }
+  .service-content ol li::before {
+    content: counter(step-counter, decimal-leading-zero);
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-family: var(--ff-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--forest-700);
+    letter-spacing: 0.05em;
+  }
+  .service-content ol li strong { color: var(--fg); }
+
+  /* Expert insight callout — visually distinct */
+  .service-content blockquote {
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--forest-700);
+    padding: 1.5rem 1.75rem 1.5rem 2rem;
+    margin: 2.5rem 0;
+    background: var(--bg-2);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-style: italic;
+    color: var(--fg-2);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    position: relative;
+  }
+  .service-content blockquote::before {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    left: -2px;
+    width: 4px;
+    height: 2rem;
+    background: var(--forest-500);
+    border-radius: 2px;
+  }
+  .service-content blockquote p { margin-top: 0; color: var(--fg-2); font-size: 0.95rem; }
+
+  /* Tables — comparison data */
+  .service-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.92rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .service-content thead { background: var(--forest-900); }
+  .service-content th {
+    text-align: left;
+    padding: 0.85rem 1rem;
+    font-weight: 600;
+    color: var(--cream-50);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  .service-content td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    color: var(--fg-2);
+  }
+  .service-content tbody tr:last-child td { border-bottom: none; }
+  .service-content tbody tr:nth-child(even) { background: var(--bg-2); }
+
+  /* Mid-page CTA band */
+  .svc-mid-cta {
+    background: linear-gradient(135deg, var(--forest-800) 0%, var(--forest-900) 100%);
+    padding: 3rem 0;
+  }
+  .svc-mid-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .svc-mid-cta-copy h2 {
     font-family: var(--ff-display);
     font-size: 1.5rem;
     font-weight: 500;
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
+    color: var(--cream-50);
+    margin: 0;
   }
-  .service-content p { margin-top: 1rem; }
-  .service-content ul, .service-content ol {
-    margin-top: 1rem;
-    padding-left: 1.5rem;
+  .svc-mid-cta-copy p {
+    color: color-mix(in oklch, var(--cream-50) 70%, transparent);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
   }
-  .service-content li { margin-top: 0.5rem; }
-  .service-content blockquote {
-    border-left: 3px solid var(--forest-700);
-    padding: 1rem 1.5rem;
-    margin: 2rem 0;
-    background: var(--bg-2);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-style: italic;
-    color: var(--fg-2);
+  .svc-mid-cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  /* Related services grid */
+  .svc-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
   @media (max-width: 700px) {
-    div[style*="grid-template-columns: repeat(3"] {
-      grid-template-columns: 1fr !important;
-    }
+    .svc-related-grid { grid-template-columns: 1fr; }
+    .svc-hero { padding-bottom: 2.5rem; }
+    .svc-hero-content { margin-top: 1.5rem; }
+    .svc-hero .display-lg { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+    .svc-mid-cta-inner { flex-direction: column; text-align: center; }
+    .svc-mid-cta-actions { width: 100%; flex-direction: column; }
+    .svc-mid-cta-actions .btn { width: 100%; justify-content: center; }
   }
 </style>

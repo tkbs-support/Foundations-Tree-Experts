@@ -47,7 +47,8 @@ const URGENCY_OPTS = [
 
 const INITIAL_DATA = { service: null, size: null, count: 1, urgency: null, name: '', email: '', phone: '', zip: '', address: '', notes: '' };
 
-export default function QuoteWizard({ open, onClose }) {
+export default function QuoteWizard() {
+  const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [requestId, setRequestId] = useState('');
@@ -55,7 +56,15 @@ export default function QuoteWizard({ open, onClose }) {
   const [errs, setErrs] = useState({});
 
   useEffect(() => {
-    if (!open) return;
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener('open-quote-wizard', handleOpen);
+    return () => window.removeEventListener('open-quote-wizard', handleOpen);
+  }, []);
+
+  const onClose = () => setIsOpen(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
     setStep(0);
     setData(INITIAL_DATA);
     setErrs({});
@@ -67,9 +76,9 @@ export default function QuoteWizard({ open, onClose }) {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', onKey);
     };
-  }, [open, onClose]);
+  }, [isOpen]);
 
-  if (!open) return null;
+  if (!isOpen) return null;
 
   const set = patch => setData(d => ({ ...d, ...patch }));
 

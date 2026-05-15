@@ -1,24 +1,26 @@
 ---
 const SEASONAL_BANNERS: Record<string, string> = {
   winter: 'WINTER STORM RESPONSE ACTIVE · DOWNED TREES? CALL <a href="tel:17344743336">(734) 474-3336</a> · 24/7 DISPATCH',
-  spring: 'SPRING STORM SEASON · 24/7 EMERGENCY LINE <a href="tel:17344743336">(734) 474-3336</a>',
-  summer: 'SUMMER STORM SEASON · 24/7 EMERGENCY LINE <a href="tel:17344743336">(734) 474-3336</a>',
-  fall: 'FALL CLEANUP & PRUNING SEASON · BOOK NOW <a href="tel:17344743336">(734) 474-3336</a>',
+  spring: 'SPRING STORM SEASON · WIND DAMAGE? WE\'RE ON CALL <a href="tel:17344743336">(734) 474-3336</a> · 24/7',
+  summer: 'SUMMER STORMS HIT FAST · EMERGENCY TREE REMOVAL · CALL <a href="tel:17344743336">(734) 474-3336</a> · 24/7',
+  fall: 'FALL PREP · DEAD LIMBS BEFORE WINTER? <a href="/services/">BOOK YOUR FREE QUOTE</a> · <a href="tel:17344743336">(734) 474-3336</a>',
 };
 
 const month = new Date().getMonth();
 let season = 'spring';
-if (month >= 11 || month <= 1) season = 'winter';
-else if (month >= 2 && month <= 4) season = 'spring';
-else if (month >= 5 && month <= 8) season = 'summer';
+if (month >= 10 || month <= 2) season = 'winter';
+else if (month >= 3 && month <= 4) season = 'spring';
+else if (month >= 5 && month <= 7) season = 'summer';
 else season = 'fall';
 
 const fallbackMessage = SEASONAL_BANNERS[season];
 ---
 
-<div class="storm-banner" data-storm-banner>
-  <div class="storm-dot"></div>
-  <span set:html={fallbackMessage} />
+<div class="storm" data-storm-banner>
+  <div class="storm-inner">
+    <span class="storm-dot"></span>
+    <span set:html={fallbackMessage} />
+  </div>
 </div>
 
 <script>
@@ -28,7 +30,7 @@ const fallbackMessage = SEASONAL_BANNERS[season];
       .then(r => r.json())
       .then(data => {
         if (data.active && data.message) {
-          const span = banner.querySelector('span');
+          const span = banner.querySelector('.storm-inner > span:last-child');
           if (span) span.innerHTML = data.message;
         }
       })

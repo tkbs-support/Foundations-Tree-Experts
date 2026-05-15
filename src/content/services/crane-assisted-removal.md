@@ -22,7 +22,7 @@ faqs:
   - q: "How much room do you need for the crane?"
     a: "The crane needs a firm, level area for setup — typically a driveway, street, or cleared section of yard. We assess access during the site visit and plan staging accordingly. In some cases, we can work from the street with traffic control."
   - q: "How long does a crane removal take?"
-    a: "Most crane-assisted removals take a full day, including setup, lifts, processing, and cleanup. Complex jobs with multiple trees or very large specimens may take two days."
+    a: "Timeline depends on the tree and site complexity. We'll provide a time estimate during your free on-site assessment."
   - q: "Do you do crane work in emergencies?"
     a: "Yes — when a storm brings down a large tree onto a structure, crane removal is often the fastest and safest way to get it off. We coordinate crane mobilization for emergency situations as quickly as conditions allow."
 ---
@@ -39,7 +39,7 @@ Not every tree needs a crane. Conventional climbing and rigging handles the majo
 - **Power lines are directly adjacent** and there's no room to swing rigged sections clear
 - **The tree is dead or structurally compromised** and too unsafe for a climber to ascend
 - **There's no room for a bucket truck** — narrow side yards, fenced backyards, or dense landscaping
-- **The tree is exceptionally large** — trunk diameters over 30 inches or heights over 70 feet where the weight of individual sections exceeds safe rigging limits
+- **The tree is exceptionally large** — where the weight of individual sections exceeds safe rigging limits
 - **Speed is critical** — crane removal is often faster than piece-by-piece rigging for complex trees
 
 ## How does crane-assisted removal work?
@@ -56,14 +56,12 @@ Crane removal is a coordinated operation between the climber, crane operator, an
 
 5. **Once the trunk is at a manageable height**, the remaining base can be conventionally felled or cut in sections at ground level.
 
-> *"A crane takes what would be a high-risk, multi-day rigging job and turns it into a controlled, efficient operation. Every piece goes exactly where we want it — straight up and over, not bouncing off the roof."* — David Paga, Founder
-
 ## What sets crane removal apart from standard removal?
 
 | Factor | Standard Removal | Crane-Assisted |
 |--------|-----------------|----------------|
 | Risk to structures | Moderate — relies on rigging and drop zones | Low — sections lifted clear of obstacles |
 | Climber safety | Climber works in the tree for hours | Climber makes cuts; crane handles the weight |
-| Time on-site | Half day to full day | Full day (but often faster for complex trees) |
+| Time on-site | Varies by complexity | Varies — often faster for complex trees |
 | Equipment access | Needs only ground crew access | Needs crane staging area (driveway or street) |
 | Best for | Open lots, trees away from structures | Trees over/near structures, dead trees, tight lots |

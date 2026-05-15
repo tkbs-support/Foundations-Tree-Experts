@@ -7,9 +7,9 @@ icon: "tree"
 relatedServices: ["trimming-pruning", "stump-grinding", "crane-assisted-removal"]
 process:
   - step: "Free on-site assessment"
-    text: "We walk the property, inspect the tree's condition, proximity to structures, and plan the safest approach. You get a firm written quote — usually within 48 hours."
+    text: "We walk the property, inspect the tree's condition, proximity to structures, and plan the safest approach. You get a firm written quote."
   - step: "Crew arrives on schedule"
-    text: "We book a weather-appropriate window and confirm the day before. The crew arrives with the right equipment — climbing gear, bucket trucks, chippers, and rigging."
+    text: "We book a weather-appropriate window that works for you. The crew arrives with the right equipment — climbing gear, bucket trucks, chippers, and rigging."
   - step: "Safe, controlled takedown"
     text: "Depending on the tree and surroundings, our crew climbs or uses a bucket truck to section the tree from the top down. Every cut is planned to control where wood falls."
   - step: "Full cleanup and walk-through"
@@ -41,8 +41,6 @@ Not every problem tree needs to come down. Our certified arborist evaluates each
 - The tree is leaning significantly toward a structure
 - Root damage is undermining foundations, sidewalks, or driveways
 - Storm damage has split the trunk or removed the majority of the canopy
-
-> *"When I assess a tree for removal, the first thing I look at is the root flare and the base of the trunk. If there's significant decay at ground level, the tree's structural integrity is compromised — no amount of pruning will fix that."* — Evan Little, ISA Certified Arborist (MI-4446A)
 
 ## What does the tree removal process look like?
 

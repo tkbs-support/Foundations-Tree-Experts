@@ -16,7 +16,11 @@ const ZipIcons = {
   arrow: p => <Svg {...p}><path d="M5 12h14M13 6l6 6-6 6"/></Svg>,
 };
 
-export default function ZipChecker({ onQuote }) {
+export default function ZipChecker({ onQuote: onQuoteProp }) {
+  const onQuote = onQuoteProp || (() => {
+    window.dispatchEvent(new CustomEvent('open-quote-wizard'));
+    if (typeof fbq === 'function') fbq('track', 'Schedule', { content_name: 'Quote Wizard Opened' });
+  });
   const [zip, setZip] = useState('');
   const [result, setResult] = useState(null);
 
