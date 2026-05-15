@@ -1,5 +1,6 @@
 ---
 import Icons from './Icons.astro';
+import services from '../data/services.json';
 ---
 
 <nav class="nav">
@@ -13,8 +14,65 @@ import Icons from './Icons.astro';
     </a>
 
     <div class="nav-links">
-      <a href="/services/" class="hover-underline">Services</a>
-      <a href="/service-areas/" class="hover-underline">Service Area</a>
+      <!-- Services dropdown -->
+      <div class="nav-dropdown-wrap">
+        <a href="/services/" class="hover-underline nav-dropdown-trigger">
+          Services <Icons name="arrow" size={10} strokeWidth={2} class="nav-chevron" />
+        </a>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-inner">
+            <a href="/services/" class="nav-dropdown-heading">All Services</a>
+            {services.map(s => (
+              <a href={`/services/${s.slug}/`} class="nav-dropdown-item">
+                <span class="nav-dropdown-title">{s.title}</span>
+                <span class="nav-dropdown-tag">{s.tag}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Areas mega-menu -->
+      <div class="nav-dropdown-wrap nav-mega-wrap">
+        <a href="/service-areas/" class="hover-underline nav-dropdown-trigger">
+          Service Areas <Icons name="arrow" size={10} strokeWidth={2} class="nav-chevron" />
+        </a>
+        <div class="nav-dropdown nav-mega">
+          <div class="nav-mega-inner">
+            <div class="nav-mega-col">
+              <div class="nav-mega-county">Washtenaw</div>
+              <a href="/service-areas/ann-arbor/">Ann Arbor</a>
+              <a href="/service-areas/ypsilanti/">Ypsilanti</a>
+              <a href="/service-areas/saline/">Saline</a>
+              <a href="/service-areas/dexter/">Dexter</a>
+              <a href="/service-areas/whitmore-lake/">Whitmore Lake</a>
+              <a href="/service-areas/milan/">Milan</a>
+            </div>
+            <div class="nav-mega-col">
+              <div class="nav-mega-county">Wayne</div>
+              <a href="/service-areas/canton/">Canton</a>
+              <a href="/service-areas/plymouth/">Plymouth</a>
+              <a href="/service-areas/northville/">Northville</a>
+              <a href="/service-areas/belleville/">Belleville</a>
+              <a href="/service-areas/western-wayne-county/">+ More Wayne Co.</a>
+            </div>
+            <div class="nav-mega-col">
+              <div class="nav-mega-county">Oakland</div>
+              <a href="/service-areas/novi/">Novi</a>
+              <a href="/service-areas/south-lyon/">South Lyon</a>
+              <a href="/service-areas/oakland-county/">+ More Oakland Co.</a>
+            </div>
+            <div class="nav-mega-col">
+              <div class="nav-mega-county">Livingston</div>
+              <a href="/service-areas/brighton/">Brighton</a>
+            </div>
+          </div>
+          <a href="/service-areas/" class="nav-mega-viewall">
+            View all service areas <Icons name="arrow" size={14} />
+          </a>
+        </div>
+      </div>
+
       <a href="/reviews/" class="hover-underline">Reviews</a>
       <a href="/about/" class="hover-underline">About</a>
       <a href="/faq/" class="hover-underline">FAQ</a>
@@ -37,11 +95,41 @@ import Icons from './Icons.astro';
 <!-- Mobile menu overlay -->
 <div class="mobile-menu" aria-hidden="true">
   <div class="mobile-menu-links">
-    <a href="/services/">Services</a>
-    <a href="/service-areas/">Service Area</a>
+    <!-- Services expandable -->
+    <div class="mobile-expand">
+      <button class="mobile-expand-trigger">Services <Icons name="arrow" size={12} class="mobile-expand-icon" /></button>
+      <div class="mobile-expand-content">
+        <a href="/services/">All Services</a>
+        {services.map(s => (
+          <a href={`/services/${s.slug}/`}>{s.title}</a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Service Areas expandable -->
+    <div class="mobile-expand">
+      <button class="mobile-expand-trigger">Service Areas <Icons name="arrow" size={12} class="mobile-expand-icon" /></button>
+      <div class="mobile-expand-content">
+        <a href="/service-areas/">All Service Areas</a>
+        <div class="mobile-county-label">Washtenaw</div>
+        <a href="/service-areas/ann-arbor/">Ann Arbor</a>
+        <a href="/service-areas/ypsilanti/">Ypsilanti</a>
+        <a href="/service-areas/saline/">Saline</a>
+        <a href="/service-areas/dexter/">Dexter</a>
+        <div class="mobile-county-label">Wayne</div>
+        <a href="/service-areas/canton/">Canton</a>
+        <a href="/service-areas/plymouth/">Plymouth</a>
+        <a href="/service-areas/northville/">Northville</a>
+        <div class="mobile-county-label">Oakland</div>
+        <a href="/service-areas/novi/">Novi</a>
+        <a href="/service-areas/south-lyon/">South Lyon</a>
+      </div>
+    </div>
+
     <a href="/reviews/">Reviews</a>
     <a href="/about/">About</a>
     <a href="/faq/">FAQ</a>
+    <a href="/contact/">Contact</a>
   </div>
   <div class="mobile-menu-cta">
     <a class="btn btn-primary" href="tel:17344743336" style="justify-content:center;">
@@ -79,13 +167,26 @@ import Icons from './Icons.astro';
   }
 
   burger?.addEventListener('click', toggleMenu);
-  document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+  document.querySelectorAll('.mobile-menu-links > a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) toggleMenu();
+    });
+  });
+  document.querySelectorAll('.mobile-expand-content a').forEach(link => {
     link.addEventListener('click', () => {
       if (mobileMenu.classList.contains('open')) toggleMenu();
     });
   });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && mobileMenu.classList.contains('open')) toggleMenu();
+  });
+
+  // Mobile expandable sections
+  document.querySelectorAll('.mobile-expand-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.mobile-expand');
+      parent.classList.toggle('open');
+    });
   });
 
   // Scroll: add border on scroll, smart sticky header
@@ -103,6 +204,195 @@ import Icons from './Icons.astro';
   }, { passive: true });
 </script>
 
-<style>
+<style is:global>
   .nav { transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }
+
+  /* Dropdown chevron */
+  .nav-chevron {
+    transform: rotate(90deg);
+    transition: transform 200ms ease;
+    margin-left: 2px;
+    opacity: 0.5;
+  }
+
+  /* Dropdown container */
+  .nav-dropdown-wrap {
+    position: relative;
+  }
+  .nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 200ms ease, transform 200ms ease;
+    z-index: 100;
+    padding-top: 12px;
+  }
+  .nav-dropdown-wrap:hover .nav-dropdown,
+  .nav-dropdown-wrap:focus-within .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown-wrap:hover .nav-chevron {
+    transform: rotate(-90deg);
+  }
+
+  /* Services dropdown */
+  .nav-dropdown-inner {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 0.5rem;
+    min-width: 240px;
+  }
+  .nav-dropdown-heading {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0.25rem;
+  }
+  .nav-dropdown-heading:hover { color: var(--forest-700); }
+  .nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    color: var(--fg);
+    border-radius: var(--radius-sm);
+    transition: background 150ms ease;
+    font-size: 0.88rem;
+  }
+  .nav-dropdown-item:hover { background: var(--bg-2); }
+  .nav-dropdown-title { font-weight: 500; }
+  .nav-dropdown-tag {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    white-space: nowrap;
+  }
+
+  /* Mega menu (service areas) */
+  .nav-mega {
+    left: 50%;
+    min-width: 560px;
+  }
+  .nav-mega-inner {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 1.25rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .nav-mega-county {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-mega-col a {
+    display: block;
+    padding: 0.3rem 0;
+    text-decoration: none;
+    color: var(--fg-2);
+    font-size: 0.88rem;
+    transition: color 150ms ease;
+  }
+  .nav-mega-col a:hover { color: var(--forest-700); }
+  .nav-mega-viewall {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+    color: var(--forest-700);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background 150ms ease;
+  }
+  .nav-mega-viewall:hover { background: var(--bg-2); }
+
+  /* Mobile expandable sections */
+  .mobile-expand-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 0;
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 1.1rem;
+    color: var(--cream-50);
+    cursor: pointer;
+  }
+  .mobile-expand-icon {
+    transform: rotate(90deg);
+    transition: transform 200ms ease;
+    opacity: 0.5;
+  }
+  .mobile-expand.open .mobile-expand-icon {
+    transform: rotate(-90deg);
+  }
+  .mobile-expand-content {
+    display: none;
+    padding: 0 0 0.5rem 1rem;
+  }
+  .mobile-expand.open .mobile-expand-content {
+    display: block;
+  }
+  .mobile-expand-content a {
+    display: block;
+    padding: 0.4rem 0;
+    color: color-mix(in oklch, var(--cream-50) 80%, transparent);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .mobile-expand-content a:first-child {
+    font-weight: 600;
+    color: var(--cream-50);
+    margin-bottom: 0.25rem;
+  }
+  .mobile-county-label {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--cream-50) 40%, transparent);
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Hide dropdowns on mobile */
+  @media (max-width: 900px) {
+    .nav-dropdown-wrap .nav-dropdown { display: none !important; }
+    .nav-chevron { display: none; }
+  }
 </style>
