@@ -21,7 +21,7 @@ Foundations Tree Experts serves Saline homeowners with the same standards and cr
 
 We work throughout Saline and surrounding areas, including:
 
-- **Brookview Highlands** — custom homes on 1+ acre lots north of downtown, with significant tree cover on larger properties
+- **Brookview Highlands** — 119 custom homes on 1+ acre lots north of downtown, with significant tree cover on larger properties
 - **Rolling Meadows** — 1960s-era ranch and two-story homes with mature trees from the original plantings
 - **Silo Ridge** — active neighborhood community with well-maintained properties
 - **Beckington** — east of Moon Road, 1970s homes on 1+ acre lots with established landscaping
