@@ -150,6 +150,15 @@ const siteName = 'Foundations Tree Experts';
   <!-- Additional structured data injected by pages -->
   <slot name="schema" />
 
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWN4XH0FN" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XQWN4XH0FN');
+  </script>
+
   <!-- Meta Pixel -->
   <script is:inline>
     !function(f,b,e,v,n,t,s)

@@ -274,6 +274,11 @@ export default function QuoteWizard() {
             <button className="btn btn-primary" onClick={next} disabled={submitting}>
               {submitting ? 'Sending…' : step === 3 ? 'Send request' : 'Continue'} {!submitting && <WizIcons.arrow />}
             </button>
+            {step === 3 && (
+              <p style={{ textAlign: 'center', fontSize: 13, color: 'var(--fg-3)', margin: '0.5rem 0 0', lineHeight: 1.4, width: '100%' }}>
+                By submitting, you agree to our <a href="/sms-privacy.html" target="_blank" rel="noopener" style={{ color: 'var(--fg-3)', textDecoration: 'underline' }}>SMS Privacy Policy</a>.
+              </p>
+            )}
           </div>
         )}
         {step === 4 && (
