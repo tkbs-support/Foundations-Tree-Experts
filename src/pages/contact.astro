@@ -91,6 +91,13 @@ import TrustStrip from '../components/TrustStrip.astro';
           <p style="font-size:0.8125rem;color:var(--fg-3);margin-top:0.75rem;text-align:center;">We respond within 1 business day. No spam, ever.</p>
         </form>
 
+        <script>
+          document.querySelector('.contact-form')?.addEventListener('submit', function() {
+            if (typeof gtag === 'function') gtag('event', 'form_submit', { event_category: 'conversion', form_name: 'contact-form' });
+            if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'Contact Form' });
+          });
+        </script>
+
         <!-- Contact info -->
         <div>
           <div style="background:var(--bg-2);border:1px solid var(--rule);border-radius:var(--radius);padding:2rem;">

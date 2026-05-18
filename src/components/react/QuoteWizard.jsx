@@ -56,12 +56,20 @@ export default function QuoteWizard() {
   const [errs, setErrs] = useState({});
 
   useEffect(() => {
-    const handleOpen = () => setIsOpen(true);
+    const handleOpen = () => {
+      setIsOpen(true);
+      if (typeof gtag === 'function') gtag('event', 'quote_wizard_open', { event_category: 'engagement' });
+    };
     window.addEventListener('open-quote-wizard', handleOpen);
     return () => window.removeEventListener('open-quote-wizard', handleOpen);
   }, []);
 
-  const onClose = () => setIsOpen(false);
+  const onClose = () => {
+    if (isOpen && step > 0 && step < 4) {
+      if (typeof gtag === 'function') gtag('event', 'quote_wizard_abandon', { event_category: 'engagement', step_number: step + 1, service_selected: data.service });
+    }
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -121,6 +129,7 @@ export default function QuoteWizard() {
     try {
       await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
       if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: selService?.title, content_category: selUrg?.title });
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'conversion', service: selService?.title, urgency: selUrg?.title, zip: data.zip });
       setStep(4);
     } catch {
       setStep(4);
@@ -137,6 +146,7 @@ export default function QuoteWizard() {
     const nextStep = Math.min(4, step + 1);
     const stepNames = ['Service', 'Size', 'Urgency', 'Contact'];
     if (typeof fbq === 'function') fbq('trackCustom', 'QuoteWizardStep', { step_number: nextStep + 1, step_name: stepNames[nextStep], service_selected: data.service });
+    if (typeof gtag === 'function') gtag('event', 'quote_wizard_step', { event_category: 'engagement', step_number: nextStep + 1, step_name: stepNames[nextStep], service_selected: data.service });
     setStep(nextStep);
   };
 

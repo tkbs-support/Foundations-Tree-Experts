@@ -28,8 +28,13 @@ export default function ZipChecker({ onQuote: onQuoteProp }) {
     const v = (value ?? zip).replace(/\D/g, '').slice(0, 5);
     if (v.length !== 5) { setResult({ status: 'invalid' }); return; }
     const hit = COVERAGE[v];
-    if (hit) setResult({ status: 'covered', zip: v, ...hit });
-    else setResult({ status: 'uncovered', zip: v });
+    if (hit) {
+      setResult({ status: 'covered', zip: v, ...hit });
+      if (typeof gtag === 'function') gtag('event', 'zip_check', { event_category: 'engagement', zip_code: v, result: 'covered', city: hit.city });
+    } else {
+      setResult({ status: 'uncovered', zip: v });
+      if (typeof gtag === 'function') gtag('event', 'zip_check', { event_category: 'engagement', zip_code: v, result: 'uncovered' });
+    }
   };
 
   const onChange = e => {
