@@ -31,9 +31,11 @@ export default function ZipChecker({ onQuote: onQuoteProp }) {
     if (hit) {
       setResult({ status: 'covered', zip: v, ...hit });
       if (typeof gtag === 'function') gtag('event', 'zip_check', { event_category: 'engagement', zip_code: v, result: 'covered', city: hit.city });
+      if (typeof fbq === 'function') fbq('track', 'FindLocation', { city: hit.city, zip: v });
     } else {
       setResult({ status: 'uncovered', zip: v });
       if (typeof gtag === 'function') gtag('event', 'zip_check', { event_category: 'engagement', zip_code: v, result: 'uncovered' });
+      if (typeof fbq === 'function') fbq('track', 'FindLocation', { zip: v });
     }
   };
 
