@@ -1050,7 +1050,7 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  grid-template-columns: 1.3fr 1fr 1.2fr;
   gap: 3rem;
   margin-bottom: 4rem;
 }

@@ -39,3 +39,14 @@
   from = "/index.html"
   to = "/"
   status = 301
+
+# Phase 1 redirects — service pages only
+[[redirects]]
+  from = "/tree-removal"
+  to = "/services/tree-removal"
+  status = 301
+
+[[redirects]]
+  from = "/tree-care"
+  to = "/services/trimming-pruning"
+  status = 301
