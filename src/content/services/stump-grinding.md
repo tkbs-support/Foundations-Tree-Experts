@@ -1,15 +1,17 @@
 ---
 title: "Stump Grinding"
-headline: "Below grade. Root chase. Ready to replant."
-description: "Professional stump grinding in Ann Arbor and Southeast Michigan. Below-grade removal, root chase, and backfill. Free estimates from Foundations Tree Experts."
+headline: "Grind it down. Clean it up. Move on."
+description: "Professional stump grinding in Ann Arbor and Southeast Michigan. Below-grade grinding, full cleanup, and backfill included. Free estimates from Foundations Tree Experts."
 tag: "Add-on"
 icon: "stump"
+featureImage: "/images/stump-grinder-hero.webp"
+featureAlt: "Stump grinder on a residential front yard with ground-out stump area"
 relatedServices: ["tree-removal", "lot-land-clearing", "trimming-pruning"]
 process:
   - step: "Assess the stump"
     text: "We measure the stump diameter, evaluate the root system, check for underground utilities, and confirm equipment access."
   - step: "Grind below grade"
-    text: "Using a commercial stump grinder, we grind the stump well below the soil surface — deep enough for replanting, reseeding, or laying sod."
+    text: "Using a commercial stump grinder, we grind the stump well below the soil surface — deep enough for reseeding or laying sod."
   - step: "Chase surface roots"
     text: "Visible surface roots extending from the stump are chased and ground down so they don't interfere with mowing or future landscaping."
   - step: "Backfill and clean up"
@@ -31,11 +33,15 @@ Stump grinding is the mechanical removal of a tree stump to below the soil surfa
 
 Foundations Tree Experts grinds stumps across Ann Arbor and Southeast Michigan using commercial-grade equipment that handles stumps of all sizes.
 
+<div class="media-pair">
 <div class="media-block">
-<video autoplay muted loop playsinline poster="/images/clips/stump-grinder-poster.jpg">
-<source src="/images/clips/stump-grinder.mp4" type="video/mp4" />
-</video>
-<div class="media-caption">Commercial stump grinder in action — grinding below grade on a residential property.</div>
+<img src="/images/stump-before.webp" alt="Large tree stump next to a stump grinder before grinding" loading="lazy" />
+<div class="media-caption">Before — stump and root flare at ground level.</div>
+</div>
+<div class="media-block">
+<img src="/images/stump-after.webp" alt="Clean ground after stump grinding and backfill" loading="lazy" />
+<div class="media-caption">After — ground below grade, backfilled and ready to use.</div>
+</div>
 </div>
 
 ## Why grind a stump instead of leaving it?
@@ -50,8 +56,8 @@ A leftover tree stump creates several problems over time:
 - **Decreases curb appeal** and can affect property value
 
 <div class="media-block">
-<img src="/images/clips/stump-grinder-poster.jpg" alt="Stump grinder positioned on a large stump in a residential yard" loading="lazy" />
-<div class="media-caption">Commercial-grade grinder positioned on a large hardwood stump.</div>
+<img src="/images/stump-grinder-action.webp" alt="Commercial stump grinder grinding a stump with wood chips spraying" loading="lazy" />
+<div class="media-caption">Commercial-grade grinder in action — grinding below grade.</div>
 </div>
 
 ## What's the difference between stump grinding and stump removal?

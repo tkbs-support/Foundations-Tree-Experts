@@ -4,6 +4,9 @@ headline: "Storm hit? We answer — day or night."
 description: "24/7 emergency tree service in Ann Arbor, MI. Fallen trees, split trunks, hanging limbs cleared fast. Call (734) 474-3336 for immediate dispatch."
 tag: "24/7 dispatch"
 icon: "storm"
+featureImage: "/images/storm-damage-tree.webp"
+featureAlt: "Storm-damaged tree requiring emergency removal"
+featurePosition: "60%"
 relatedServices: ["tree-removal", "crane-assisted-removal", "trimming-pruning"]
 process:
   - step: "Call our 24/7 line"
@@ -43,8 +46,8 @@ Our crew responds to a wide range of storm and tree emergencies:
 - **Ice storm damage** — heavy ice loading that snaps branches and splits trunks
 
 <div class="media-block">
-<img src="/images/storm-damage-tree.webp" alt="Storm-damaged tree requiring emergency removal" loading="lazy" />
-<div class="media-caption">Storm damage — we respond 24/7 to fallen trees, split trunks, and hanging limbs.</div>
+<img src="/images/storm-tree-on-house.webp" alt="Large tree fallen onto a residential roof after a storm" loading="lazy" />
+<div class="media-caption">Tree down on a house — a common emergency call.</div>
 </div>
 
 ## What happens when Michigan storms hit?
@@ -59,8 +62,8 @@ During major storm events, we triage incoming calls by severity:
 4. **Preventive removal** — damaged trees that haven't fallen yet but are likely to
 
 <div class="media-block">
-<img src="/images/clips/climber-ascending.jpg" alt="Crew member ascending a tree with safety gear during a removal job" loading="lazy" />
-<div class="media-caption">Crew dispatched and on-site — climbing gear and rigging ready for hazard clearance.</div>
+<img src="/images/storm-crew-cutting-fallen.webp" alt="Crew member with chainsaw cutting a massive storm-downed tree" loading="lazy" />
+<div class="media-caption">Crew on-site cutting a storm-downed tree.</div>
 </div>
 
 ## What should you do after storm damage?

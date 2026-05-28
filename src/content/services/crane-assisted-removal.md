@@ -1,9 +1,12 @@
 ---
 title: "Crane-Assisted Removal"
 headline: "The jobs other crews walk away from."
-description: "Crane-assisted tree removal in Ann Arbor and Southeast Michigan. Heavy lifts over rooflines, power lines, and tight lots. Licensed, insured, ISA Certified Arborist on staff."
+description: "Crane-assisted tree removal in Ann Arbor and Southeast Michigan. Heavy lifts over rooflines, power lines, and tight lots. Licensed and insured. Free estimates."
 tag: "Specialty"
 icon: "chainsaw"
+featureImage: "/images/crane-setup-driveway.webp"
+featureAlt: "Crane truck set up on a residential driveway with boom extended for tree removal"
+featurePosition: "54%"
 relatedServices: ["tree-removal", "emergency-storm-response", "lot-land-clearing"]
 process:
   - step: "Site assessment and planning"
@@ -43,10 +46,8 @@ Not every tree needs a crane. Conventional climbing and rigging handles the majo
 - **Speed is critical** — crane removal is often faster than piece-by-piece rigging for complex trees
 
 <div class="media-block">
-<video autoplay muted loop playsinline poster="/images/clips/crane-lift-poster.jpg">
-<source src="/images/clips/crane-lift.mp4" type="video/mp4" />
-</video>
-<div class="media-caption">Crane boom and stripped trunk — lifting sections clear of surrounding trees and power lines.</div>
+<img src="/images/crane-section-lift.webp" alt="Crane boom lifting a large tree section high above the surrounding canopy" loading="lazy" style="object-position: center 37%;" />
+<div class="media-caption">Section mid-lift — cleared above the canopy.</div>
 </div>
 
 ## How does crane-assisted removal work?
@@ -64,8 +65,8 @@ Crane removal is a coordinated operation between the climber, crane operator, an
 5. **Once the trunk is at a manageable height**, the remaining base can be conventionally felled or cut in sections at ground level.
 
 <div class="media-block">
-<img src="/images/clips/crane-section.jpg" alt="Crane lifting a large tree section mid-air with cable rigging" loading="lazy" />
-<div class="media-caption">A large section mid-lift — controlled by the crane while the climber prepares the next cut.</div>
+<img src="/images/crane-ground-crew.webp" alt="Ground crew guiding a large tree section next to the crane while another crew member works with a chainsaw" loading="lazy" />
+<div class="media-caption">Ground crew processing sections after the lift.</div>
 </div>
 
 ## What sets crane removal apart from standard removal?

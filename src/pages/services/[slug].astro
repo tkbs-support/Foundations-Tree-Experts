@@ -3,7 +3,6 @@ import { getCollection, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icons from '../../components/Icons.astro';
-import CTABand from '../../components/CTABand.astro';
 import TrustStrip from '../../components/TrustStrip.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
 import services from '../../data/services.json';
@@ -18,18 +17,28 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, headline, description, tag, faqs, process, relatedServices, images } = entry.data;
+const { title, headline, description, tag, faqs, process, relatedServices, images, featureImage, featureAlt, featurePosition } = entry.data;
 
 const related = relatedServices
   ? services.filter(s => relatedServices.includes(s.slug))
   : services.filter(s => s.slug !== entry.id).slice(0, 3);
 
 const isEmergency = entry.id === 'emergency-storm-response';
+
+const footerCtas: Record<string, string> = {
+  'tree-removal': 'Ready to take it down?',
+  'trimming-pruning': 'Time for a trim?',
+  'stump-grinding': 'Ready to get rid of that stump?',
+  'crane-assisted-removal': 'Got a tough one? We can handle it.',
+  'emergency-storm-response': "Tree down? Don't wait.",
+  'lot-land-clearing': 'Ready to clear your land?',
+};
 ---
 
 <PageLayout
   title={`${title} in Ann Arbor, MI — Foundations Tree Experts`}
   description={description}
+  footerCtaHeadline={footerCtas[entry.id]}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -65,10 +74,14 @@ const isEmergency = entry.id === 'emergency-storm-response';
     )}
   </Fragment>
 
-  <!-- Service Hero Banner -->
-  <section class="svc-hero noise">
-    <div class="container">
-      <Breadcrumbs items={[
+  <!-- Service Hero Banner — photo background with dark overlay -->
+  <section class="svc-hero">
+    {featureImage && (
+      <img class="svc-hero-bg" src={featureImage} alt="" aria-hidden="true" loading="eager" style={`${featurePosition ? `object-position: center ${featurePosition};` : ''}${['tree-removal', 'crane-assisted-removal'].includes(entry.id) ? 'transform: scaleX(-1);' : ''}`} />
+    )}
+    <div class="svc-hero-overlay"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <Breadcrumbs dark items={[
         { label: 'Services', href: '/services/' },
         { label: title },
       ]} />
@@ -186,11 +199,6 @@ const isEmergency = entry.id === 'emergency-storm-response';
     </div>
   </section>
 
-  <CTABand
-    variant="dark"
-    headline={isEmergency ? "Tree down? Don't wait." : "Ready to get started?"}
-    buttonText={isEmergency ? "Call (734) 474-3336" : "Get my free estimate"}
-  />
 </PageLayout>
 
 <style is:global>
@@ -200,11 +208,31 @@ const isEmergency = entry.id === 'emergency-storm-response';
     white-space: nowrap; border: 0;
   }
 
-  /* Service hero — dark forest band, distinct from homepage video hero */
+  /* Service hero — photo/video background with dark overlay */
   .svc-hero {
-    background: linear-gradient(135deg, var(--forest-900) 0%, var(--forest-800) 100%);
-    padding: 1rem 0 3.5rem;
     position: relative;
+    padding: 1rem 0 3.5rem;
+    overflow: hidden;
+    background: var(--forest-900);
+  }
+  .svc-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    z-index: 0;
+  }
+  .svc-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(10, 20, 15, 0.78) 0%,
+      rgba(15, 30, 22, 0.65) 100%
+    );
+    z-index: 1;
   }
   .svc-hero :global(.breadcrumbs) { padding-top: 0.5rem; }
   .svc-hero :global(.breadcrumbs a),

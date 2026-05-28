@@ -2,7 +2,6 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
-import CTABand from '../../components/CTABand.astro';
 import TrustStrip from '../../components/TrustStrip.astro';
 import services from '../../data/services.json';
 ---
@@ -10,6 +9,7 @@ import services from '../../data/services.json';
 <PageLayout
   title="Tree Services in Ann Arbor & Southeast Michigan — Foundations Tree Experts"
   description="Professional tree removal, trimming, stump grinding, emergency storm response, crane-assisted removal, and lot clearing. ISA Certified Arborist on staff. Free estimates."
+  footerCtaHeadline="Not sure which service you need?"
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -59,7 +59,6 @@ import services from '../../data/services.json';
     </div>
   </section>
 
-  <CTABand headline="Not sure which service you need?" buttonText="Get my free assessment" />
   <TrustStrip />
 </PageLayout>
 

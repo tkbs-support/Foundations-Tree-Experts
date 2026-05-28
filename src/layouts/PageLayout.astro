@@ -13,19 +13,20 @@ interface Props {
   ogImage?: string;
   ogImageAlt?: string;
   noindex?: boolean;
+  footerCtaHeadline?: string;
 }
 
-const props = Astro.props;
+const { footerCtaHeadline, ...rest } = Astro.props;
 ---
 
-<BaseLayout {...props}>
+<BaseLayout {...rest}>
   <slot name="schema" slot="schema" />
   <StormBanner />
   <Nav />
   <main>
     <slot />
   </main>
-  <Footer />
+  <Footer ctaHeadline={footerCtaHeadline} />
   <StickyCallButton />
   <QuoteWizard client:idle />
 </BaseLayout>
