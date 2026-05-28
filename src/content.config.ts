@@ -9,6 +9,9 @@ const services = defineCollection({
     description: z.string(),
     tag: z.string(),
     icon: z.string(),
+    featureImage: z.string().optional(),
+    featureAlt: z.string().optional(),
+    featurePosition: z.string().optional(),
     relatedServices: z.array(z.string()).optional(),
     faqs: z.array(z.object({
       q: z.string(),
