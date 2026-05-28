@@ -3,7 +3,6 @@ import { getCollection, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icons from '../../components/Icons.astro';
-import CTABand from '../../components/CTABand.astro';
 import TrustStrip from '../../components/TrustStrip.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
 import services from '../../data/services.json';
@@ -29,6 +28,7 @@ const nearby = nearbyAreas
 <PageLayout
   title={`Tree Service in ${name}, MI — Foundations Tree Experts`}
   description={description}
+  footerCtaHeadline={`Need tree service in ${name}?`}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -149,11 +149,6 @@ const nearby = nearbyAreas
     </section>
   )}
 
-  <CTABand
-    variant="dark"
-    headline={`Need tree service in ${name}?`}
-    buttonText="Get my free estimate"
-  />
 </PageLayout>
 
 <style is:global>

@@ -2,7 +2,6 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icons from '../components/Icons.astro';
-import CTABand from '../components/CTABand.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 
@@ -17,6 +16,7 @@ const pricingFaqs = [
 <PageLayout
   title="Free Estimates — What Affects Your Tree Service Quote · Foundations Tree Experts"
   description="See what factors affect your tree removal, trimming, and stump grinding quote in Ann Arbor and Southeast Michigan. Free on-site estimates — no surprises."
+  footerCtaHeadline="Ready for your free estimate?"
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -114,7 +114,6 @@ const pricingFaqs = [
     </div>
   </section>
 
-  <CTABand headline="Ready for your free estimate?" buttonText="Get my free quote" />
   <TrustStrip />
 </PageLayout>
 

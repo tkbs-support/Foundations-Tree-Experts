@@ -2,7 +2,6 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ShowcaseCarousel from '../components/ShowcaseCarousel.astro';
-import CTABand from '../components/CTABand.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import showcase from '../data/showcase.json';
 ---
@@ -10,6 +9,7 @@ import showcase from '../data/showcase.json';
 <PageLayout
   title="Our Work — Tree Removal & Care Gallery · Foundations Tree Experts"
   description="See our tree removal, trimming, crane work, and storm cleanup in Ann Arbor and Southeast Michigan. Before and after photos from real jobs."
+  footerCtaHeadline="Like what you see?"
 >
   <div class="container">
     <Breadcrumbs items={[{ label: 'Our Work' }]} />
@@ -51,7 +51,6 @@ import showcase from '../data/showcase.json';
     </div>
   </section>
 
-  <CTABand headline="Like what you see?" buttonText="Get my free estimate" />
   <TrustStrip />
 </PageLayout>
 

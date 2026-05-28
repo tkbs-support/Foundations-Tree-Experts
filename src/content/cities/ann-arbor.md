@@ -1,7 +1,7 @@
 ---
 name: "Ann Arbor"
 county: "Washtenaw"
-description: "Professional tree removal, trimming, and emergency storm response in Ann Arbor, MI. Serving Tree Town's mature urban canopy for 26+ years. ISA Certified Arborist on staff."
+description: "Professional tree removal, trimming, and emergency storm response in Ann Arbor, MI. 26+ years of experience serving Tree Town's mature urban canopy. ISA Certified Arborist on staff."
 zipCodes: ["48103", "48104", "48105", "48108", "48109"]
 nearbyAreas: ["ypsilanti", "saline"]
 faqs:
@@ -15,7 +15,7 @@ faqs:
 
 Ann Arbor is known as "Tree Town" — and for good reason. The city maintains over 40,000 street trees and 7,000 park trees across more than 200 species, with a canopy coverage of about 33% and a goal of reaching 40%. It's a city that takes its trees seriously, from the 10,000 Trees Initiative (completed six years ahead of schedule) to its longstanding Tree City USA designation.
 
-Foundations Tree Experts has served Ann Arbor homeowners for more than 26 years. We know the mature maples of Burns Park, the historic oaks on the Old West Side, and the tight-lot challenges of Kerrytown and Water Hill. Our ISA Certified Arborist Evan Little (MI-4446A) is available to assess any tree before work begins.
+Foundations Tree Experts brings more than 26 years of experience to Ann Arbor homeowners. We know the mature maples of Burns Park, the historic oaks on the Old West Side, and the tight-lot challenges of Kerrytown and Water Hill. Our ISA Certified Arborist Evan Little (MI-4446A) is available to assess any tree before work begins.
 
 ## Neighborhoods we serve in Ann Arbor
 

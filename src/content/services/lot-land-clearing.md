@@ -4,6 +4,9 @@ headline: "Clear the lot. Prep the build. Done right."
 description: "Professional lot and land clearing in Ann Arbor and Southeast Michigan. New-build prep, fence-line clearing, and brush removal for residential and commercial projects."
 tag: "By the acre"
 icon: "hedge"
+featureImage: "/images/excavator-clearing.webp"
+featureAlt: "Excavator clearing trees and brush from a lot"
+featurePosition: "51%"
 relatedServices: ["tree-removal", "stump-grinding", "crane-assisted-removal"]
 process:
   - step: "Site walk and scope"
@@ -45,8 +48,8 @@ We provide clearing services for a range of project types:
 - **Commercial site prep** — larger-scale clearing for commercial development projects
 
 <div class="media-block">
-<img src="/images/excavator-clearing.webp" alt="Excavator clearing trees from a residential lot" loading="lazy" />
-<div class="media-caption">Excavator on-site — clearing trees and brush for new-build prep.</div>
+<img src="/images/lot-clearing-excavator-truck.webp" alt="Excavator and dump truck on an active lot clearing site" loading="lazy" />
+<div class="media-caption">Excavator and dump truck on an active clearing site.</div>
 </div>
 
 ## How does the clearing process work?
@@ -72,8 +75,8 @@ The right equipment depends on the site. Our fleet includes:
 - **Dump trucks** — for hauling debris, chips, and wood off-site
 
 <div class="media-block">
-<img src="/images/equipment-skidsteer.webp" alt="Skidsteer with grapple attachment moving logs on a job site" loading="lazy" />
-<div class="media-caption">Skidsteer with grapple — right tool for navigating tight spaces and moving heavy material.</div>
+<img src="/images/lot-clearing-grapple-log.webp" alt="Excavator grapple lifting a large log on a cleared lot" loading="lazy" />
+<div class="media-caption">Excavator grapple lifting a large trunk off the lot.</div>
 </div>
 
 ## Who do you work with?

@@ -2,13 +2,13 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icons from '../components/Icons.astro';
-import CTABand from '../components/CTABand.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 ---
 
 <PageLayout
-  title="About Foundations Tree Experts — 26+ Years in Ann Arbor, MI"
-  description="Meet David Paga and the Foundations crew. 26+ years of insured tree care in Southeast Michigan with ISA Certified Arborist Evan Little on staff."
+  title="About Foundations Tree Experts — 26+ Years of Experience · Ann Arbor, MI"
+  description="Meet David Paga and the Foundations crew. 26+ years of experience in Southeast Michigan with ISA Certified Arborist Evan Little on staff."
+  footerCtaHeadline="Like what you see? Let's talk."
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -49,7 +49,7 @@ import TrustStrip from '../components/TrustStrip.astro';
   <section class="section">
     <div class="container">
       <div class="eyebrow">Our story</div>
-      <h1 class="display-lg" style="margin-top:1rem;">26+ years. One standard.<br /><em style="font-style:italic;color:var(--forest-700);font-weight:400;">Every single job.</em></h1>
+      <h1 class="display-lg" style="margin-top:1rem;">26+ years of experience. One standard.<br /><em style="font-style:italic;color:var(--forest-700);font-weight:400;">Every single job.</em></h1>
       <p class="lead" style="margin-top:1.25rem;max-width:680px;">
         Foundations Tree Experts was built on a simple idea: treat every property like it's your own, and every client like a neighbor.
       </p>
@@ -69,7 +69,7 @@ import TrustStrip from '../components/TrustStrip.astro';
         </div>
         <div class="reveal founder-body">
           <h2 class="display-md" style="margin-bottom:1.25rem;">Meet David</h2>
-          <p>With more than 26 years of service across Ann Arbor and Southeast Michigan, David Paga and the Foundations crew bring one mission and one standard to every job — no matter the size.</p>
+          <p>With more than 26 years of experience, David Paga and the Foundations crew bring one mission and one standard to every job — no matter the size.</p>
           <blockquote>"Treat every property like it's our own, and every client like a neighbor."</blockquote>
           <p>Alongside his wife Julia and their seven kids, David built this company on the same values he brings home every night — hard work, honesty, and taking care of the people around you. That's why Foundations treats every yard with the same care they'd give their own.</p>
           <p>David's love for the industry goes beyond just removing trees — it's about protecting homes, helping families feel safe, and taking pride in difficult work that requires skill, experience, and precision. From hazardous removals to careful pruning and storm cleanup, he genuinely enjoys the challenge and craftsmanship that comes with professional tree care.</p>
@@ -96,7 +96,6 @@ import TrustStrip from '../components/TrustStrip.astro';
     </div>
   </section>
 
-  <CTABand headline="Want us on your property?" buttonText="Get my free estimate" />
 
   <TrustStrip />
 </PageLayout>

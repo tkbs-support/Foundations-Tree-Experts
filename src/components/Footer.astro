@@ -1,5 +1,11 @@
 ---
 import Icons from './Icons.astro';
+
+interface Props {
+  ctaHeadline?: string;
+}
+
+const { ctaHeadline = "One call. We'll handle the rest." } = Astro.props;
 ---
 
 <footer class="footer noise">
@@ -7,7 +13,7 @@ import Icons from './Icons.astro';
     <div class="reveal footer-cta">
       <div>
         <div class="eyebrow" style="color:color-mix(in oklch, var(--cream-50) 55%, transparent);">Ready when you are</div>
-        <h2 class="display-lg" style="color:var(--cream-50);margin-top:1rem;">One call. We'll handle the rest.</h2>
+        <h2 class="display-lg" style="color:var(--cream-50);margin-top:1rem;">{ctaHeadline}</h2>
       </div>
       <div class="footer-cta-buttons">
         <button class="btn" data-open-wizard style="background:var(--cream-50);color:var(--char-900);">

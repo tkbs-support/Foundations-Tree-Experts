@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icons from '../../components/Icons.astro';
-import CTABand from '../../components/CTABand.astro';
 import TrustStrip from '../../components/TrustStrip.astro';
 import ZipChecker from '../../components/react/ZipChecker.jsx';
 
@@ -19,6 +18,7 @@ for (const city of cities) {
 <PageLayout
   title="Service Areas — Tree Service Across Southeast Michigan · Foundations Tree Experts"
   description="Foundations Tree Experts serves 20+ cities across Washtenaw, Wayne, and Oakland counties. Find tree removal, trimming, and emergency service in your area."
+  footerCtaHeadline="Don't see your city?"
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -84,7 +84,6 @@ for (const city of cities) {
     </div>
   </section>
 
-  <CTABand headline="Don't see your city?" buttonText="Call us — we may still cover your area" />
   <TrustStrip />
 </PageLayout>
 

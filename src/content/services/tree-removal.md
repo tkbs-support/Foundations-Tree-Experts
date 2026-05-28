@@ -4,6 +4,9 @@ headline: "Hazardous, dead, or unwanted trees — taken down cleanly."
 description: "Professional tree removal in Ann Arbor and Southeast Michigan. Climbing and bucket truck crews, full cleanup, ISA Certified Arborist on staff. Free estimates."
 tag: "Most requested"
 icon: "tree"
+featureImage: "/images/climber-cutting.webp"
+featureAlt: "Arborist cutting a large tree trunk with a chainsaw"
+featurePosition: "70%"
 relatedServices: ["trimming-pruning", "stump-grinding", "crane-assisted-removal"]
 process:
   - step: "Free on-site assessment"
@@ -29,7 +32,7 @@ faqs:
 
 Tree removal is the complete cutting, dismantling, and cleanup of a tree from a residential or commercial property. In Ann Arbor and Southeast Michigan, tree removal is most commonly needed for dead or dying trees, storm-damaged hardwoods, and trees growing too close to structures or power lines.
 
-Foundations Tree Experts has performed tree removals across Washtenaw, Wayne, and Oakland counties for more than 26 years. Every removal is planned by our crew and backed by full liability coverage, with ISA Certified Arborist Evan Little (MI-4446A) available to assess any tree before work begins.
+Foundations Tree Experts brings more than 26 years of experience to removals across Washtenaw, Wayne, and Oakland counties. Every removal is planned by our crew and backed by full liability coverage, with ISA Certified Arborist Evan Little (MI-4446A) available to assess any tree before work begins.
 
 ## When does a tree need to be removed?
 
@@ -43,10 +46,8 @@ Not every problem tree needs to come down. Our certified arborist evaluates each
 - Storm damage has split the trunk or removed the majority of the canopy
 
 <div class="media-block">
-<video autoplay muted loop playsinline poster="/images/clips/tree-removal-cut-poster.jpg">
-<source src="/images/clips/tree-removal-cut.mp4" type="video/mp4" />
-</video>
-<div class="media-caption">Controlled cuts — every section is planned before the saw touches wood.</div>
+<img src="/images/clips/climber-rigging.jpg" alt="Climber rigging a tree section for controlled removal" loading="lazy" />
+<div class="media-caption">Controlled cuts — every section planned.</div>
 </div>
 
 ## What does the tree removal process look like?
@@ -67,8 +68,8 @@ Several factors determine the scope and approach of a removal:
 - **Number of trees** — multi-tree jobs can often be combined for efficiency
 
 <div class="media-block">
-<img src="/images/clips/tree-removal-crew-poster.jpg" alt="Crew member sectioning a large trunk on a residential job" loading="lazy" />
-<div class="media-caption">Crew sectioning a large trunk — climbing and bucket trucks used depending on the job.</div>
+<img src="/images/climber-cutting-trunk.webp" alt="Arborist with chainsaw cutting a large tree trunk from above" loading="lazy" />
+<div class="media-caption">Climber cutting a large trunk from the top down.</div>
 </div>
 
 ## What's included in the cleanup?
@@ -83,4 +84,4 @@ Cleanup is not an add-on — it's the job. When we leave, the site will be clean
 
 ## What about the stump?
 
-After a tree is removed, the stump remains at ground level. We offer [stump grinding](/services/stump-grinding/) as an add-on service — below-grade grinding, root chase, and backfill so the area is ready for reseeding or replanting.
+After a tree is removed, the stump remains at ground level. We offer [stump grinding](/services/stump-grinding/) as an add-on service — below-grade grinding, cleanup, and backfill so the area is ready for reseeding or landscaping.

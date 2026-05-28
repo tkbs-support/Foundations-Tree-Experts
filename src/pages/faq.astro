@@ -2,7 +2,6 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
-import CTABand from '../components/CTABand.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import faqs from '../data/faqs.json';
 ---
@@ -10,6 +9,7 @@ import faqs from '../data/faqs.json';
 <PageLayout
   title="FAQ — Tree Service Questions Answered · Foundations Tree Experts"
   description="Frequently asked questions about tree removal, trimming, stump grinding, and emergency services in Ann Arbor, MI. Get straight answers from Foundations Tree Experts."
+  footerCtaHeadline="Have a question we didn't cover?"
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -45,6 +45,5 @@ import faqs from '../data/faqs.json';
     </div>
   </section>
 
-  <CTABand headline="Have a question we didn't cover?" buttonText="Get my free quote" />
   <TrustStrip />
 </PageLayout>
