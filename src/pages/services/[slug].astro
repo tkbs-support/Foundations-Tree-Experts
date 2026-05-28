@@ -91,17 +91,17 @@ const footerCtas: Record<string, string> = {
           <span class="sr-only">{title} in Ann Arbor, MI — </span>
           {headline}
         </h1>
-        <p class="lead" style="margin-top:1rem;color:color-mix(in oklch, var(--cream-50) 80%, transparent);max-width:600px;">
+        <p class="lead svc-hero-desc" style="margin-top:1rem;color:color-mix(in oklch, var(--cream-50) 80%, transparent);max-width:600px;">
           {description}
         </p>
-        <div style="display:flex;align-items:center;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;">
+        <div class="svc-hero-btns">
           {isEmergency ? (
             <a class="btn btn-primary" href="tel:17344743336" style="background:var(--cream-50);color:var(--char-900);">
-              <Icons name="phone" size={16} /> Call Now — (734) 474-3336
+              <Icons name="phone" size={16} /> <span class="btn-full">Call Now — (734) 474-3336</span><span class="btn-short">(734) 474-3336</span>
             </a>
           ) : (
             <button class="btn btn-primary" data-open-wizard style="background:var(--cream-50);color:var(--char-900);">
-              Get my free estimate <Icons name="arrow" />
+              <span class="btn-full">Get my free estimate</span><span class="btn-short">Free estimate</span> <Icons name="arrow" />
             </button>
           )}
           {!isEmergency && (
@@ -244,6 +244,14 @@ const footerCtas: Record<string, string> = {
     color: color-mix(in oklch, var(--cream-50) 80%, transparent);
   }
   .svc-hero-content { margin-top: 2rem; }
+  .svc-hero-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .btn-short { display: none; }
 
   /* Service content — enhanced typography + card-style lists */
   .service-content { max-width: 800px; }
@@ -477,9 +485,14 @@ const footerCtas: Record<string, string> = {
   }
   @media (max-width: 700px) {
     .svc-related-grid { grid-template-columns: 1fr; }
-    .svc-hero { padding-bottom: 2.5rem; }
-    .svc-hero-content { margin-top: 1.5rem; }
+    .svc-hero { padding-bottom: 2rem; }
+    .svc-hero-content { margin-top: 1.25rem; }
     .svc-hero .display-lg { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+    .svc-hero-desc { font-size: 0.9rem; margin-top: 0.75rem !important; }
+    .svc-hero-btns { gap: 0.5rem; margin-top: 1rem; }
+    .svc-hero-btns .btn { padding: 0.7rem 1rem; font-size: 0.85rem; }
+    .svc-hero-btns .btn-full { display: none; }
+    .svc-hero-btns .btn-short { display: inline; }
     .svc-mid-cta-inner { flex-direction: column; text-align: center; }
     .svc-mid-cta-actions { width: 100%; flex-direction: column; }
     .svc-mid-cta-actions .btn { width: 100%; justify-content: center; }
