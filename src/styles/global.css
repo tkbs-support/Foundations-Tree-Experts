@@ -280,6 +280,7 @@ input, textarea, select { font: inherit; color: inherit; }
 @media (max-width: 480px) {
   .storm { font-size: 0.72rem; letter-spacing: 0.02em; }
   .storm-inner { text-align: center; padding: 0.6rem var(--gutter); }
+  .storm-dot { display: none; }
 }
 
 /* hero */

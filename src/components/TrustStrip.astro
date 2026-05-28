@@ -24,4 +24,7 @@ const { variant = 'light' } = Astro.props;
   }
   .trust-strip--dark { color: color-mix(in oklch, var(--cream-50) 70%, transparent); }
   .trust-strip span { white-space: nowrap; }
+  @media (max-width: 700px) {
+    .trust-strip { display: none; }
+  }
 </style>
