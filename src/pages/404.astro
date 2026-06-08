@@ -1,0 +1,28 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Icons from '../components/Icons.astro';
+---
+
+<PageLayout
+  title="Page Not Found — Foundations Tree Experts"
+  description="The page you're looking for doesn't exist. Head back to our homepage or give us a call."
+  noindex={true}
+>
+  <section class="section" style="text-align:center;min-height:50vh;display:grid;place-items:center;">
+    <div class="container">
+      <div style="font-family:var(--ff-display);font-size:6rem;font-weight:300;color:var(--fg-3);line-height:1;">404</div>
+      <h1 class="display-md" style="margin-top:1rem;">Page not found.</h1>
+      <p class="lead" style="margin-top:1rem;max-width:440px;margin-left:auto;margin-right:auto;">
+        The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;">
+        <a href="/" class="btn btn-primary">
+          Back to homepage <Icons name="arrow" />
+        </a>
+        <a href="tel:17344743336" class="btn btn-ghost">
+          <Icons name="phone" size={16} /> Call (734) 474-3336
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

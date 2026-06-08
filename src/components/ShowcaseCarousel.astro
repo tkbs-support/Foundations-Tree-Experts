@@ -1,0 +1,96 @@
+---
+import showcase from '../data/showcase.json';
+import Icons from './Icons.astro';
+
+const items = [...showcase, ...showcase, ...showcase];
+---
+
+<div class="showcase" style="margin-top:2.5rem;">
+  <div class="showcase-track" data-carousel>
+    {items.map((photo, i) => (
+      <div class="showcase-card">
+        <img
+          src={photo.src}
+          alt={photo.label}
+          loading="lazy"
+          draggable="false"
+          width="760"
+          height="600"
+          style={`object-position: ${photo.pos || 'center'}`}
+        />
+        <div class="showcase-label">{photo.label}</div>
+      </div>
+    ))}
+  </div>
+  <button class="showcase-nav-btn prev" aria-label="Previous">
+    <Icons name="arrow" size={18} />
+  </button>
+  <button class="showcase-nav-btn next" aria-label="Next">
+    <Icons name="arrow" size={18} />
+  </button>
+</div>
+
+<script>
+  const track = document.querySelector('[data-carousel]');
+  const prevBtn = document.querySelector('.showcase-nav-btn.prev');
+  const nextBtn = document.querySelector('.showcase-nav-btn.next');
+  if (track) {
+    const scrollAmount = 400;
+    const totalOriginal = track.children.length / 3;
+
+    requestAnimationFrame(() => {
+      track.scrollLeft = totalOriginal * scrollAmount;
+    });
+
+    const scroll = (dir) => {
+      track.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+    };
+
+    prevBtn?.addEventListener('click', () => scroll(-1));
+    nextBtn?.addEventListener('click', () => scroll(1));
+
+    track.addEventListener('scrollend', () => {
+      const oneSetWidth = track.scrollWidth / 3;
+      if (track.scrollLeft < 10) {
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft += oneSetWidth;
+        track.style.scrollBehavior = '';
+      } else if (track.scrollLeft >= oneSetWidth * 2 - 10) {
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft -= oneSetWidth;
+        track.style.scrollBehavior = '';
+      }
+    });
+
+    let isDown = false, startX = 0, scrollLeft = 0;
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.style.cursor = 'grabbing';
+    });
+    track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = ''; });
+    track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = ''; });
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX);
+    });
+
+    // Touch events
+    let touchStartX = 0, touchScrollLeft = 0;
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].pageX;
+      touchScrollLeft = track.scrollLeft;
+    }, { passive: true });
+    track.addEventListener('touchmove', (e) => {
+      const x = e.touches[0].pageX;
+      track.scrollLeft = touchScrollLeft - (touchStartX - x) * 1.5;
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  .showcase-nav-btn.prev svg { transform: rotate(180deg); }
+</style>

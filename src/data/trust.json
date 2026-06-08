@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "shield",
+    "title": "Fully insured",
+    "desc": "Licensed and fully insured — protecting your property and our crew on every job."
+  },
+  {
+    "icon": "badge",
+    "title": "Certified arborist on staff",
+    "desc": "Evan Little — Certified Arborist (MI-4446A) — is on staff and available for every job. Not a guy who bought a chainsaw last spring."
+  },
+  {
+    "icon": "clock",
+    "title": "Answered 24/7",
+    "desc": "A real person picks up — day or night, storm or shine. No waiting until tomorrow."
+  },
+  {
+    "icon": "leaf",
+    "title": "Yards left better",
+    "desc": "Debris hauled, chips spread or removed, and a walk-through before we leave."
+  }
+]

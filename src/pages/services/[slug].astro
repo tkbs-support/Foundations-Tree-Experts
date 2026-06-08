@@ -1,0 +1,500 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icons from '../../components/Icons.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import services from '../../data/services.json';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('services');
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, headline, description, tag, faqs, process, relatedServices, images, featureImage, featureAlt, featurePosition } = entry.data;
+
+const related = relatedServices
+  ? services.filter(s => relatedServices.includes(s.slug))
+  : services.filter(s => s.slug !== entry.id).slice(0, 3);
+
+const isEmergency = entry.id === 'emergency-storm-response';
+
+const footerCtas: Record<string, string> = {
+  'tree-removal': 'Ready to take it down?',
+  'trimming-pruning': 'Time for a trim?',
+  'stump-grinding': 'Ready to get rid of that stump?',
+  'crane-assisted-removal': 'Got a tough one? We can handle it.',
+  'emergency-storm-response': "Tree down? Don't wait.",
+  'lot-land-clearing': 'Ready to clear your land?',
+};
+---
+
+<PageLayout
+  title={`${title} in Ann Arbor, MI — Foundations Tree Experts`}
+  description={description}
+  footerCtaHeadline={footerCtas[entry.id]}
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": title,
+      "description": description,
+      "provider": { "@type": "LocalBusiness", "@id": "https://foundationstreeexperts.com/#business" },
+      "serviceType": title,
+      "areaServed": { "@type": "State", "name": "Michigan" }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    })} />
+    {process.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": `How to get ${title.toLowerCase()} in Ann Arbor`,
+        "step": process.map((s, i) => ({
+          "@type": "HowToStep",
+          "position": i + 1,
+          "name": s.step,
+          "text": s.text
+        }))
+      })} />
+    )}
+  </Fragment>
+
+  <!-- Service Hero Banner — photo background with dark overlay -->
+  <section class="svc-hero">
+    {featureImage && (
+      <img class="svc-hero-bg" src={featureImage} alt="" aria-hidden="true" loading="eager" style={`${featurePosition ? `object-position: center ${featurePosition};` : ''}${['tree-removal', 'crane-assisted-removal'].includes(entry.id) ? 'transform: scaleX(-1);' : ''}`} />
+    )}
+    <div class="svc-hero-overlay"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <Breadcrumbs dark items={[
+        { label: 'Services', href: '/services/' },
+        { label: title },
+      ]} />
+      <div class="svc-hero-content">
+        <div class="eyebrow" style="color:color-mix(in oklch, var(--cream-50) 60%, transparent);">{tag}</div>
+        <h1 class="display-lg" style="margin-top:0.75rem;color:var(--cream-50);">
+          <span class="sr-only">{title} in Ann Arbor, MI — </span>
+          {headline}
+        </h1>
+        <p class="lead svc-hero-desc" style="margin-top:1rem;color:color-mix(in oklch, var(--cream-50) 80%, transparent);max-width:600px;">
+          {description}
+        </p>
+        <div class="svc-hero-btns">
+          {isEmergency ? (
+            <a class="btn btn-primary" href="tel:17344743336" style="background:var(--cream-50);color:var(--char-900);">
+              <Icons name="phone" size={16} /> <span class="btn-full">Call Now — (734) 474-3336</span><span class="btn-short">(734) 474-3336</span>
+            </a>
+          ) : (
+            <button class="btn btn-primary" data-open-wizard style="background:var(--cream-50);color:var(--char-900);">
+              <span class="btn-full">Get my free estimate</span><span class="btn-short">Free estimate</span> <Icons name="arrow" />
+            </button>
+          )}
+          {!isEmergency && (
+            <a class="btn btn-ghost" href="tel:17344743336" style="color:var(--cream-50);border-color:color-mix(in oklch, var(--cream-50) 35%, transparent);">
+              <Icons name="phone" size={16} /> (734) 474-3336
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustStrip />
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container service-content">
+      <Content />
+    </div>
+  </section>
+
+  <!-- Mid-page CTA -->
+  <section class="svc-mid-cta">
+    <div class="container">
+      <div class="svc-mid-cta-inner">
+        <div class="svc-mid-cta-copy">
+          <h2>{isEmergency ? 'Need emergency help right now?' : `Ready for a free ${title.toLowerCase()} estimate?`}</h2>
+          <p>We'll walk the property, assess the job, and give you a firm written quote — no pressure, no obligation.</p>
+        </div>
+        <div class="svc-mid-cta-actions">
+          {isEmergency ? (
+            <a class="btn btn-primary" href="tel:17344743336" style="background:var(--cream-50);color:var(--char-900);">
+              <Icons name="phone" size={16} /> Call (734) 474-3336
+            </a>
+          ) : (
+            <button class="btn btn-primary" data-open-wizard style="background:var(--cream-50);color:var(--char-900);">
+              Get my free estimate <Icons name="arrow" />
+            </button>
+          )}
+          {!isEmergency && (
+            <a class="btn btn-ghost" href="tel:17344743336" style="color:var(--cream-50);border-color:color-mix(in oklch, var(--cream-50) 35%, transparent);">
+              <Icons name="phone" size={16} /> (734) 474-3336
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  {process.length > 0 && (
+    <section class="section process-section noise">
+      <div class="container">
+        <div class="eyebrow" style="color:color-mix(in oklch, var(--cream-50) 60%, transparent);">How it works</div>
+        <h2 class="display-lg" style="margin-top:0.75rem;margin-bottom:2rem;">How {title.toLowerCase()} works</h2>
+        <div class="process-grid">
+          {process.map((s, i) => (
+            <div class="step">
+              <div class="step-num">Step {String(i + 1).padStart(2, '0')}</div>
+              <h3>{s.step}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Service-specific FAQs -->
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="max-width:760px;">
+      <div class="eyebrow">Common questions</div>
+      <h2 class="display-md" style="margin-top:0.75rem;margin-bottom:1.5rem;">{title} FAQ</h2>
+      <FAQAccordion faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- Related services -->
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">More services</div>
+      <h2 class="display-md" style="margin-top:0.75rem;margin-bottom:1.5rem;">Related services</h2>
+      <div class="svc-related-grid">
+        {related.map(s => (
+          <a href={`/services/${s.slug}/`} class="svc-card">
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <div class="svc-foot">
+              <span>{s.tag}</span>
+              <span class="svc-arrow"><Icons name="arrow" size={14} strokeWidth={2} /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</PageLayout>
+
+<style is:global>
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0;
+    margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+
+  /* Service hero — photo/video background with dark overlay */
+  .svc-hero {
+    position: relative;
+    padding: 1rem 0 3.5rem;
+    overflow: hidden;
+    background: var(--forest-900);
+  }
+  .svc-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    z-index: 0;
+  }
+  .svc-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(10, 20, 15, 0.78) 0%,
+      rgba(15, 30, 22, 0.65) 100%
+    );
+    z-index: 1;
+  }
+  .svc-hero :global(.breadcrumbs) { padding-top: 0.5rem; }
+  .svc-hero :global(.breadcrumbs a),
+  .svc-hero :global(.breadcrumbs span),
+  .svc-hero :global(.breadcrumbs li::after) {
+    color: color-mix(in oklch, var(--cream-50) 50%, transparent);
+  }
+  .svc-hero :global(.breadcrumbs span[aria-current]) {
+    color: color-mix(in oklch, var(--cream-50) 80%, transparent);
+  }
+  .svc-hero-content { margin-top: 2rem; }
+  .svc-hero-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .btn-short { display: none; }
+
+  /* Service content — enhanced typography + card-style lists */
+  .service-content { max-width: 800px; }
+
+  /* Section dividers between H2 blocks */
+  .service-content h2 {
+    font-family: var(--ff-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--fg);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .service-content h2:first-child,
+  .service-content > :first-child + h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 1.5rem;
+  }
+
+  /* Prose */
+  .service-content p {
+    margin-top: 1rem;
+    color: var(--fg-2);
+    line-height: 1.7;
+    font-size: 1.02rem;
+  }
+  .service-content > p:first-child {
+    font-size: 1.1rem;
+    color: var(--fg);
+    line-height: 1.65;
+  }
+
+  /* Card-style unordered lists */
+  .service-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .service-content ul li {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    line-height: 1.6;
+    color: var(--fg-2);
+    position: relative;
+    padding-left: 2.75rem;
+  }
+  .service-content ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--forest-700);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .service-content ul li strong {
+    color: var(--fg);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Ordered lists — numbered steps */
+  .service-content ol {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    counter-reset: step-counter;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .service-content ol li {
+    counter-increment: step-counter;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem 1rem 3.25rem;
+    line-height: 1.6;
+    color: var(--fg-2);
+    position: relative;
+  }
+  .service-content ol li::before {
+    content: counter(step-counter, decimal-leading-zero);
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-family: var(--ff-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--forest-700);
+    letter-spacing: 0.05em;
+  }
+  .service-content ol li strong { color: var(--fg); }
+
+  /* Expert insight callout — visually distinct */
+  .service-content blockquote {
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--forest-700);
+    padding: 1.5rem 1.75rem 1.5rem 2rem;
+    margin: 2.5rem 0;
+    background: var(--bg-2);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-style: italic;
+    color: var(--fg-2);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    position: relative;
+  }
+  .service-content blockquote::before {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    left: -2px;
+    width: 4px;
+    height: 2rem;
+    background: var(--forest-500);
+    border-radius: 2px;
+  }
+  .service-content blockquote p { margin-top: 0; color: var(--fg-2); font-size: 0.95rem; }
+
+  /* Tables — comparison data */
+  .service-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.92rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .service-content thead { background: var(--forest-900); }
+  .service-content th {
+    text-align: left;
+    padding: 0.85rem 1rem;
+    font-weight: 600;
+    color: var(--cream-50);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  .service-content td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    color: var(--fg-2);
+  }
+  .service-content tbody tr:last-child td { border-bottom: none; }
+  .service-content tbody tr:nth-child(even) { background: var(--bg-2); }
+
+  /* Inline media blocks — used in markdown content */
+  .service-content .media-block {
+    margin: 2.5rem 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-3);
+  }
+  .service-content .media-block img,
+  .service-content .media-block video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .service-content .media-block .media-caption {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: var(--fg-3);
+    background: var(--bg-2);
+    border-top: 1px solid var(--rule);
+    font-family: var(--ff-mono);
+    letter-spacing: 0.02em;
+  }
+
+  /* Two-up media — side by side images/videos */
+  .service-content .media-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .service-content .media-pair .media-block {
+    margin: 0;
+  }
+  @media (max-width: 560px) {
+    .service-content .media-pair {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Mid-page CTA band */
+  .svc-mid-cta {
+    background: linear-gradient(135deg, var(--forest-800) 0%, var(--forest-900) 100%);
+    padding: 3rem 0;
+  }
+  .svc-mid-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .svc-mid-cta-copy h2 {
+    font-family: var(--ff-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--cream-50);
+    margin: 0;
+  }
+  .svc-mid-cta-copy p {
+    color: color-mix(in oklch, var(--cream-50) 70%, transparent);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .svc-mid-cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  /* Related services grid */
+  .svc-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 700px) {
+    .svc-related-grid { grid-template-columns: 1fr; }
+    .svc-hero { padding-bottom: 2.5rem; }
+    .svc-hero-content { margin-top: 1.25rem; }
+    .svc-hero .display-lg { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+    .svc-hero-desc { font-size: 0.9rem; margin-top: 0.75rem !important; }
+    .svc-hero-btns { gap: 0.5rem; margin-top: 1rem; }
+    .svc-hero-btns .btn { padding: 0.7rem 1rem; font-size: 0.85rem; }
+    .svc-hero-btns .btn-full { display: none; }
+    .svc-hero-btns .btn-short { display: inline; }
+    .svc-mid-cta-inner { flex-direction: column; text-align: center; }
+    .svc-mid-cta-actions { width: 100%; flex-direction: column; }
+    .svc-mid-cta-actions .btn { width: 100%; justify-content: center; }
+  }
+</style>

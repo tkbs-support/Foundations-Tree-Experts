@@ -1,0 +1,79 @@
+---
+import Icons from './Icons.astro';
+
+interface Props {
+  ctaHeadline?: string;
+}
+
+const { ctaHeadline = "One call. We'll handle the rest." } = Astro.props;
+---
+
+<footer class="footer noise">
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="reveal footer-cta">
+      <div>
+        <div class="eyebrow" style="color:color-mix(in oklch, var(--cream-50) 55%, transparent);">Ready when you are</div>
+        <h2 class="display-lg" style="color:var(--cream-50);margin-top:1rem;">{ctaHeadline}</h2>
+      </div>
+      <div class="footer-cta-buttons">
+        <button class="btn" data-open-wizard style="background:var(--cream-50);color:var(--char-900);">
+          Get my free quote <Icons name="arrow" />
+        </button>
+        <a class="btn btn-ghost" style="color:var(--cream-50);border-color:color-mix(in oklch, var(--cream-50) 35%, transparent);" href="tel:17344743336">
+          <Icons name="phone" /> (734) 474-3336
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <img src="/images/logo.png" alt="Foundations Tree Experts" style="width:60px;height:60px;object-fit:contain;margin-bottom:0.75rem;" />
+        <div class="footer-brand">Foundations<br /><em>Tree Experts</em></div>
+        <p class="footer-tag">Safe, efficient tree removal and property care for Ann Arbor, Washtenaw & surrounding counties. 26+ years of service.</p>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+        <div class="footer-links">
+          <a href="/services/tree-removal/">Tree removal</a>
+          <a href="/services/trimming-pruning/">Trimming & pruning</a>
+          <a href="/services/emergency-storm-response/">Emergency storm</a>
+          <a href="/services/stump-grinding/">Stump grinding</a>
+          <a href="/services/crane-assisted-removal/">Crane removal</a>
+          <a href="/services/lot-land-clearing/">Lot clearing</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Service area</h3>
+        <div class="footer-links">
+          <a href="/service-areas/ann-arbor/">Ann Arbor</a>
+          <a href="/service-areas/ypsilanti/">Ypsilanti</a>
+          <a href="/service-areas/plymouth/">Plymouth</a>
+          <a href="/service-areas/canton/">Canton</a>
+          <a href="/service-areas/saline/">Saline</a>
+          <a href="/service-areas/">View all areas</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <div class="footer-contact">
+          <a href="tel:17344743336"><Icons name="phone" size={16} /> (734) 474-3336</a>
+          <a href="mailto:foundationstreeexperts@gmail.com"><Icons name="mail" size={16} /> foundationstreeexperts@gmail.com</a>
+          <div style="color:color-mix(in oklch, var(--cream-50) 70%, transparent);margin-top:0.5rem;">
+            <Icons name="pin" size={16} /> Ann Arbor, MI
+          </div>
+          <div style="color:color-mix(in oklch, var(--cream-50) 60%, transparent);font-size:11px;margin-top:0.5rem;letter-spacing:0.08em;">
+            MON–FRI 7AM–5PM · 24/7 EMERGENCY
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Foundations Tree Experts · Licensed & Insured</div>
+      <div>foundationstreeexperts.com · Ann Arbor, MI</div>
+    </div>
+  </div>
+</footer>

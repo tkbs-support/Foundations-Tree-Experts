@@ -1,0 +1,6 @@
+[
+  { "n": "01", "t": "Free on-site quote", "d": "We walk the property, inspect the trees, and give you a firm written quote — usually within 48 hours.", "time": "Day 1 · 30–45 min" },
+  { "n": "02", "t": "Scheduled", "d": "We book a weather-appropriate window that works for you.", "time": "Day 2–7" },
+  { "n": "03", "t": "Crew day", "d": "We run the job and give an overview before first cut.", "time": "Job day · 2–8 hrs" },
+  { "n": "04", "t": "Walk-through", "d": "Debris hauled, chips spread or removed, and a final walk-through.", "time": "Before we leave" }
+]

@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+# AI Search Crawlers — explicitly allowed for AEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://foundationstreeexperts.com/sitemap-index.xml

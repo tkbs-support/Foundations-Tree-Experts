@@ -1,0 +1,61 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import StormBanner from '../components/StormBanner.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import StickyCallButton from '../components/StickyCallButton.astro';
+import QuoteWizard from '../components/react/QuoteWizard.jsx';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
+  footerCtaHeadline?: string;
+}
+
+const { footerCtaHeadline, ...rest } = Astro.props;
+---
+
+<BaseLayout {...rest}>
+  <slot name="schema" slot="schema" />
+  <StormBanner />
+  <Nav />
+  <main>
+    <slot />
+  </main>
+  <Footer ctaHeadline={footerCtaHeadline} />
+  <StickyCallButton />
+  <QuoteWizard client:idle />
+</BaseLayout>
+
+<script>
+  // Wire up all data-open-wizard buttons to the React QuoteWizard
+  // The QuoteWizard listens for a custom event to open
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-open-wizard]');
+    if (btn) {
+      e.preventDefault();
+      window.dispatchEvent(new CustomEvent('open-quote-wizard'));
+      if (typeof fbq === 'function') fbq('track', 'Schedule', { content_name: 'Quote Wizard Opened' });
+    }
+  });
+</script>
+
+<script>
+  // Reveal animation observer (preserving threshold: 0.12 from original)
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+  }
+</script>

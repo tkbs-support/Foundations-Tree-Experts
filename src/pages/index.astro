@@ -1,0 +1,365 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Icons from '../components/Icons.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ShowcaseCarousel from '../components/ShowcaseCarousel.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import ZipChecker from '../components/react/ZipChecker.jsx';
+
+import services from '../data/services.json';
+import trustItems from '../data/trust.json';
+import steps from '../data/steps.json';
+import faqs from '../data/faqs.json';
+
+const homeFaqs = faqs.slice(0, 5);
+---
+
+<PageLayout
+  title="Foundations Tree Experts — Tree Removal & Care · Ann Arbor, MI"
+  description="Insured tree removal, trimming, stump grinding & 24/7 emergency storm response for Ann Arbor, Ypsilanti, and Southeast Michigan. 26+ years of service. Free quotes."
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": homeFaqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Tree Care Services",
+      "itemListElement": services.map((s, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": {
+          "@type": "Service",
+          "name": s.title,
+          "description": s.desc,
+          "provider": { "@type": "LocalBusiness", "@id": "https://foundationstreeexperts.com/#business" },
+          "serviceType": s.title
+        }
+      }))
+    })} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="hero hero-cinematic noise">
+    <div class="hero-media" style="position:absolute;inset:0;">
+      <video class="hero-vid-desktop" autoplay muted loop playsinline preload="metadata" fetchpriority="high" poster="/images/hero-poster.jpg">
+        <source src="/images/hero-bg-compressed.mp4" type="video/mp4" />
+        <img src="/images/crew-working.jpg" alt="Foundations Tree Experts crew clearing branches at a residential job site" />
+      </video>
+      <video class="hero-vid-mobile" autoplay muted loop playsinline preload="metadata" fetchpriority="high" poster="/images/hero-poster-mobile.jpg">
+        <source src="/images/hero-bg-mobile.mp4" type="video/mp4" />
+      </video>
+      <span class="hero-footage-tag">● Real footage</span>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Southeast Michigan · 26+ years</div>
+      <h1 class="display-xl" style="margin-top:1.25rem;">
+        <span class="sr-only">Tree Removal & Care in Ann Arbor, MI — </span>
+        Safer yards.<br />Cleaner cuts.<br />
+        <em style="font-style:italic;color:var(--forest-300);font-weight:400;">Zero&nbsp;surprises.</em>
+      </h1>
+      <p class="lead" style="margin-top:1.5rem;">
+        Insured tree removal and property care for homeowners across Ann Arbor and Southeast Michigan — from planned pruning to 4 a.m. storm calls.
+      </p>
+      <div class="hero-cta-row">
+        <button class="btn btn-primary" data-open-wizard>
+          Get my free quote <Icons name="arrow" />
+        </button>
+        <a class="btn btn-ghost" href="tel:17344743336">
+          <Icons name="phone" /> (734) 474-3336
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="num">26+</span>
+          <span class="label">YEARS OF SERVICE</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="num">ISA</span>
+          <span class="label">Certified arborist on staff</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="num">24/7</span>
+          <span class="label">Emergency line</span>
+        </div>
+        <div class="hero-meta-item" style="text-align:left;">
+          <span class="num">MI</span>
+          <span class="label">WASHTENAW & SURROUNDING COUNTIES</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-head">
+          <div class="head-copy">
+            <div class="eyebrow">What we do</div>
+            <h2 class="display-lg" style="margin-top:1rem;">Six services. One crew. Done right.</h2>
+            <p class="lead" style="margin-top:1rem;">Every job — from a single leaning maple to a full lot clear — is backed by full liability coverage.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal svc-grid">
+        {services.map((s, i) => (
+          <ServiceCard
+            title={s.title}
+            desc={s.desc}
+            tag={s.tag}
+            slug={s.slug}
+            featured={i === 0}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section id="trust" class="section trust noise">
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="reveal">
+        <div class="eyebrow">Why Foundations</div>
+        <h2 class="display-lg" style="margin-top:1rem;">
+          The difference between a guy and <em style="font-style:italic;color:var(--forest-700);font-weight:400;">a crew.</em>
+        </h2>
+      </div>
+      <div class="reveal trust-grid">
+        {trustItems.map(t => (
+          <div class="trust-card">
+            <div class="tc-icon"><Icons name={t.icon} /></div>
+            <h3>{t.title}</h3>
+            <p>{t.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="reveal trust-stat-row">
+        <div class="trust-stat">
+          <span class="n">26+</span>
+          <span class="l">years of service</span>
+        </div>
+        <div class="trust-stat">
+          <span class="n">5.0</span>
+          <span class="l">Google rating</span>
+        </div>
+        <div class="trust-stat">
+          <span class="n">24/7</span>
+          <span class="l">emergency line</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="section process-section noise">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-head">
+          <div class="head-copy">
+            <div class="eyebrow">How it works</div>
+            <h2 class="display-lg" style="margin-top:1rem;">Quotes in 48 hours.<br />No mess when we leave.</h2>
+            <p class="lead" style="margin-top:1rem;">We run tree work like a proper trade — not a side hustle. Here's what every job looks like, from first call to final walk-through.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal process-grid">
+        {steps.map(s => (
+          <div class="step">
+            <div class="step-num">Step {s.n}</div>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+            <div class="step-time">{s.time}</div>
+          </div>
+        ))}
+      </div>
+      <div class="reveal" style="display:flex;align-items:center;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;">
+        <button class="btn btn-primary" data-open-wizard>
+          Get my free quote <Icons name="arrow" />
+        </button>
+        <a class="btn btn-ghost" href="tel:17344743336">
+          <Icons name="phone" size={16} /> (734) 474-3336
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area / Zip Checker -->
+  <section id="area" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-head">
+          <div class="head-copy">
+            <div class="eyebrow">Service area</div>
+            <h2 class="display-lg" style="margin-top:1rem;">Do we come to you?<br />Punch in your zip.</h2>
+            <p class="lead" style="margin-top:1rem;">We cover 20+ cities across Washtenaw, Wayne, Oakland & surrounding counties. Type your zip below to check coverage.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <ZipChecker client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase -->
+  <section id="work" class="section" style="background:var(--bg-2);">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-head">
+          <div class="head-copy">
+            <div class="eyebrow">Our work</div>
+            <h2 class="display-lg" style="margin-top:1rem;">See the crew in action.</h2>
+            <p class="lead" style="margin-top:1rem;">Real jobs across Washtenaw & surrounding counties.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <ShowcaseCarousel />
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="reviews" class="section tmony">
+    <div class="container" id="testimonials-container">
+      <div class="reveal">
+        <div class="section-head">
+          <div class="head-copy">
+            <div class="eyebrow">What neighbors say</div>
+            <h2 class="display-lg" style="margin-top:1rem;">The trust we've earned, one tree at a time.</h2>
+          </div>
+          <a
+            href="https://www.google.com/search?q=foundations+tree+experts#lrd=0x883caf35d7680699:0x29679feb5671996f,1,,,,"
+            target="_blank"
+            rel="noopener"
+            style="display:flex;align-items:center;gap:1rem;text-decoration:none;"
+          >
+            <div class="tmony-stars">
+              {Array.from({ length: 5 }).map(() => <Icons name="star" size={14} />)}
+            </div>
+            <div style="font-family:var(--ff-mono);font-size:12px;color:color-mix(in oklch, var(--cream-50) 60%, transparent);letter-spacing:0.06em;">
+              5.0 / 5 · 90+ REVIEWS · GOOGLE
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="reveal tmony-grid" id="tmony-grid"></div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Meet David</div>
+        <h2 class="display-lg" style="margin-top:1rem;">Built on one simple promise.</h2>
+      </div>
+      <div class="founder-grid">
+        <div class="reveal founder-media">
+          <img src="/images/david-portrait.webp" width="800" height="800" alt="David Paga, founder of Foundations Tree Experts, up in a tree on a job site" loading="lazy" />
+          <div class="founder-sig">
+            <div class="sig-name">David Paga</div>
+            <div class="sig-role">Founder</div>
+          </div>
+        </div>
+        <div class="reveal founder-body">
+          <p>With more than 26 years of experience, David Paga and the Foundations crew bring one mission and one standard to every job — no matter the size.</p>
+          <blockquote>"Treat every property like it's our own, and every client like a neighbor."</blockquote>
+          <p>Alongside his wife Julia and their seven kids, David built this company on the same values he brings home every night — hard work, honesty, and taking care of the people around you. That's why Foundations treats every yard with the same care they'd give their own.</p>
+          <p>David's love for the industry goes beyond just removing trees — it's about protecting homes, helping families feel safe, and taking pride in difficult work that requires skill, experience, and precision. From hazardous removals to careful pruning and storm cleanup, he genuinely enjoys the challenge and craftsmanship that comes with professional tree care. It means pulling up on time, walking the property before we quote, and calling out problems even when they're outside our scope. It means having a certified arborist on staff — and leaving every job cleaner and straighter than we found it.</p>
+          <div style="display:flex;gap:0.5rem;margin-top:1.5rem;flex-wrap:wrap;">
+            {['Licensed & Insured', '24/7 Emergency', 'Certified Arborist on Staff'].map(b => (
+              <span style="font-family:var(--ff-mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.7rem;border:1px solid var(--rule-2);border-radius:999px;color:var(--fg-2);">{b}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section" style="background:var(--bg-2);padding-bottom:3.5rem;">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="reveal">
+          <div class="eyebrow">Questions</div>
+          <h2 class="display-md" style="margin-top:1rem;">The straight answers.</h2>
+          <p class="lead" style="margin-top:1rem;">
+            Can't find what you need? Call us directly at{' '}
+            <a class="hover-underline" style="color:var(--forest-700);font-weight:600;" href="tel:17344743336">(734) 474-3336</a>.
+          </p>
+        </div>
+        <div class="reveal">
+          <FAQAccordion faqs={homeFaqs} />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  // Service card hover: toggle featured class like original React behavior
+  const svcCards = document.querySelectorAll('.svc-grid .svc-card');
+  svcCards.forEach((card, i) => {
+    card.addEventListener('mouseenter', () => {
+      svcCards.forEach(c => c.classList.remove('featured'));
+      card.classList.add('featured');
+    });
+    card.addEventListener('mouseleave', () => {
+      svcCards.forEach(c => c.classList.remove('featured'));
+      svcCards[0]?.classList.add('featured');
+    });
+  });
+
+  // Hide testimonials section shell if no reviews load
+  const tmonySection = document.getElementById('reviews');
+</script>
+
+<script>
+  // Load testimonials at runtime from JSON (matches original behavior)
+  fetch('/testimonials.json?' + Date.now())
+    .then(r => r.ok ? r.json() : [])
+    .then(data => {
+      const filled = data.filter(r => r.quote && !r.quote.startsWith('PASTE'));
+      const grid = document.getElementById('tmony-grid');
+      if (!grid || filled.length === 0) return;
+      grid.innerHTML = filled.map(t => `
+        <div class="tmony-card">
+          <div class="tmony-stars">${Array.from({ length: t.stars || 5 }, () => '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.5 7 1-5 4.9 1.2 7L12 18l-6.2 3.4L7 14.4 2 9.5l7-1z"/></svg>').join('')}</div>
+          <p class="tmony-quote">${t.quote}</p>
+          <div class="tmony-who">
+            <div class="avatar">${(t.name || '?')[0]}</div>
+            <div>
+              <div class="name">${t.name}</div>
+              ${t.location ? `<div class="loc">${t.location}</div>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    })
+    .catch(() => {});
+</script>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

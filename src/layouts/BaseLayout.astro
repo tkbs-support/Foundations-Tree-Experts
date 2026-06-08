@@ -1,0 +1,238 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = 'https://foundationstreeexperts.com/images/crew-team.webp',
+  ogImageAlt = 'Foundations Tree Experts crew working on a residential tree job in Ann Arbor, MI',
+  noindex = false,
+} = Astro.props;
+
+const siteName = 'Foundations Tree Experts';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={ogImageAlt} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Geo -->
+  <meta name="geo.region" content="US-MI" />
+  <meta name="geo.placename" content="Ann Arbor" />
+  <meta name="geo.position" content="42.2808;-83.7430" />
+  <meta name="ICBM" content="42.2808, -83.7430" />
+
+  <!-- Structured Data: LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://foundationstreeexperts.com/#business",
+    "name": "Foundations Tree Experts",
+    "url": "https://foundationstreeexperts.com/",
+    "telephone": "+1-734-474-3336",
+    "email": "foundationstreeexperts@gmail.com",
+    "description": "Insured tree removal, trimming, stump grinding & 24/7 emergency storm response for Ann Arbor, Ypsilanti, and Southeast Michigan. 26+ years of service.",
+    "founder": {
+      "@type": "Person",
+      "name": "David Paga",
+      "jobTitle": "Founder"
+    },
+    "employee": {
+      "@type": "Person",
+      "name": "Evan Little",
+      "jobTitle": "Certified Arborist",
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "ISA Certified Arborist",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "International Society of Arboriculture"
+        },
+        "identifier": "MI-4446A"
+      }
+    },
+    "image": "https://foundationstreeexperts.com/images/crew-team.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ann Arbor",
+      "addressRegion": "MI",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.2808,
+      "longitude": -83.7430
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Ann Arbor", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Ypsilanti", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Saline", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Dexter", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Whitmore Lake", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Milan", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Plymouth", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Northville", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "South Lyon", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Belleville", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Brighton", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Dearborn Heights", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Allen Park", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Novi", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Wixom", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Milford", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Walled Lake", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Commerce Township", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Romulus", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Taylor", "containedInPlace": {"@type": "State", "name": "Michigan"}},
+      {"@type": "City", "name": "Canton", "containedInPlace": {"@type": "State", "name": "Michigan"}}
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "17:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "75",
+      "bestRating": "5"
+    },
+    "priceRange": "$$"
+  })} />
+
+  <!-- WebSite Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://foundationstreeexperts.com/#website",
+    "name": "Foundations Tree Experts",
+    "url": "https://foundationstreeexperts.com/",
+    "publisher": { "@id": "https://foundationstreeexperts.com/#business" }
+  })} />
+
+  <!-- Additional structured data injected by pages -->
+  <slot name="schema" />
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWN4XH0FN" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XQWN4XH0FN');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script is:inline>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('set', 'autoConfig', false, '1673544533983863');
+    fbq('init', '1673544533983863');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1673544533983863&ev=PageView&noscript=1" /></noscript>
+
+  <!-- Global event tracking (GA4 + Meta Pixel) -->
+  <script is:inline>
+    document.addEventListener('click', function(e) {
+      // Phone click
+      var telLink = e.target.closest('a[href^="tel:"]');
+      if (telLink) {
+        if (typeof gtag === 'function') gtag('event', 'phone_click', { event_category: 'contact', link_url: telLink.href });
+        if (typeof fbq === 'function') fbq('track', 'Contact', { content_name: 'Phone Click' });
+      }
+
+      // CTA button click (any quote/estimate button)
+      var ctaBtn = e.target.closest('[data-open-wizard]');
+      if (ctaBtn) {
+        if (typeof gtag === 'function') gtag('event', 'cta_click', { event_category: 'engagement', cta_text: ctaBtn.textContent.trim() });
+      }
+
+      // Google review link click
+      var reviewLink = e.target.closest('a[href*="google.com/search"]');
+      if (reviewLink) {
+        if (typeof gtag === 'function') gtag('event', 'review_link_click', { event_category: 'engagement' });
+      }
+    });
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/images/favicon-180.png" />
+
+  <!-- Fonts: async load pattern (non-render-blocking) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- Hero poster preload -->
+  <link rel="preload" href="/images/hero-poster-mobile.jpg" as="image" media="(max-width: 700px)" fetchpriority="high" />
+  <link rel="preload" href="/images/hero-poster.jpg" as="image" media="(min-width: 701px)" fetchpriority="high" />
+
+  <!-- Hidden Netlify form declaration (must be in built HTML for bot detection) -->
+  <slot name="head" />
+</head>
+<body>
+  <!-- Netlify Forms hidden declaration -->
+  <form name="quote-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="bot-field" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="zip" />
+    <input type="text" name="address" />
+    <input type="text" name="service" />
+    <input type="text" name="size" />
+    <input type="text" name="count" />
+    <input type="text" name="urgency" />
+    <textarea name="notes"></textarea>
+    <input type="text" name="request-id" />
+  </form>
+
+  <slot />
+</body>
+</html>
