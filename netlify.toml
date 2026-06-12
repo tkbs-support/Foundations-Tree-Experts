@@ -35,12 +35,37 @@
   [headers.values]
     Cache-Control = "no-cache"
 
+# ============================================================
+# Old-site 301 redirects — PHASE-AWARE
+# Live targets point to their real pages. Targets whose pages
+# are not deployed yet route to "/" until they go live.
+# TO RESTORE a deferred redirect once its page deploys: replace
+# `to = "/"` with the path shown in the comment above the block.
+# Current live set: homepage, /services + 6 service pages.
+# ============================================================
+
 [[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
 
-# Phase 1 redirects — service pages only
+# ---- Live now: real targets ----
+
+[[redirects]]
+  from = "/home-816216"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/terms-of-use"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy-657641"
+  to = "/"
+  status = 301
+
 [[redirects]]
   from = "/tree-removal"
   to = "/services/tree-removal"
@@ -49,4 +74,102 @@
 [[redirects]]
   from = "/tree-care"
   to = "/services/trimming-pruning"
+  status = 301
+
+# ---- Deferred: page not deployed yet -> homepage for now ----
+
+# restore -> /about
+[[redirects]]
+  from = "/about-us"
+  to = "/"
+  status = 301
+
+# restore -> /contact
+[[redirects]]
+  from = "/book"
+  to = "/"
+  status = 301
+
+# restore -> /contact
+[[redirects]]
+  from = "/thankyou"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/ann-arbor
+[[redirects]]
+  from = "/tree-removal-ann-arbor"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/ypsilanti
+[[redirects]]
+  from = "/tree-removal-ypsilanti"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/milan
+[[redirects]]
+  from = "/tree-removal-milan"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/dexter
+[[redirects]]
+  from = "/tree-removal-dexter"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/saline
+[[redirects]]
+  from = "/tree-removal-saline"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/south-lyon  (source kept as-is per old URL)
+[[redirects]]
+  from = "/tree-removal-south-lyonv"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/northville
+[[redirects]]
+  from = "/tree-removal-northville"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/whitmore-lake
+[[redirects]]
+  from = "/tree-removal-whitmore-lake"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/brighton
+[[redirects]]
+  from = "/tree-removal-brighton"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/plymouth
+[[redirects]]
+  from = "/tree-removal-plymouth"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/belleville  (Allen Park has no own page; nearest area)
+[[redirects]]
+  from = "/tree-removal-allen-park"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/belleville
+[[redirects]]
+  from = "/tree-removal-belleville"
+  to = "/"
+  status = 301
+
+# restore -> /service-areas/western-wayne-county  (Dearborn Heights has no own page; covering area)
+[[redirects]]
+  from = "/tree-removal-dearborn-heights"
+  to = "/"
   status = 301
