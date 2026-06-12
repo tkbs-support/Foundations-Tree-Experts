@@ -68,12 +68,12 @@
 
 [[redirects]]
   from = "/tree-removal"
-  to = "/services/tree-removal"
+  to = "/services/tree-removal/"
   status = 301
 
 [[redirects]]
   from = "/tree-care"
-  to = "/services/trimming-pruning"
+  to = "/services/trimming-pruning/"
   status = 301
 
 # ---- Deferred: page not deployed yet -> homepage for now ----
