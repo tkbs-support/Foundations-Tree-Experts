@@ -2,6 +2,9 @@
 name: "Plymouth"
 county: "Wayne"
 description: "Tree removal, trimming, and emergency storm response in Plymouth, MI. Serving Plymouth's historic neighborhoods and mature canopy. ISA Certified Arborist on staff."
+cityImage: "/images/cities/plymouth.webp"
+cityImageAlt: "Downtown Plymouth, Michigan"
+cityImageAttribution: "Photo by Dave Parker, CC BY 3.0, via Wikimedia Commons"
 zipCodes: ["48170"]
 nearbyAreas: ["canton"]
 faqs:

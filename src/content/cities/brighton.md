@@ -2,6 +2,9 @@
 name: "Brighton"
 county: "Livingston"
 description: "Tree removal, trimming, stump grinding, and lot clearing in Brighton, MI. Serving Brighton's lakefront properties and wooded subdivisions. Free estimates."
+cityImage: "/images/cities/brighton.webp"
+cityImageAlt: "Downtown Brighton, Michigan on Main Street"
+cityImageAttribution: "Photo by Dwight Burdette, CC BY 3.0, via Wikimedia Commons"
 zipCodes: ["48114", "48116"]
 nearbyAreas: ["south-lyon", "whitmore-lake"]
 faqs:

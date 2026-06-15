@@ -2,6 +2,9 @@
 name: "Western Wayne County"
 county: "Wayne"
 description: "Tree removal, trimming, and emergency service in Romulus, Taylor, Dearborn Heights, and Allen Park, MI. Serving western Wayne County communities."
+cityImage: "/images/cities/western-wayne-county.webp"
+cityImageAlt: "Dearborn Heights, Michigan"
+cityImageAttribution: "Photo by Dwight Burdette, CC BY 3.0, via Wikimedia Commons"
 zipCodes: ["48174", "48180", "48125", "48127", "48101"]
 nearbyAreas: ["canton", "belleville"]
 faqs:

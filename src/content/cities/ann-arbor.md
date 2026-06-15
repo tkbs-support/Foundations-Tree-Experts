@@ -2,6 +2,9 @@
 name: "Ann Arbor"
 county: "Washtenaw"
 description: "Professional tree removal, trimming, and emergency storm response in Ann Arbor, MI. 26+ years of experience serving Tree Town's mature urban canopy. ISA Certified Arborist on staff."
+cityImage: "/images/cities/ann-arbor.webp"
+cityImageAlt: "Ann Arbor, Michigan skyline"
+cityImageAttribution: "Photo by Dwight Burdette, CC BY 3.0, via Wikimedia Commons"
 zipCodes: ["48103", "48104", "48105", "48108", "48109"]
 nearbyAreas: ["ypsilanti", "saline"]
 faqs:

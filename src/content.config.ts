@@ -31,6 +31,10 @@ const cities = defineCollection({
     county: z.string(),
     description: z.string(),
     zipCodes: z.array(z.string()),
+    draft: z.boolean().optional(),
+    cityImage: z.string().optional(),
+    cityImageAlt: z.string().optional(),
+    cityImageAttribution: z.string().optional(),
     nearbyAreas: z.array(z.string()).optional(),
     faqs: z.array(z.object({
       q: z.string(),

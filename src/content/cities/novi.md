@@ -2,6 +2,9 @@
 name: "Novi"
 county: "Oakland"
 description: "Tree removal, trimming, stump grinding, and woodland management in Novi, MI. Navigating Novi's woodland protection ordinance. ISA Certified Arborist on staff."
+cityImage: "/images/cities/novi.webp"
+cityImageAlt: "Aerial view of Novi, Michigan"
+cityImageAttribution: "Photo by Ken Lund, CC BY-SA 2.0, via Wikimedia Commons"
 zipCodes: ["48374", "48375", "48377"]
 nearbyAreas: ["northville", "south-lyon"]
 faqs:

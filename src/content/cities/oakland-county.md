@@ -2,6 +2,9 @@
 name: "Oakland County"
 county: "Oakland"
 description: "Tree removal, trimming, and emergency service in Wixom, Milford, Walled Lake, and Commerce Township, MI. Serving Oakland County communities."
+cityImage: "/images/cities/oakland-county.webp"
+cityImageAlt: "Aerial view of Commerce Township, Oakland County, Michigan"
+cityImageAttribution: "Photo by Ken Lund, CC BY-SA 2.0, via Wikimedia Commons"
 zipCodes: ["48393", "48380", "48381", "48390", "48382"]
 nearbyAreas: ["novi", "south-lyon"]
 faqs:

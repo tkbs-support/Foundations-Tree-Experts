@@ -2,6 +2,9 @@
 name: "South Lyon"
 county: "Oakland"
 description: "Tree removal, trimming, stump grinding, and emergency service in South Lyon, MI. Serving South Lyon's residential neighborhoods and rural properties. Free estimates."
+cityImage: "/images/cities/south-lyon.webp"
+cityImageAlt: "Downtown South Lyon, Michigan along Pontiac Trail"
+cityImageAttribution: "Photo by Dwight Burdette, CC BY 3.0, via Wikimedia Commons"
 zipCodes: ["48178"]
 nearbyAreas: ["novi", "brighton", "whitmore-lake"]
 faqs:

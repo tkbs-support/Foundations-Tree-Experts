@@ -8,7 +8,7 @@ import FAQAccordion from '../../components/FAQAccordion.astro';
 import services from '../../data/services.json';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('cities');
+  const entries = (await getCollection('cities'))//.filter(e => !e.data.draft);
   return entries.map(entry => ({
     params: { slug: entry.id },
     props: { entry },
@@ -17,9 +17,9 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { name, county, description, zipCodes, nearbyAreas, faqs } = entry.data;
+const { name, county, description, zipCodes, nearbyAreas, faqs, cityImage, cityImageAlt, cityImageAttribution } = entry.data;
 
-const allCities = await getCollection('cities');
+const allCities = (await getCollection('cities')).filter(c => !c.data.draft);
 const nearby = nearbyAreas
   ? allCities.filter(c => nearbyAreas.includes(c.id))
   : [];
@@ -89,6 +89,24 @@ const nearby = nearbyAreas
   </section>
 
   <TrustStrip />
+
+  {cityImage && (
+    <section class="city-image-section">
+      <div class="container">
+        <img
+          src={cityImage}
+          alt={cityImageAlt || `${name}, Michigan`}
+          class="city-image"
+          loading="eager"
+          width="1200"
+          height="800"
+        />
+        {cityImageAttribution && (
+          <p class="city-image-attribution">{cityImageAttribution}</p>
+        )}
+      </div>
+    </section>
+  )}
 
   <!-- City Content -->
   <section class="section">
@@ -165,6 +183,25 @@ const nearby = nearbyAreas
     color: color-mix(in oklch, var(--cream-50) 80%, transparent);
   }
   .city-hero-content { margin-top: 2rem; }
+
+  .city-image-section {
+    padding: 2.5rem 0 0;
+  }
+  .city-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.1));
+  }
+  .city-image-attribution {
+    font-size: 0.7rem;
+    color: var(--fg-3);
+    margin-top: 0.5rem;
+    text-align: right;
+  }
+
   .city-zip-badge {
     font-family: var(--ff-mono);
     font-size: 0.75rem;

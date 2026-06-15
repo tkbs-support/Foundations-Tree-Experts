@@ -2,6 +2,9 @@
 name: "Northville"
 county: "Wayne"
 description: "Tree removal, trimming, and emergency storm response in Northville, MI. Serving Northville's historic tree-lined neighborhoods. ISA Certified Arborist on staff."
+cityImage: "/images/cities/northville.webp"
+cityImageAlt: "Downtown Northville Historic District, Michigan"
+cityImageAttribution: "Photo by Dave Parker, CC BY 3.0, via Wikimedia Commons"
 zipCodes: ["48167", "48168"]
 nearbyAreas: ["plymouth", "novi"]
 faqs:
