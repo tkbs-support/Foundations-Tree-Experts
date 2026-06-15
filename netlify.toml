@@ -96,34 +96,34 @@
   to = "/"
   status = 301
 
-# restore -> /service-areas/ann-arbor
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-ann-arbor"
-  to = "/"
+  to = "/service-areas/ann-arbor/"
   status = 301
 
-# restore -> /service-areas/ypsilanti
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-ypsilanti"
-  to = "/"
+  to = "/service-areas/ypsilanti/"
   status = 301
 
-# restore -> /service-areas/milan
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-milan"
-  to = "/"
+  to = "/service-areas/milan/"
   status = 301
 
-# restore -> /service-areas/dexter
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-dexter"
-  to = "/"
+  to = "/service-areas/dexter/"
   status = 301
 
-# restore -> /service-areas/saline
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-saline"
-  to = "/"
+  to = "/service-areas/saline/"
   status = 301
 
 # restore -> /service-areas/south-lyon  (source kept as-is per old URL)
@@ -138,10 +138,10 @@
   to = "/"
   status = 301
 
-# restore -> /service-areas/whitmore-lake
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-whitmore-lake"
-  to = "/"
+  to = "/service-areas/whitmore-lake/"
   status = 301
 
 # restore -> /service-areas/brighton
@@ -156,16 +156,16 @@
   to = "/"
   status = 301
 
-# restore -> /service-areas/belleville  (Allen Park has no own page; nearest area)
+# live (phase 2) — Allen Park has no own page; nearest area
 [[redirects]]
   from = "/tree-removal-allen-park"
-  to = "/"
+  to = "/service-areas/belleville/"
   status = 301
 
-# restore -> /service-areas/belleville
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-belleville"
-  to = "/"
+  to = "/service-areas/belleville/"
   status = 301
 
 # restore -> /service-areas/western-wayne-county  (Dearborn Heights has no own page; covering area)
