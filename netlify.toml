@@ -39,3 +39,109 @@
   from = "/index.html"
   to = "/"
   status = 301
+
+# Old site redirects
+[[redirects]]
+  from = "/home-816216"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/terms-of-use"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy-657641"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about-us"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/book"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/thankyou"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal"
+  to = "/services/tree-removal"
+  status = 301
+
+[[redirects]]
+  from = "/tree-care"
+  to = "/services/trimming-pruning"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-ann-arbor"
+  to = "/service-areas/ann-arbor"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-ypsilanti"
+  to = "/service-areas/ypsilanti"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-milan"
+  to = "/service-areas/milan"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-dexter"
+  to = "/service-areas/dexter"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-saline"
+  to = "/service-areas/saline"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-south-lyonv"
+  to = "/service-areas/south-lyon"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-northville"
+  to = "/service-areas/northville"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-whitmore-lake"
+  to = "/service-areas/whitmore-lake"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-brighton"
+  to = "/service-areas/brighton"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-plymouth"
+  to = "/service-areas/plymouth"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-allen-park"
+  to = "/service-areas/belleville"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-belleville"
+  to = "/service-areas/belleville"
+  status = 301
+
+[[redirects]]
+  from = "/tree-removal-dearborn-heights"
+  to = "/service-areas/western-wayne-county"
+  status = 301
