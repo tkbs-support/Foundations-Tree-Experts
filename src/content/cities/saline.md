@@ -2,6 +2,9 @@
 name: "Saline"
 county: "Washtenaw"
 description: "Tree removal, trimming, stump grinding, and lot clearing in Saline, MI. Serving Saline's residential neighborhoods and rural-suburban properties. Free estimates."
+cityImage: "/images/cities/saline.webp"
+cityImageAlt: "Downtown Saline, Michigan"
+cityImageAttribution: "Photo by Dwight Burdette, CC BY 3.0, via Wikimedia Commons"
 zipCodes: ["48176"]
 nearbyAreas: ["ann-arbor", "ypsilanti"]
 faqs:

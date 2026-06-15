@@ -6,7 +6,7 @@ import Icons from '../../components/Icons.astro';
 import TrustStrip from '../../components/TrustStrip.astro';
 import ZipChecker from '../../components/react/ZipChecker.jsx';
 
-const cities = await getCollection('cities');
+const cities = await getCollection('cities');//.filter(c => !c.data.draft);
 const byCounty: Record<string, typeof cities> = {};
 for (const city of cities) {
   const county = city.data.county;
@@ -47,10 +47,10 @@ for (const city of cities) {
       <div class="eyebrow">Where we work</div>
       <h1 class="display-lg" style="margin-top:1rem;">
         <span class="sr-only">Tree Service Areas in Southeast Michigan — </span>
-        20+ cities. Three counties.<br />One crew you can trust.
+        Ann Arbor and beyond.<br />One crew you can trust.
       </h1>
       <p class="lead" style="margin-top:1rem;max-width:680px;">
-        We cover Washtenaw, Wayne, and Oakland counties — from Ann Arbor to Canton to Novi. Check your zip below or find your city.
+        We serve Ann Arbor and the surrounding communities across Washtenaw and Wayne counties. Check your zip below or find your city.
       </p>
 
       <div style="margin-top:2.5rem;">

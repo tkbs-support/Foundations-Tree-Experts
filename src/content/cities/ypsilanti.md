@@ -2,6 +2,9 @@
 name: "Ypsilanti"
 county: "Washtenaw"
 description: "Tree removal, trimming, stump grinding, and 24/7 emergency service in Ypsilanti, MI. Serving Ypsi's historic neighborhoods and tree-lined streets. Free estimates."
+cityImage: "/images/cities/ypsilanti.webp"
+cityImageAlt: "Depot Town buildings on River Street, Ypsilanti, Michigan"
+cityImageAttribution: "Photo by Cmadler, CC BY-SA 3.0, via Wikimedia Commons"
 zipCodes: ["48197", "48198"]
 nearbyAreas: ["ann-arbor", "canton", "saline"]
 faqs:
