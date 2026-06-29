@@ -126,10 +126,10 @@
   to = "/service-areas/saline/"
   status = 301
 
-# restore -> /service-areas/south-lyon  (source kept as-is per old URL)
+# live (phase 2) — source kept as-is per old URL
 [[redirects]]
   from = "/tree-removal-south-lyonv"
-  to = "/"
+  to = "/service-areas/south-lyon/"
   status = 301
 
 # restore -> /service-areas/northville
@@ -144,16 +144,16 @@
   to = "/service-areas/whitmore-lake/"
   status = 301
 
-# restore -> /service-areas/brighton
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-brighton"
-  to = "/"
+  to = "/service-areas/brighton/"
   status = 301
 
-# restore -> /service-areas/plymouth
+# live (phase 2)
 [[redirects]]
   from = "/tree-removal-plymouth"
-  to = "/"
+  to = "/service-areas/plymouth/"
   status = 301
 
 # live (phase 2) — Allen Park has no own page; nearest area
