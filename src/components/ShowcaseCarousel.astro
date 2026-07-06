@@ -8,7 +8,7 @@ const items = [...showcase, ...showcase, ...showcase];
 <div class="showcase" style="margin-top:2.5rem;">
   <div class="showcase-track" data-carousel>
     {items.map((photo, i) => (
-      <div class="showcase-card">
+      <a href={photo.link} class="showcase-card" draggable="false">
         <img
           src={photo.src}
           alt={photo.label}
@@ -19,7 +19,7 @@ const items = [...showcase, ...showcase, ...showcase];
           style={`object-position: ${photo.pos || 'center'}`}
         />
         <div class="showcase-label">{photo.label}</div>
-      </div>
+      </a>
     ))}
   </div>
   <button class="showcase-nav-btn prev" aria-label="Previous">
@@ -42,16 +42,19 @@ const items = [...showcase, ...showcase, ...showcase];
     function update3D() {
       const trackRect = track.getBoundingClientRect();
       const center = trackRect.left + trackRect.width / 2;
+      const flatZone = 0.35;
       for (const card of track.children) {
         const cardRect = card.getBoundingClientRect();
         const cardCenter = cardRect.left + cardRect.width / 2;
         const offset = (cardCenter - center) / (trackRect.width / 2);
-        const clamp = Math.max(-1, Math.min(1, offset));
-        const rotateY = clamp * -35;
-        const scale = 1 - Math.abs(clamp) * 0.12;
-        const translateZ = -Math.abs(clamp) * 60;
+        const absOffset = Math.abs(offset);
+        const edge = Math.min(1, Math.max(0, (absOffset - flatZone) / (1 - flatZone)));
+        const sign = offset < 0 ? 1 : -1;
+        const rotateY = sign * edge * 45;
+        const scale = 1 - edge * 0.1;
+        const translateZ = -edge * 50;
         card.style.transform = `perspective(1200px) rotateY(${rotateY}deg) scale(${scale}) translateZ(${translateZ}px)`;
-        card.style.opacity = 1 - Math.abs(clamp) * 0.3;
+        card.style.opacity = 1 - edge * 0.25;
       }
     }
 
@@ -82,9 +85,10 @@ const items = [...showcase, ...showcase, ...showcase];
       }
     });
 
-    let isDown = false, startX = 0, scrollLeft = 0;
+    let isDown = false, startX = 0, scrollLeft = 0, wasDragged = false;
     track.addEventListener('mousedown', (e) => {
       isDown = true;
+      wasDragged = false;
       startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
       track.style.cursor = 'grabbing';
@@ -94,8 +98,12 @@ const items = [...showcase, ...showcase, ...showcase];
     track.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
+      wasDragged = true;
       const x = e.pageX - track.offsetLeft;
       track.scrollLeft = scrollLeft - (x - startX);
+    });
+    track.addEventListener('click', (e) => {
+      if (wasDragged) { e.preventDefault(); wasDragged = false; }
     });
 
     // Touch events

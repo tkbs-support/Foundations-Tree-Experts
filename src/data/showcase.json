@@ -1,9 +1,9 @@
 [
-  { "src": "/images/climber-action.webp", "label": "Skilled climbing" },
-  { "src": "/images/storm-damage-tree.webp", "label": "Storm response" },
-  { "src": "/images/climber-cutting.webp", "label": "Large tree removal", "pos": "bottom" },
-  { "src": "/images/excavator-clearing.webp", "label": "Lot clearing" },
-  { "src": "/images/crew-cleanup.webp", "label": "Cleanup & haul" },
-  { "src": "/images/loaded-truck.webp", "label": "Full-scale removal" },
-  { "src": "/images/equipment-skidsteer.webp", "label": "Right tool, every job" }
+  { "src": "/images/climber-action.webp", "label": "Skilled climbing", "link": "/services/trimming-pruning/" },
+  { "src": "/images/storm-damage-tree.webp", "label": "Storm response", "link": "/services/emergency-storm-response/" },
+  { "src": "/images/climber-cutting.webp", "label": "Large tree removal", "pos": "bottom", "link": "/services/tree-removal/" },
+  { "src": "/images/excavator-clearing.webp", "label": "Lot clearing", "link": "/services/lot-land-clearing/" },
+  { "src": "/images/crew-cleanup.webp", "label": "Cleanup & haul", "link": "/services/tree-removal/" },
+  { "src": "/images/loaded-truck.webp", "label": "Full-scale removal", "link": "/services/tree-removal/" },
+  { "src": "/images/equipment-skidsteer.webp", "label": "Right tool, every job", "link": "/services/lot-land-clearing/" }
 ]
