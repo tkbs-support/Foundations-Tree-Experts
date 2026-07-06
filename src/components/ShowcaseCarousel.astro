@@ -58,10 +58,16 @@ const items = [...showcase, ...showcase, ...showcase];
       }
     }
 
-    requestAnimationFrame(() => {
-      track.scrollLeft = totalOriginal * scrollAmount - scrollAmount * 0.2;
+    function setInitialScroll() {
+      const oneSetWidth = track.scrollWidth / 3;
+      track.scrollLeft = oneSetWidth - scrollAmount * 0.5;
       update3D();
-    });
+    }
+
+    setInitialScroll();
+    requestAnimationFrame(setInitialScroll);
+    setTimeout(setInitialScroll, 50);
+    window.addEventListener('load', setInitialScroll, { once: true });
 
     track.addEventListener('scroll', update3D, { passive: true });
 
