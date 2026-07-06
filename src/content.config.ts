@@ -24,4 +24,23 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { services };
+const cities = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/cities' }),
+  schema: z.object({
+    name: z.string(),
+    county: z.string(),
+    description: z.string(),
+    zipCodes: z.array(z.string()),
+    draft: z.boolean().optional(),
+    cityImage: z.string().optional(),
+    cityImageAlt: z.string().optional(),
+    cityImageAttribution: z.string().optional(),
+    nearbyAreas: z.array(z.string()).optional(),
+    faqs: z.array(z.object({
+      q: z.string(),
+      a: z.string(),
+    })).optional(),
+  }),
+});
+
+export const collections = { services, cities };

@@ -1,0 +1,68 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ShowcaseCarousel from '../components/ShowcaseCarousel.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import showcase from '../data/showcase.json';
+---
+
+<PageLayout
+  title="Our Work — Tree Removal & Care Gallery · Foundations Tree Experts"
+  description="See our tree removal, trimming, crane work, and storm cleanup in Ann Arbor and Southeast Michigan. Before and after photos from real jobs."
+  footerCtaHeadline="Like what you see?"
+>
+  <div class="container">
+    <Breadcrumbs items={[{ label: 'Our Work' }]} />
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Our work</div>
+      <h1 class="display-lg" style="margin-top:1rem;">See it for yourself.</h1>
+      <p class="lead" style="margin-top:1rem;max-width:600px;">
+        Every photo is from a real job in Southeast Michigan — no stock images, no borrowed portfolios.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <ShowcaseCarousel />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="display-md" style="margin-bottom:2rem;">From the field</h2>
+      <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;">
+        {showcase.map(photo => (
+          <div style="border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;">
+            <img
+              src={photo.src}
+              alt={photo.label}
+              loading="lazy"
+              width="760"
+              height="600"
+              style={`width:100%;height:100%;object-fit:cover;${photo.pos ? `object-position:${photo.pos}` : ''}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TrustStrip />
+</PageLayout>
+
+<style>
+  @media (max-width: 700px) {
+    div[style*="grid-template-columns: repeat(3"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+  @media (max-width: 480px) {
+    div[style*="grid-template-columns: repeat(3"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

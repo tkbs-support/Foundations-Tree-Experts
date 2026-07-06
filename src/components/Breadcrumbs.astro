@@ -6,9 +6,10 @@ interface Crumb {
 
 interface Props {
   items: Crumb[];
+  dark?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, dark = false } = Astro.props;
 const fullItems = [{ label: 'Home', href: '/' }, ...items];
 
 const schemaItems = fullItems.map((item, i) => ({
@@ -19,7 +20,7 @@ const schemaItems = fullItems.map((item, i) => ({
 }));
 ---
 
-<nav class="breadcrumbs" aria-label="Breadcrumb">
+<nav class:list={['breadcrumbs', { 'breadcrumbs-dark': dark }]} aria-label="Breadcrumb">
   <ol>
     {fullItems.map((item, i) => (
       <li>
@@ -63,4 +64,13 @@ const schemaItems = fullItems.map((item, i) => ({
   }
   .breadcrumbs a:hover { text-decoration: underline; }
   .breadcrumbs span[aria-current] { color: var(--fg); font-weight: 500; }
+
+  .breadcrumbs-dark,
+  .breadcrumbs-dark a,
+  .breadcrumbs-dark li::after {
+    color: color-mix(in oklch, var(--cream-50) 55%, transparent);
+  }
+  .breadcrumbs-dark span[aria-current] {
+    color: color-mix(in oklch, var(--cream-50) 85%, transparent);
+  }
 </style>

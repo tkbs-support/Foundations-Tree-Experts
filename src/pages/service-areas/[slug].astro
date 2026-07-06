@@ -1,0 +1,294 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icons from '../../components/Icons.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import services from '../../data/services.json';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('cities')).filter(e => !e.data.draft);
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { name, county, description, zipCodes, nearbyAreas, faqs, cityImage, cityImageAlt, cityImageAttribution } = entry.data;
+
+const allCities = (await getCollection('cities')).filter(c => !c.data.draft);
+const nearby = nearbyAreas
+  ? allCities.filter(c => nearbyAreas.includes(c.id))
+  : [];
+---
+
+<PageLayout
+  title={`Tree Service in ${name}, MI — Foundations Tree Experts`}
+  description={description}
+  footerCtaHeadline={`Need tree service in ${name}?`}
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `Tree Service in ${name}, MI`,
+      "description": description,
+      "provider": { "@type": "LocalBusiness", "@id": "https://foundationstreeexperts.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": name,
+        "containedInPlace": { "@type": "State", "name": "Michigan" }
+      }
+    })} />
+    {faqs && faqs.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(f => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": { "@type": "Answer", "text": f.a }
+        }))
+      })} />
+    )}
+  </Fragment>
+
+  <!-- City Hero -->
+  <section class="city-hero noise">
+    <div class="container">
+      <Breadcrumbs items={[
+        { label: 'Service Areas', href: '/service-areas/' },
+        { label: name },
+      ]} />
+      <div class="city-hero-content">
+        <div class="eyebrow" style="color:color-mix(in oklch, var(--cream-50) 60%, transparent);">{county} County</div>
+        <h1 class="display-lg" style="margin-top:0.75rem;color:var(--cream-50);">
+          Tree Service in {name}, MI
+        </h1>
+        <p class="lead" style="margin-top:1rem;color:color-mix(in oklch, var(--cream-50) 80%, transparent);max-width:600px;">
+          {description}
+        </p>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;">
+          <button class="btn btn-primary" data-open-wizard style="background:var(--cream-50);color:var(--char-900);">
+            Get a free estimate in {name} <Icons name="arrow" />
+          </button>
+          <a class="btn btn-ghost" href="tel:17344743336" style="color:var(--cream-50);border-color:color-mix(in oklch, var(--cream-50) 35%, transparent);">
+            <Icons name="phone" size={16} /> (734) 474-3336
+          </a>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+          {zipCodes.map(zip => (
+            <span class="city-zip-badge">{zip}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustStrip />
+
+  {cityImage && (
+    <section class="city-image-section">
+      <div class="container">
+        <img
+          src={cityImage}
+          alt={cityImageAlt || `${name}, Michigan`}
+          class="city-image"
+          loading="eager"
+          width="1200"
+          height="800"
+        />
+        {cityImageAttribution && (
+          <p class="city-image-attribution">{cityImageAttribution}</p>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- City Content -->
+  <section class="section">
+    <div class="container city-content">
+      <Content />
+    </div>
+  </section>
+
+  <!-- Services available -->
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container">
+      <div class="eyebrow">Services in {name}</div>
+      <h2 class="display-md" style="margin-top:0.75rem;margin-bottom:1.5rem;">What we offer in {name}</h2>
+      <div class="city-services-grid">
+        {services.map(s => (
+          <a href={`/services/${s.slug}/`} class="svc-card">
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <div class="svc-foot">
+              <span>{s.tag}</span>
+              <span class="svc-arrow"><Icons name="arrow" size={14} strokeWidth={2} /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- City FAQ -->
+  {faqs && faqs.length > 0 && (
+    <section class="section">
+      <div class="container" style="max-width:760px;">
+        <div class="eyebrow">Local questions</div>
+        <h2 class="display-md" style="margin-top:0.75rem;margin-bottom:1.5rem;">Tree service FAQ for {name}</h2>
+        <FAQAccordion faqs={faqs} />
+      </div>
+    </section>
+  )}
+
+  <!-- Nearby areas -->
+  {nearby.length > 0 && (
+    <section class="section" style="background:var(--bg-2);">
+      <div class="container">
+        <h2 class="display-md" style="margin-bottom:1.5rem;">Nearby service areas</h2>
+        <div class="city-nearby-grid">
+          {nearby.map(city => (
+            <a href={`/service-areas/${city.id}/`} class="area-city-card">
+              <Icons name="pin" size={16} />
+              <div>
+                <div class="area-city-name">{city.data.name}</div>
+                <div class="area-city-zips">{city.data.county} County</div>
+              </div>
+              <Icons name="arrow" size={14} class="area-city-arrow" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+</PageLayout>
+
+<style is:global>
+  .city-hero {
+    background: linear-gradient(135deg, var(--forest-900) 0%, var(--forest-800) 100%);
+    padding: 1rem 0 3.5rem;
+  }
+  .city-hero .breadcrumbs a,
+  .city-hero .breadcrumbs span,
+  .city-hero .breadcrumbs li::after {
+    color: color-mix(in oklch, var(--cream-50) 50%, transparent);
+  }
+  .city-hero .breadcrumbs span[aria-current] {
+    color: color-mix(in oklch, var(--cream-50) 80%, transparent);
+  }
+  .city-hero-content { margin-top: 2rem; }
+
+  .city-image-section {
+    padding: 2.5rem 0 0;
+  }
+  .city-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.1));
+  }
+  .city-image-attribution {
+    font-size: 0.7rem;
+    color: var(--fg-3);
+    margin-top: 0.5rem;
+    text-align: right;
+  }
+
+  .city-zip-badge {
+    font-family: var(--ff-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid color-mix(in oklch, var(--cream-50) 25%, transparent);
+    border-radius: 999px;
+    color: color-mix(in oklch, var(--cream-50) 70%, transparent);
+  }
+
+  .city-content { max-width: 800px; }
+  .city-content h2 {
+    font-family: var(--ff-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--fg);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .city-content h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  .city-content p { margin-top: 1rem; color: var(--fg-2); line-height: 1.7; }
+  .city-content > p:first-child { font-size: 1.1rem; color: var(--fg); }
+  .city-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .city-content ul li {
+    padding: 0.5rem 0 0.5rem 1.75rem;
+    position: relative;
+    color: var(--fg-2);
+    line-height: 1.6;
+  }
+  .city-content ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--forest-700);
+    font-weight: 700;
+  }
+  .city-content a {
+    color: var(--forest-700);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklch, var(--forest-700) 30%, transparent);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .city-content a:hover {
+    text-decoration-color: var(--forest-700);
+  }
+
+  .city-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .city-nearby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.75rem;
+  }
+  .area-city-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--fg);
+    transition: all 0.2s ease;
+  }
+  .area-city-card:hover { border-color: var(--forest-700); }
+  .area-city-card svg:first-child { color: var(--forest-700); flex-shrink: 0; }
+  .area-city-name { font-weight: 600; font-size: 0.95rem; }
+  .area-city-zips { font-size: 0.8rem; color: var(--fg-3); }
+  .area-city-arrow { margin-left: auto; color: var(--fg-3); flex-shrink: 0; }
+
+  @media (max-width: 700px) {
+    .city-hero { padding-bottom: 2.5rem; }
+    .city-services-grid { grid-template-columns: 1fr; }
+  }
+</style>
