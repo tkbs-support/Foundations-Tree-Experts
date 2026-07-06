@@ -809,29 +809,30 @@ input, textarea, select { font: inherit; color: inherit; }
 .ba-meta .loc { font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-3); text-transform: uppercase; }
 
 /* showcase carousel */
-.showcase { position: relative; overflow: hidden; }
+.showcase { position: relative; overflow: hidden; perspective: 1200px; }
 .showcase-track {
   display: flex;
   gap: 1.25rem;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 0.5rem 2rem 1rem;
+  padding: 1rem 2rem 1.5rem;
   cursor: grab;
 }
 .showcase-track:active { cursor: grabbing; }
 .showcase-track::-webkit-scrollbar { display: none; }
 .showcase-card {
   flex: 0 0 auto;
-  width: 380px;
-  height: 300px;
+  width: 305px;
+  height: 240px;
   border-radius: var(--radius);
   overflow: hidden;
   position: relative;
   box-shadow: var(--shadow);
-  transition: transform 300ms ease, box-shadow 300ms ease;
+  transition: box-shadow 300ms ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
-.showcase-card:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); }
 .showcase-card img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -877,10 +878,10 @@ input, textarea, select { font: inherit; color: inherit; }
   .showcase-nav-btn.next { right: 0.5rem; }
 }
 @media (max-width: 700px) {
-  .showcase-card { width: 300px; height: 240px; }
+  .showcase-card { width: 240px; height: 190px; }
 }
 @media (max-width: 480px) {
-  .showcase-card { width: 260px; height: 200px; }
+  .showcase-card { width: 210px; height: 165px; }
 }
 
 /* Google review badge */

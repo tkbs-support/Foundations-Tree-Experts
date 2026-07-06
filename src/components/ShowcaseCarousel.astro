@@ -39,9 +39,28 @@ const items = [...showcase, ...showcase, ...showcase];
     const scrollAmount = card ? card.offsetWidth + parseFloat(getComputedStyle(track).gap) : 400;
     const totalOriginal = track.children.length / 3;
 
+    function update3D() {
+      const trackRect = track.getBoundingClientRect();
+      const center = trackRect.left + trackRect.width / 2;
+      for (const card of track.children) {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const offset = (cardCenter - center) / (trackRect.width / 2);
+        const clamp = Math.max(-1, Math.min(1, offset));
+        const rotateY = clamp * -35;
+        const scale = 1 - Math.abs(clamp) * 0.12;
+        const translateZ = -Math.abs(clamp) * 60;
+        card.style.transform = `perspective(1200px) rotateY(${rotateY}deg) scale(${scale}) translateZ(${translateZ}px)`;
+        card.style.opacity = 1 - Math.abs(clamp) * 0.3;
+      }
+    }
+
     requestAnimationFrame(() => {
       track.scrollLeft = totalOriginal * scrollAmount - scrollAmount * 0.2;
+      update3D();
     });
+
+    track.addEventListener('scroll', update3D, { passive: true });
 
     const scroll = (dir) => {
       track.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
