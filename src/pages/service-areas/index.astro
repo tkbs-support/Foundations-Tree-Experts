@@ -6,7 +6,7 @@ import Icons from '../../components/Icons.astro';
 import TrustStrip from '../../components/TrustStrip.astro';
 import ZipChecker from '../../components/react/ZipChecker.jsx';
 
-const cities = await getCollection('cities');//.filter(c => !c.data.draft);
+const cities = (await getCollection('cities')).filter(c => !c.data.draft);
 const byCounty: Record<string, typeof cities> = {};
 for (const city of cities) {
   const county = city.data.county;

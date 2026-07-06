@@ -8,7 +8,7 @@ import FAQAccordion from '../../components/FAQAccordion.astro';
 import services from '../../data/services.json';
 
 export async function getStaticPaths() {
-  const entries = (await getCollection('cities'))//.filter(e => !e.data.draft);
+  const entries = (await getCollection('cities')).filter(e => !e.data.draft);
   return entries.map(entry => ({
     params: { slug: entry.id },
     props: { entry },
