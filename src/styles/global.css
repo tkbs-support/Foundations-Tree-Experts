@@ -814,7 +814,6 @@ input, textarea, select { font: inherit; color: inherit; }
   display: flex;
   gap: 1.25rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   padding: 0.5rem 2rem 1rem;
@@ -830,7 +829,6 @@ input, textarea, select { font: inherit; color: inherit; }
   overflow: hidden;
   position: relative;
   box-shadow: var(--shadow);
-  scroll-snap-align: start;
   transition: transform 300ms ease, box-shadow 300ms ease;
 }
 .showcase-card:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); }
