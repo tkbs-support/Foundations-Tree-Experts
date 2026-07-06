@@ -817,7 +817,7 @@ input, textarea, select { font: inherit; color: inherit; }
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 0.5rem 0 1rem;
+  padding: 0.5rem 2rem 1rem;
   cursor: grab;
 }
 .showcase-track:active { cursor: grabbing; }
@@ -883,6 +883,64 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 @media (max-width: 480px) {
   .showcase-card { width: 260px; height: 200px; }
+}
+
+/* Google review badge */
+.google-badge {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--forest-900);
+  color: var(--cream-50);
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.google-badge:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); }
+.google-badge-score {
+  font-family: var(--ff-display);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.google-badge-stars { display: flex; gap: 3px; color: var(--bark-300); }
+.google-badge-label {
+  font-family: var(--ff-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: color-mix(in oklch, var(--cream-50) 55%, transparent);
+  margin-top: 0.15rem;
+}
+.google-badge-source {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cream-50);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid color-mix(in oklch, var(--cream-50) 15%, transparent);
+}
+@media (max-width: 700px) {
+  .google-badge {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+  .google-badge-score { font-size: 2.5rem; }
+  .google-badge-label { margin-top: 0; }
+  .google-badge-source { margin-top: 0; padding-top: 0; border-top: none; border-left: 1px solid color-mix(in oklch, var(--cream-50) 15%, transparent); padding-left: 1rem; }
 }
 
 /* testimonials */
