@@ -35,11 +35,12 @@ const items = [...showcase, ...showcase, ...showcase];
   const prevBtn = document.querySelector('.showcase-nav-btn.prev');
   const nextBtn = document.querySelector('.showcase-nav-btn.next');
   if (track) {
-    const scrollAmount = 400;
+    const card = track.firstElementChild;
+    const scrollAmount = card ? card.offsetWidth + parseFloat(getComputedStyle(track).gap) : 400;
     const totalOriginal = track.children.length / 3;
 
     requestAnimationFrame(() => {
-      track.scrollLeft = totalOriginal * scrollAmount;
+      track.scrollLeft = totalOriginal * scrollAmount - scrollAmount * 0.2;
     });
 
     const scroll = (dir) => {
