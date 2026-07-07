@@ -310,12 +310,15 @@ import services from '../data/services.json';
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0.75rem 0;
+    padding: 0.85rem 0;
     background: none;
     border: none;
+    border-bottom: 1px solid var(--rule);
     font: inherit;
-    font-size: 1.1rem;
-    color: var(--cream-50);
+    font-family: var(--ff-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--fg);
     cursor: pointer;
   }
   .mobile-expand-icon {
@@ -336,13 +339,13 @@ import services from '../data/services.json';
   .mobile-expand-content a {
     display: block;
     padding: 0.4rem 0;
-    color: color-mix(in oklch, var(--cream-50) 80%, transparent);
+    color: var(--fg-2);
     text-decoration: none;
     font-size: 0.95rem;
   }
   .mobile-expand-content a:first-child {
     font-weight: 600;
-    color: var(--cream-50);
+    color: var(--fg);
     margin-bottom: 0.25rem;
   }
   .mobile-county-label {
@@ -350,7 +353,7 @@ import services from '../data/services.json';
     font-size: 0.65rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: color-mix(in oklch, var(--cream-50) 40%, transparent);
+    color: var(--fg-3);
     margin-top: 0.75rem;
     margin-bottom: 0.25rem;
   }
