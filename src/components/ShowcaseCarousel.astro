@@ -66,7 +66,8 @@ const items = [...showcase, ...showcase, ...showcase];
 
     setInitialScroll();
     requestAnimationFrame(setInitialScroll);
-    setTimeout(setInitialScroll, 50);
+    setTimeout(setInitialScroll, 100);
+    setTimeout(setInitialScroll, 500);
     window.addEventListener('load', setInitialScroll, { once: true });
 
     track.addEventListener('scroll', update3D, { passive: true });

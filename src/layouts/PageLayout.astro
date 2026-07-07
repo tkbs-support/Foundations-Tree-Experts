@@ -14,9 +14,10 @@ interface Props {
   ogImageAlt?: string;
   noindex?: boolean;
   footerCtaHeadline?: string;
+  footerCtaButtonLabel?: string;
 }
 
-const { footerCtaHeadline, ...rest } = Astro.props;
+const { footerCtaHeadline, footerCtaButtonLabel, ...rest } = Astro.props;
 ---
 
 <BaseLayout {...rest}>
@@ -26,7 +27,7 @@ const { footerCtaHeadline, ...rest } = Astro.props;
   <main>
     <slot />
   </main>
-  <Footer ctaHeadline={footerCtaHeadline} />
+  <Footer ctaHeadline={footerCtaHeadline} ctaButtonLabel={footerCtaButtonLabel} />
   <StickyCallButton />
   <QuoteWizard client:idle />
 </BaseLayout>
