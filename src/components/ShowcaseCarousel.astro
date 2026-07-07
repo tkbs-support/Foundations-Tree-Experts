@@ -67,7 +67,13 @@ const items = [...showcase, ...showcase, ...showcase];
 
     function setInitialScroll() {
       const oneSetWidth = track.scrollWidth / 3;
-      track.scrollLeft = oneSetWidth - scrollAmount * 0.5;
+      if (window.innerWidth < 700) {
+        const trackWidth = track.offsetWidth;
+        const cardWidth = track.firstElementChild.offsetWidth;
+        track.scrollLeft = oneSetWidth - (trackWidth - cardWidth) / 2;
+      } else {
+        track.scrollLeft = oneSetWidth - scrollAmount * 0.5;
+      }
       update3D();
     }
 
