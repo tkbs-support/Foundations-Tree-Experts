@@ -40,6 +40,13 @@ const items = [...showcase, ...showcase, ...showcase];
     const totalOriginal = track.children.length / 3;
 
     function update3D() {
+      if (window.innerWidth < 700) {
+        for (const card of track.children) {
+          card.style.transform = '';
+          card.style.opacity = '';
+        }
+        return;
+      }
       const trackRect = track.getBoundingClientRect();
       const center = trackRect.left + trackRect.width / 2;
       const flatZone = 0.35;
