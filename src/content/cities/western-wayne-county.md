@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 name: "Western Wayne County"
 county: "Wayne"
 description: "Tree removal, trimming, and emergency service in Romulus, Taylor, Dearborn Heights, and Allen Park, MI. Serving western Wayne County communities."

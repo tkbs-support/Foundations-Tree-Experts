@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 name: "Novi"
 county: "Oakland"
 description: "Tree removal, trimming, stump grinding, and woodland management in Novi, MI. Navigating Novi's woodland protection ordinance. ISA Certified Arborist on staff."
