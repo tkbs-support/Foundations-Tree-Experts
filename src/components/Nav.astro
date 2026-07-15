@@ -193,18 +193,10 @@ import services from '../data/services.json';
     });
   });
 
-  // Scroll: add border on scroll, smart sticky header
-  let lastY = 0;
+  // Scroll: add border on scroll
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y > lastY && y > 80) {
-      nav.style.transform = 'translateY(-100%)';
-    } else {
-      nav.style.transform = 'translateY(0)';
-    }
-    if (y > 8) nav.classList.add('scrolled');
+    if (window.scrollY > 8) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
-    lastY = y;
   }, { passive: true });
 </script>
 
