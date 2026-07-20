@@ -19,3 +19,6 @@ dist/
 # Raw footage and unused processed images
 raw-footage/
 public/images/crane-climber-rigging.webp
+
+# Local Netlify folder
+.netlify
