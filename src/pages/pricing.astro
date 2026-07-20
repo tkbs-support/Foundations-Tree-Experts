@@ -21,7 +21,7 @@ const priceGuide = [
   { name: "Stump Grinding",          slug: "stump-grinding",          range: "$100 – $400 / stump",  min: 100,  max: 400,  factors: "Stump diameter, root system, access, number of stumps" },
   { name: "Emergency Storm Response",slug: "emergency-storm-response",range: "$500 – $3,000+",       min: 500,  max: 3000, factors: "Severity, structural involvement, access, equipment needed" },
   { name: "Crane-Assisted Removal",  slug: "crane-assisted-removal",  range: "$1,200 – $5,000+",     min: 1200, max: 5000, factors: "Crane size needed, tree weight, over-structure complexity" },
-  { name: "Lot & Land Clearing",     slug: "lot-land-clearing",       range: "$1,500 – $5,000+ / acre", min: 1500, max: 5000, factors: "Acreage, tree density, stump removal, debris hauling" },
+  { name: "Lot & Land Clearing",     slug: "lot-land-clearing",       range: "Quote",                                   factors: "Acreage, tree density, stump removal, debris hauling" },
 ];
 
 const offerCatalogSchema = {
@@ -37,14 +37,20 @@ const offerCatalogSchema = {
       "provider": { "@id": "https://foundationstreeexperts.com/#business" },
       "areaServed": { "@type": "State", "name": "Michigan" },
     },
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "priceCurrency": "USD",
-      "minPrice": p.min,
-      "maxPrice": p.max,
-    },
-    "priceCurrency": "USD",
-    "description": `Typical range for ${p.name.toLowerCase()} in Ann Arbor and Southeast Michigan. Firm quote provided free after an on-site assessment.`,
+    ...(p.min != null && p.max != null
+      ? {
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD",
+            "minPrice": p.min,
+            "maxPrice": p.max,
+          },
+          "priceCurrency": "USD",
+        }
+      : {}),
+    "description": p.min != null
+      ? `Typical range for ${p.name.toLowerCase()} in Ann Arbor and Southeast Michigan. Firm quote provided free after an on-site assessment.`
+      : `${p.name} is quoted individually after a free on-site assessment, as scope varies widely by property.`,
   })),
 };
 ---
