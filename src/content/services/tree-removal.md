@@ -1,7 +1,7 @@
 ---
 title: "Tree Removal"
 headline: "Hazardous, dead, or unwanted trees — taken down cleanly."
-description: "Professional tree removal in Ann Arbor and Southeast Michigan. Climbing and bucket truck crews, full cleanup, ISA Certified Arborist on staff. Free estimates."
+description: "Professional tree removal in Ann Arbor and Southeast Michigan. Climbing and bucket truck crews, full cleanup, fully insured. Free estimates."
 tag: "Most requested"
 icon: "tree"
 featureImage: "/images/climber-cutting.webp"
@@ -32,11 +32,11 @@ faqs:
 
 Tree removal is the complete cutting, dismantling, and cleanup of a tree from a residential or commercial property. In Ann Arbor and Southeast Michigan, tree removal is most commonly needed for dead or dying trees, storm-damaged hardwoods, and trees growing too close to structures or power lines.
 
-Foundations Tree Experts brings more than 26 years of experience to removals across Washtenaw, Wayne, and Oakland counties. Every removal is planned by our crew and backed by full liability coverage, with ISA Certified Arborist Evan Little (MI-4446A) available to assess any tree before work begins.
+Foundations Tree Experts brings more than 26 years of experience to removals across Washtenaw, Wayne, and Oakland counties. Every removal is planned by our crew and backed by full liability coverage, with our crew available to assess any tree before work begins.
 
 ## When does a tree need to be removed?
 
-Not every problem tree needs to come down. Our certified arborist evaluates each tree individually. However, removal is typically the right call when:
+Not every problem tree needs to come down. Our crew evaluates each tree individually. However, removal is typically the right call when:
 
 - The tree is dead, dying, or structurally compromised
 - Large branches are hanging over the roof, driveway, or play areas

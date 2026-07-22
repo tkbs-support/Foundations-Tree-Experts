@@ -1,7 +1,7 @@
 ---
 name: "Canton"
 county: "Wayne"
-description: "Tree removal, trimming, stump grinding, and lot clearing in Canton Township, MI. Serving Canton's subdivisions and nature areas. ISA Certified Arborist on staff."
+description: "Tree removal, trimming, stump grinding, and lot clearing in Canton Township, MI. Serving Canton's subdivisions and nature areas. Free estimates."
 cityImage: "/images/cities/canton.webp"
 cityImageAlt: "Canton Township Municipal Complex, Michigan"
 cityImageAttribution: "Photo by Dwight Burdette, CC BY 3.0, via Wikimedia Commons"

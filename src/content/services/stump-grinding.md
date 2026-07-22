@@ -22,7 +22,7 @@ faqs:
   - q: "What happens to the wood chips?"
     a: "The grinding process produces a pile of wood chips. We use these chips to backfill the hole. Excess chips can be spread in garden beds or hauled away — your choice."
   - q: "Can I replant in the same spot?"
-    a: "Yes, but we recommend waiting before replanting. The decomposing wood chips temporarily change the soil chemistry. Removing the chips and replacing with clean topsoil allows you to replant sooner. Our arborist can advise on timing."
+    a: "Yes, but we recommend waiting before replanting. The decomposing wood chips temporarily change the soil chemistry. Removing the chips and replacing with clean topsoil allows you to replant sooner. Our crew can advise on timing."
   - q: "Do you remove the roots too?"
     a: "We chase and grind visible surface roots. The remaining root system underground will decompose naturally over several years. Roots from most species do not resprout after the stump is ground."
   - q: "How long does stump grinding take?"

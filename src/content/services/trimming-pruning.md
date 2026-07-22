@@ -1,7 +1,7 @@
 ---
 title: "Trimming & Pruning"
 headline: "Structural pruning that protects your trees — and your roofline."
-description: "Professional tree trimming and pruning in Ann Arbor, MI. Crown thinning, deadwood removal, and structural pruning by an ISA Certified Arborist. Free estimates."
+description: "Professional tree trimming and pruning in Ann Arbor, MI. Crown thinning, deadwood removal, and structural pruning. Fully insured. Free estimates."
 tag: "Seasonal"
 icon: "branches"
 featureImage: "/images/climber-action.webp"
@@ -9,7 +9,7 @@ featureAlt: "Arborist climbing in a tree canopy with safety gear"
 relatedServices: ["tree-removal", "emergency-storm-response", "lot-land-clearing"]
 process:
   - step: "Free tree assessment"
-    text: "Our certified arborist walks the property, evaluates each tree's health, structure, and growth pattern, and recommends the right type of pruning."
+    text: "Our crew walks the property, evaluates each tree's health, structure, and growth pattern, and recommends the right type of pruning."
   - step: "Schedule a weather-appropriate window"
     text: "We book a date that works for you and matches the right seasonal timing for the species involved."
   - step: "Professional pruning"
@@ -24,14 +24,14 @@ faqs:
   - q: "Will pruning hurt my tree?"
     a: "Proper pruning done at the right time of year actually improves tree health by removing dead, diseased, or crossing branches and improving air circulation through the canopy. Improper pruning — like topping — can severely damage a tree. We never top trees."
   - q: "How often should trees be pruned?"
-    a: "Most mature trees benefit from pruning every 3 to 5 years. Younger trees may need structural pruning more frequently to establish good form. Our arborist can recommend a maintenance schedule during your free assessment."
+    a: "Most mature trees benefit from pruning every 3 to 5 years. Younger trees may need structural pruning more frequently to establish good form. Our crew can recommend a maintenance schedule during your free assessment."
   - q: "Do you prune trees near power lines?"
     a: "Yes — we regularly prune branches growing toward power lines, rooflines, and other structures. Our crew takes every precaution to work safely around utilities."
 ---
 
 Tree trimming and pruning is the selective removal of branches to improve a tree's health, structure, and appearance. In Southeast Michigan, regular pruning is essential for managing the mature hardwood canopy that defines neighborhoods across Ann Arbor, Ypsilanti, Plymouth, and surrounding cities.
 
-Foundations Tree Experts provides professional pruning services guided by ISA standards, with Certified Arborist Evan Little (MI-4446A) available to assess every tree and recommend the right approach.
+Foundations Tree Experts provides professional pruning services guided by ISA standards, with our crew available to assess every tree and recommend the right approach.
 
 ## What types of pruning do you offer?
 
@@ -63,7 +63,7 @@ Michigan's climate creates specific windows for safe pruning. The timing matters
 
 ## How do you decide what to prune?
 
-Every pruning job starts with an assessment. Our arborist evaluates:
+Every pruning job starts with an assessment. Our crew evaluates:
 
 - The tree's species, age, and overall health
 - Branch structure and any defects (co-dominant stems, included bark, crossing branches)

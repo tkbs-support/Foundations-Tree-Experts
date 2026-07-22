@@ -21,7 +21,7 @@ faqs:
   - q: "Do you work with builders and developers?"
     a: "Yes — we work with builders, developers, and homeowners on site prep and clearing projects."
   - q: "Can you clear a lot without removing every tree?"
-    a: "Absolutely. Selective clearing is common — we flag the trees you want to preserve and clear everything else. Our arborist can advise on which trees are healthy and worth keeping."
+    a: "Absolutely. Selective clearing is common — we flag the trees you want to preserve and clear everything else. Our crew can advise on which trees are healthy and worth keeping."
   - q: "Do you handle stump grinding on cleared lots?"
     a: "Yes — stump grinding is included in most lot clearing projects unless you specify otherwise. Stumps are ground below grade so the site is ready for grading and construction."
   - q: "What equipment do you use?"

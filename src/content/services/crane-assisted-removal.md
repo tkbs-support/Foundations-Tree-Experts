@@ -10,7 +10,7 @@ featurePosition: "54%"
 relatedServices: ["tree-removal", "emergency-storm-response", "lot-land-clearing"]
 process:
   - step: "Site assessment and planning"
-    text: "Our arborist and crew lead evaluate the tree, access points, overhead obstructions, and staging areas. We determine the crane size needed and develop a lift plan for each section."
+    text: "Our crew lead evaluates the tree, access points, overhead obstructions, and staging areas. We determine the crane size needed and develop a lift plan for each section."
   - step: "Crane setup and rigging"
     text: "The crane is positioned and stabilized. Our climber ascends the tree and attaches rigging to each section according to the lift plan. Every pick is calculated for weight and swing path."
   - step: "Controlled lifts"
