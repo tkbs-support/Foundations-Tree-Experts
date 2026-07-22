@@ -2,7 +2,7 @@
 title: "Lot & Land Clearing"
 headline: "Clear the lot. Prep the build. Done right."
 description: "Professional lot and land clearing in Ann Arbor and Southeast Michigan. New-build prep, fence-line clearing, and brush removal for residential and commercial projects."
-tag: "By the acre"
+tag: "By project"
 icon: "hedge"
 featureImage: "/images/excavator-clearing.webp"
 featureAlt: "Excavator clearing trees and brush from a lot"
